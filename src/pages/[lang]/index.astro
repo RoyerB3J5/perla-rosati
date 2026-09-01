@@ -1,0 +1,43 @@
+---
+import en from "../../i18n/en";
+import es from "../../i18n/es";
+import Layout from "../../layouts/Layout.astro";
+import Clients from "../../sections/Main/Clients.astro";
+import Hero from "../../sections/Main/Hero.astro";
+import Looks from "../../sections/Main/Looks.astro";
+import Perla from "../../sections/Main/Perla.astro";
+import Process from "../../sections/Main/Process.astro";
+import Questions from "../../sections/Main/Questions.astro";
+import Reviews from "../../sections/Main/Reviews";
+import Version from "../../sections/Main/Version.astro";
+import type { Language } from "../../types/language.type";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+export const defaultRedirect = "/en";
+
+const lang = Astro.params.lang as Language;
+const translations = { es, en };
+const t = translations[lang];
+const seo = t.seo.main;
+---
+
+<Layout
+  lang={lang}
+  t={t}
+  title={seo.title}
+  description={seo.description}
+  keywords={seo.keywords}
+  canonicalPath="/"
+>
+  <Hero content={t.main.hero} />
+  <Looks content={t.main.looks} lang={lang} />
+  <Process content={t.main.process} lang={lang} />
+  <Version content={t.main.version} lang={lang} />
+  <Perla content={t.main.perla} lang={lang} isButton={true} />
+  <Clients content={t.main.clients} lang={lang} />
+  <Reviews items={t.main.reviews} client:load />
+  <Questions content={t.main.questions} lang={lang} />
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Button from "../components/Button.astro";
+
+type Translations = typeof import("../i18n/en").default;
+type MeContent = Translations["aboutUs"]["me"];
+interface Props {
+  content: MeContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<section class="w-full flex justify-center items-center">
+  <div
+    class="container-full flex flex-col justify-center items-start pt-20 gap-12 text-paragraph"
+  >
+    <h2 class="title-2">
+      {content.title}
+    </h2>
+    <div
+      class="w-full h-auto relative overflow-hidden p-10"
+      style="aspect-ratio: 2000/875;"
+    >
+      <img
+        src="/images/about/me.webp"
+        alt="About Me"
+        width="2000"
+        height="875"
+        decoding="async"
+        loading="lazy"
+        class="w-full h-full object-cover object-center absolute inset-0"
+      />
+      <img
+        src="/icons/logo.svg"
+        alt="Logo"
+        class="w-60 h-auto relative z-5"
+        width="240"
+        height="62"
+        decoding="async"
+        loading="lazy"
+      />
+    </div>
+    <div class="w-full flex justify-end items-center">
+      <p class="w-[65%] paragraph pt-8 border-t-[1.5px] border-paragraph">
+        {content.description}
+      </p>
+    </div>
+  </div>
+</section>

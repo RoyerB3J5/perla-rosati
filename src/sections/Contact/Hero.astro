@@ -1,0 +1,54 @@
+---
+import Button from "../../components/Button.astro";
+import { Plus, Minus } from "@lucide/astro";
+type Translations = typeof import("../../i18n/en").default;
+type ContactContent = Translations["contact"]["hero"];
+interface Props {
+  content: ContactContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<section
+  class="w-full flex justify-center items-center pt-(--header-height) relative"
+>
+  <div class="container-full flex justify-center items-center gap-6 py-20">
+    <img
+      src="/images/map.webp"
+      alt="Map"
+      width="1024"
+      height="1024"
+      class="w-1/2 h-auto"
+      decoding="async"
+      loading="eager"
+    />
+    <div class="flex flex-col justify-center items-start gap-5.5 p-8">
+      <div
+        class="w-full flex flex-col justify-start items-start gap-6 text-paragraph"
+      >
+        <p class="uppercase paragraph-medium">{content.tag}</p>
+        <h1 class="title-3">{content.title}</h1>
+      </div>
+      <div class="w-full h-[1.5px] bg-paragraph"></div>
+      <p class="paragraph">{content.description}</p>
+      <ul class="flex flex-col justify-start items-start gap-1 text-paragraph">
+        {
+          content.items.map((item) => (
+            <li class="paragraph list-disc list-outside ml-4">
+              <span class="font-medium">{item.label}</span>
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-all hover:[text-shadow:0_0_1px_currentColor] duration-300 ease-in-out"
+              >
+                {item.value}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <Button text={content.button.label} href={content.button.href} />
+    </div>
+  </div>
+</section>

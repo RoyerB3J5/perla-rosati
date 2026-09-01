@@ -1,0 +1,40 @@
+---
+import Button from "../../components/Button.astro";
+
+type Translations = typeof import("../../i18n/en").default;
+type VersionContent = Translations["main"]["version"];
+interface Props {
+  content: VersionContent;
+  lang: "es" | "en";
+}
+const { content, lang } = Astro.props as Props;
+---
+
+<section
+  class="w-full h-auto flex justify-center items-center overflow-hidden relative"
+  style="aspect-ratio: 1440/808"
+>
+  <img
+    src="/images/version.webp"
+    alt="Version"
+    class="w-full h-full absolute object-cover inset-0 z-0"
+    width="2500"
+    height="1443"
+    decoding="async"
+    loading="lazy"
+  />
+  <div
+    class="max-w-[534px] flex flex-col justify-between items-center py-17 w-full text-paragraph relative z-5 h-full"
+  >
+    <h2 class="title-2 text-center">
+      {content.title}
+    </h2>
+    <div class="flex flex-col justify-center items-center gap-8">
+      <p class="paragraph text-center w-[90%]">{content.descripcion}</p>
+      <Button
+        text={content.button.label}
+        href={`${lang}/${content.button.href}`}
+      />
+    </div>
+  </div>
+</section>

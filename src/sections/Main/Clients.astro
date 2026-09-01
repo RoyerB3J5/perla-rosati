@@ -1,0 +1,69 @@
+---
+import Button from "../../components/Button.astro";
+
+type Translations = typeof import("../../i18n/en").default;
+type ClientsContent = Translations["main"]["clients"];
+interface Props {
+  content: ClientsContent;
+  lang: "es" | "en";
+}
+const { content, lang } = Astro.props as Props;
+---
+
+<section class="container-full py-20 grid grid-cols-3 grid-rows-2 gap-6">
+  <div
+    class="aspect-[410.6/525] flex flex-col gap-8 justify-center items-start px-17 text-paragraph"
+  >
+    <h2 class="title-2 w-[264px]">
+      {content.title}
+    </h2>
+    <Button
+      text={content.button.label}
+      href={`${lang}/${content.button.href}`}
+    />
+  </div>
+  <div class="col-start-2 row-span-2 relative">
+    <img
+      src="/images/cliente-2.webp"
+      alt="Client 2"
+      class="w-full h-full object-cover"
+      height="2090"
+      width="800"
+      decoding="async"
+      loading="lazy"
+    />
+  </div>
+  <div class="aspect-[410.6/525] relative">
+    <img
+      src="/images/cliente-3.webp"
+      alt="Client 3"
+      class="w-full h-full object-cover absolute inset-0"
+      height="1022"
+      width="800"
+      decoding="async"
+      loading="lazy"
+    />
+  </div>
+  <div class="aspect-[410.6/525] relative">
+    <img
+      src="/images/cliente-1.webp"
+      alt="Client 4"
+      class="w-full h-full object-cover absolute inset-0"
+      height="1022"
+      width="800"
+      decoding="async"
+      loading="lazy"
+    />
+  </div>
+  <div class="aspect-[410.6/525] relative">
+    <img
+      src="/images/cliente-4.webp"
+      alt="Client 4"
+      class="w-full h-full object-cover absolute inset-0"
+      height="1022"
+      width="800"
+      decoding="async"
+      loading="lazy"
+    />
+  </div>
+</section>

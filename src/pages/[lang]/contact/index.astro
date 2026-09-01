@@ -1,0 +1,34 @@
+---
+import en from "../../../i18n/en";
+import es from "../../../i18n/es";
+import Layout from "../../../layouts/Layout.astro";
+import type { Language } from "../../../types/language.type";
+import Reviews from "../../../sections/Main/Reviews";
+import Questions from "../../../sections/Main/Questions.astro";
+import Hero from "../../../sections/Contact/Hero.astro";
+import Form from "../../../sections/Contact/Form.astro";
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+export const defaultRedirect = "/en";
+
+const lang = Astro.params.lang as Language;
+const translations = { es, en };
+const t = translations[lang];
+const seo = t.seo.contact;
+---
+
+<Layout
+  lang={lang}
+  t={t}
+  title={seo.title}
+  description={seo.description}
+  keywords={seo.keywords}
+  canonicalPath="/contact"
+>
+  <Hero content={t.contact.hero} />
+  <Form content={t.contact.form} />
+  <Reviews items={t.main.reviews} client:load />
+  <Questions content={t.main.questions} lang={lang} />
+</Layout>

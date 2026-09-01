@@ -1,0 +1,234 @@
+---
+import { X } from "@lucide/astro";
+import {
+  emailAddress,
+  facebookLink,
+  instagramLink,
+  phoneNumber,
+  phoneNumberLink,
+} from "../constants/info";
+import Button from "./Button.astro";
+import ChangeLanguage from "./ChangeLanguage.astro";
+
+type Translations = typeof import("../i18n/en").default;
+type HeaderContent = Translations["header"];
+interface Props {
+  content?: HeaderContent;
+}
+const { content } = Astro.props as Props;
+
+// Obtener la ruta actual y normalizar el path sin prefijo de idioma
+const currentPath = Astro.url.pathname;
+// Normalizar: remover idioma y trailing slash
+const normalized =
+  currentPath.replace(/^\/(en|es)/, "").replace(/\/$/, "") || "/";
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const lang = match ? match[1] : "en";
+---
+
+<header
+  class={`fixed left-0 right-0 z-50 w-full flex flex-col justify-center items-center top-0 bg-transparent h-20`}
+  id="site-header"
+  style="transition: background-color 0.3s ease-out;"
+>
+  <div class="container-full flex justify-between items-center relative">
+    <a
+      href={`/${lang}`}
+      aria-label="Ir a la página principal"
+      title="Perla Rosati Makeup - Init"
+    >
+      <img
+        src="/icons/logo.svg"
+        alt="Logo de Perla Rosati Makeup"
+        width="216"
+        height="56"
+        class="cursor-pointer w-[94px] md:w-[216px] h-auto"
+      />
+    </a>
+    <div
+      class="relative xl:flex flex-row justify-center items-center h-auto w-auto z-10 transform translate-x-0 transition-transform duration-300 ease-out hidden"
+    >
+      <nav>
+        <ul class="flex relative items-center flex-row justify-center w-auto">
+          {
+            content?.nav.map((item, index) => {
+              const itemPathWithoutHash = item.href.split("#")[0];
+              const isActive = normalized === itemPathWithoutHash;
+              return (
+                <li
+                  class={`flex flex-row items-center justify-center group w-auto text-center`}
+                  id={`nav-item-${index}`}
+                >
+                  <a
+                    href={`/${lang}${item.href}`}
+                    class="relative transition-colors duration-300 flex justify-center items-center py-2 px-4"
+                  >
+                    <p
+                      class={`text-[16px] font-medium leading-[150%] transition-all duration-300 ease-in-out text-paragraph  uppercase`}
+                      set:html={item.label}
+                    />
+                    <span
+                      class={`absolute -bottom-0 left-1/2 h-[1.5px] bg-paragraph transition-all duration-300 ease-out -translate-x-1/2 ${isActive ? "w-full" : "w-0 group-hover:w-full group-hover:bg-secondary"}`}
+                    />
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </nav>
+    </div>
+    <div class="flex justify-center items-center gap-2 md:gap-4">
+      <ChangeLanguage />
+      <button
+        type="button"
+        aria-label="Abrir menú de navegación"
+        title="Abrir menú"
+        class="flex xl:hidden items-center justify-center cursor-pointer w-10 h-10 bg-secondary rounded"
+        id="hamburger-btn"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <rect x="0.5" y="0.5" width="39" height="39" rx="5.5" fill="#B52132"
+          ></rect>
+          <rect x="0.5" y="0.5" width="39" height="39" rx="5.5" stroke="black"
+          ></rect>
+          <path
+            d="M6 29V26H33V29H6ZM6 21.5V18.5H33V21.5H6ZM6 14V11H33V14H6Z"
+            fill="white"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div
+  class="fixed top-0 right-0 bottom-0 xl:hidden flex items-start bg-white text-paragraph flex-col justify-between h-full z-60 pb-12 px-4 pt-6 gap-12 transform translate-x-full transition-transform duration-300 ease-out w-full"
+  id="mobile-menu"
+>
+  <div class="flex flex-col justify-center items-start gap-6 w-full">
+    <X
+      class="block cursor-pointer z-20 w-6 h-6 text-paragraph self-end"
+      id="close-btn"
+      aria-label="Cerrar menú de navegación"
+      title="Cerrar menú"
+      role="button"
+      tabindex="0"
+    />
+    <nav class="w-full">
+      <ul
+        class="relative flex items-start flex-col justify-center w-full gap-6"
+      >
+        {
+          content?.nav.map((item, index) => {
+            const itemPathWithoutHash = item.href.split("#")[0];
+            const isActive = normalized === itemPathWithoutHash;
+            return (
+              <>
+                <li
+                  class={`flex flex-col items-start justify-start group gap-3.5 px-4 w-full text-start  ${isActive ? "bg-secondary text-white uppercase " : ""}`}
+                  id={`mobile-nav-item-${index}`}
+                >
+                  <a
+                    href={`/${lang}${item.href}`}
+                    class="relative transition-colors duration-300 flex justify-between items-center w-full py-5 gap-2"
+                    aria-expanded="false"
+                  >
+                    <p
+                      class={`text-[14px] leading-[25.5px] font-normal tracking-[-0.5px] ${isActive ? "text-white" : "text-black"}`}
+                      set:html={item.label}
+                    />
+                  </a>
+                </li>
+              </>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Mobile menu logic - matches xl breakpoint (1280px)
+    const menu = document.getElementById("mobile-menu");
+    const openBtn = document.getElementById("hamburger-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const body = document.body;
+
+    const isMobile = () => window.innerWidth < 1280;
+
+    function openMenu() {
+      if (isMobile() && menu) {
+        menu.classList.replace("translate-x-full", "translate-x-0");
+        body.classList.add("overflow-hidden");
+      }
+    }
+
+    function closeMenu() {
+      if (isMobile() && menu) {
+        menu.classList.replace("translate-x-0", "translate-x-full");
+        body.classList.remove("overflow-hidden");
+      }
+    }
+
+    if (openBtn) openBtn.addEventListener("click", openMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+    // Close mobile menu when clicking a link
+    if (menu) {
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    }
+
+    // Header background on scroll
+    const header = document.getElementById("site-header");
+
+    function updateHeaderHeight() {
+      const height = header?.offsetHeight || 0;
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${height}px`,
+      );
+    }
+    if (header) {
+      updateHeaderHeight();
+      window.addEventListener("resize", updateHeaderHeight);
+    }
+
+    const firstContainerHeader =
+      document.querySelector(".header-container-1") ?? null;
+    if (!header || !firstContainerHeader) return;
+
+    const updateHeaderStyle = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      const firstSection =
+        document.querySelector(".hero-main-section") ||
+        document.querySelector("main > section");
+      const threshold = firstSection
+        ? firstSection.offsetHeight
+        : window.innerHeight;
+
+      if (scrollY >= threshold) {
+        header.style.backgroundColor = "var(--color-primary-rgb)";
+        firstContainerHeader.style.display = "none";
+      } else {
+        header.style.backgroundColor = "transparent";
+        if (window.innerWidth >= 768) {
+          firstContainerHeader.style.display = "flex";
+        }
+      }
+    };
+
+    window.addEventListener("scroll", updateHeaderStyle, { passive: true });
+    updateHeaderStyle();
+  });
+</script>

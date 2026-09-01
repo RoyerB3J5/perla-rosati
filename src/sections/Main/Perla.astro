@@ -1,0 +1,62 @@
+---
+import Button from "../../components/Button.astro";
+
+type Translations = typeof import("../../i18n/en").default;
+type PerlaContent = Translations["main"]["perla"];
+interface Props {
+  content: PerlaContent;
+  lang: "es" | "en";
+  isButton: boolean;
+}
+const { content, lang, isButton } = Astro.props as Props;
+---
+
+<section
+  class="container-full flex justify-center items-center py-20 gap-20 relative"
+>
+  <div
+    class="w-[52%] bg-secondary py-21 flex flex-col justify-center items-center text-paragraph gap-14 h-auto"
+    style="aspect-ratio: 700/853;"
+  >
+    <div class="flex flex-col justify-center items-center gap-6 max-w-[440px]">
+      <p class="paragraph-medium tracking-[2.56px] uppercase text-center">
+        {content.tag}
+      </p>
+      <h2 class="title-2 text-center">{content.title}</h2>
+    </div>
+    <div class="flex flex-col justify-center items-center gap-8 max-w-[434px]">
+      <p class="text-center paragraph">{content.description}</p>
+      {
+        isButton && (
+          <Button
+            text={content.link.label}
+            href={`${lang}/${content.link.href}`}
+          />
+        )
+      }
+    </div>
+  </div>
+  <div
+    class="flex-1 h-auto relative overflow-hidden flex justify-end items-end p-10"
+    style="aspect-ratio: 560/696;"
+  >
+    <img
+      src={`/images/${content.image}.webp`}
+      alt="Perla"
+      width="1500"
+      height="1864"
+      class="object-cover w-full h-full absolute inset-0 z-0"
+      decoding="async"
+      loading="lazy"
+    />
+    <img
+      src="/icons/logo-white.svg"
+      alt="Logo"
+      class="w-60 h-auto relative z-5"
+      width="240"
+      height="62"
+      decoding="async"
+      loading="lazy"
+    />
+  </div>
+</section>

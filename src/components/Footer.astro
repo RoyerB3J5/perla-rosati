@@ -1,0 +1,182 @@
+---
+import {
+  emailAddress,
+  facebookLink,
+  instagramLink,
+  phoneNumber,
+  phoneNumberLink,
+} from "../constants/info";
+import { ChevronDown, ChevronRight, Menu, X, Plus, Minus } from "@lucide/astro";
+
+type Translations = typeof import("../i18n/en").default;
+type FooterContent = Translations["footer"];
+interface Props {
+  content?: FooterContent;
+}
+const { content } = Astro.props as Props;
+
+// Obtener la ruta actual y normalizar el path sin prefijo de idioma
+const currentPath = Astro.url.pathname;
+// Normalizar: remover idioma y trailing slash
+const normalized =
+  currentPath.replace(/^\/(en|es)/, "").replace(/\/$/, "") || "/";
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const lang = match ? match[1] : "en";
+const socialMedia = [
+  {
+    icon: "facebook",
+    href: facebookLink,
+  },
+  {
+    icon: "instagram",
+    href: instagramLink,
+  },
+];
+---
+
+<footer class="flex flex-col justify-center items-center w-full">
+  <div
+    class="p-5 bg-[url('/images/footer.webp')] bg-cover bg-center bg-no-repeat w-full"
+  >
+    <div class="bg-white py-20 flex justify-center items-center">
+      <div
+        class="container-full flex flex-col justify-center items-start gap-10"
+      >
+        <div class="w-full flex justify-between items-start">
+          <div
+            class="flex flex-col justify-center items-start gap-6 max-w-[385px]"
+          >
+            <a
+              href={`/${lang}`}
+              aria-label="Ir a la página principal"
+              title="Perla Rosati Makeup - Init"
+            >
+              <img
+                src="/icons/logo.svg"
+                alt="Logo de Perla Rosati Makeup"
+                width="216"
+                height="56"
+                class="cursor-pointer w-[94px] md:w-[260px] h-auto"
+              />
+            </a>
+            <p class="text-[16px] font-normal leading-[150%] text-paragraph">
+              {content?.description}
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-center items-start gap-6 text-paragraph"
+          >
+            <h3 class="text-[16px] font-medium leading-[150%] uppercase">
+              {content?.navigation.title}
+            </h3>
+            <ul class="flex flex-col justify-center items-start gap-6">
+              {
+                content?.navigation.items.map((item) => (
+                  <li>
+                    <a
+                      href={`/${lang}${item.href}`}
+                      class="text-[16px] font-normal leading-[150%] text-paragraph hover:[-webkit-text-stroke:0.5px_currentColor] transition-all duration-300 ease-in-out"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div
+            class="flex flex-col justify-center items-start gap-6 text-paragraph"
+          >
+            <h3 class="text-[16px] font-medium leading-[150%] uppercase">
+              {content?.services.title}
+            </h3>
+            <ul class="flex flex-col justify-center items-start gap-6">
+              {
+                content?.services.items.map((item) => (
+                  <li>
+                    <a
+                      href={`/${lang}${item.href}`}
+                      class="text-[16px] font-normal leading-[150%] text-paragraph hover:[-webkit-text-stroke:0.5px_currentColor] transition-all duration-300 ease-in-out"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div
+            class="flex flex-col justify-center items-start gap-6 text-paragraph"
+          >
+            <h3 class="text-[16px] font-medium leading-[150%] uppercase">
+              {content?.contact.title}
+            </h3>
+            <ul class="flex flex-col justify-center items-start gap-6">
+              {
+                content?.contact.items.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      class="text-[16px] font-normal leading-[150%] text-paragraph hover:[-webkit-text-stroke:0.5px_currentColor] transition-all duration-300 ease-in-out "
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+        <div class="flex justify-start items-center gap-2 w-full">
+          {
+            socialMedia.map((item) => (
+              <a
+                href={item.href}
+                class="w-10 h-10 border border-paragraph rounded-full flex justify-center items-center hover:bg-secondary hover:border-secondary transition-all duration-300 ease-in-out"
+              >
+                <img
+                  src={`/icons/${item.icon}.svg`}
+                  width="24"
+                  height="24"
+                  class="w-auto h-4.5"
+                  decoding="async"
+                  loading="lazy"
+                  alt={item.icon}
+                />
+              </a>
+            ))
+          }
+        </div>
+        <p class="text-[12px] font-normal leading-[150%] text-paragraph">
+          {content?.copy}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="bg-[#E5E5E5] w-full py-3.5 lg:py-4.5 flex justify-center items-center px-5 xl:px-0"
+  >
+    <div
+      class="w-full max-w-screen lg:max-w-7xl flex flex-col lg:flex-row justify-center items-center gap-2 lg:gap-6"
+    >
+      <a href="https://inkshapegroup.com/en/">
+        <img
+          src="/icons/inkshape.svg"
+          alt=" Logo de Inkshape Group"
+          width="208"
+          height="40"
+          class="w-27.5 lg:w-34 h-auto block dark:hidden"
+        />
+      </a>
+      <p
+        class="text-[10px] lg:text-[12px] lg:text-[13px] leading-[170%] lg:leading-[120%] text-[#404040] dark:text-paragraph-dark font-normal text-center"
+      >
+        Copyright © 2026 by <a href="https://inkshapegroup.com"
+          >Inkshape Group</a
+        > | Privacy | <a href="/">Perla Rpsati Makeup </a> | Florida, USA | Call Now:
+        <a href={phoneNumberLink}>{phoneNumber}</a>
+      </p>
+    </div>
+  </div>
+</footer>

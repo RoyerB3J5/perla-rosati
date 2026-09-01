@@ -1,0 +1,136 @@
+---
+import Button from "../../components/Button.astro";
+import { Plus, Minus } from "@lucide/astro";
+type Translations = typeof import("../../i18n/en").default;
+type QuestionsContent = Translations["main"]["questions"];
+interface Props {
+  content: QuestionsContent;
+  lang: "es" | "en";
+}
+const { content, lang } = Astro.props as Props;
+---
+
+<style>
+  .answer-content {
+    overflow: hidden;
+    transition: all 300ms ease-out;
+  }
+  .answer-content.is-open {
+    max-height: 500px;
+    opacity: 1;
+  }
+  .answer-content:not(.is-open) {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+  }
+  .toggle-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .toggle-btn .icon-minus {
+    display: none;
+  }
+  .toggle-btn.is-open .icon-plus {
+    display: none;
+  }
+  .toggle-btn.is-open .icon-minus {
+    display: block;
+  }
+  .toggle-btn:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+</style>
+
+<section class="container-full flex justify-between items-start py-30">
+  <div
+    class="flex flex-col justify-center items-start gap-8 text-paragraph max-w-[289px]"
+  >
+    <h2 class="title-2">{content.title}</h2>
+    <p class="paragraph">{content.description}</p>
+  </div>
+  <div
+    class="flex flex-col justify-center items-center gap-8 max-w-[809px] w-full"
+  >
+    {
+      content.items.map((item, index) => (
+        <>
+          <div
+            class="w-full flex justify-between items-start border-b-[1.5px] last:border-transparent border-paragraph pb-2"
+            data-question
+          >
+            <div class="w-full flex justify-start items-start gap-8">
+              <p class="paragraph-medium">0{index + 1}/</p>
+              <div class="flex flex-col justify-center items-start gap-6 max-w-[607px]">
+                <h3 class="paragraph-medium uppercase">{item.title}</h3>
+                <div class="answer-content" data-answer>
+                  <p class="paragraph" set:html={item.answer} />
+                </div>
+              </div>
+            </div>
+            <button
+              class="toggle-btn"
+              aria-expanded={index === 0}
+              aria-controls={`answer-${index}`}
+              data-index={index}
+            >
+              <Plus class="icon-plus w-6 h-6 text-paragraph" />
+              <Minus class="icon-minus w-6 h-6 text-paragraph" />
+            </button>
+          </div>
+        </>
+      ))
+    }
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const questions = document.querySelectorAll("[data-question]");
+
+    questions.forEach((question, index) => {
+      const btn = question.querySelector(".toggle-btn");
+      const answer = question.querySelector("[data-answer]");
+      let isOpen = index === 0;
+
+      if (index === 0) {
+        answer.classList.add("is-open");
+        btn.classList.add("is-open");
+      }
+
+      btn.addEventListener("click", () => {
+        if (isOpen) {
+          // Close this one
+          answer.classList.remove("is-open");
+          btn.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+          isOpen = false;
+        } else {
+          // Close all others
+          questions.forEach((q, i) => {
+            if (i !== index) {
+              const otherBtn = q.querySelector(".toggle-btn");
+              const otherAnswer = q.querySelector("[data-answer]");
+              otherAnswer.classList.remove("is-open");
+              otherBtn.classList.remove("is-open");
+              otherBtn.setAttribute("aria-expanded", "false");
+            }
+          });
+
+          // Open this one
+          answer.classList.add("is-open");
+          btn.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+          isOpen = true;
+        }
+      });
+    });
+  });
+</script>

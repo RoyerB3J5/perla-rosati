@@ -1,0 +1,55 @@
+---
+import en from "../../../i18n/en";
+import es from "../../../i18n/es";
+import Layout from "../../../layouts/Layout.astro";
+import Reviews from "../../../sections/Main/Reviews";
+import type { Language } from "../../../types/language.type";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+export const defaultRedirect = "/en";
+
+const lang = Astro.params.lang as Language;
+const translations = { es, en };
+const t = translations[lang];
+const seo = t.seo.gallery;
+---
+
+<Layout
+  lang={lang}
+  t={t}
+  title={seo.title}
+  description={seo.description}
+  keywords={seo.keywords}
+  canonicalPath="/gallery"
+>
+  <section
+    class="container-full flex justify-center items-center pt-(--header-height)"
+  >
+    <div
+      class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-20 gap-6"
+    >
+      {
+        Array.from({ length: 31 }).map((_, index) => (
+          <div
+            class="w-full h-auto relative overflow-hidden"
+            style="aspect-ratio: 410.5/547.5"
+          >
+            <img
+              src={`/images/gallery/gallery-${index + 1}.webp`}
+              alt={`Gallery image ${index + 1}`}
+              width="1200"
+              height="1600"
+              decoding="async"
+              loading="lazy"
+              class="h-full w-full object-cover object-center"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+  <Reviews items={t.main.reviews} client:load />
+</Layout>
