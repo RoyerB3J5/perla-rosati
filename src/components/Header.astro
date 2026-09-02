@@ -69,7 +69,7 @@ const lang = match ? match[1] : "en";
                       set:html={item.label}
                     />
                     <span
-                      class={`absolute -bottom-0 left-1/2 h-[1.5px] bg-paragraph transition-all duration-300 ease-out -translate-x-1/2 ${isActive ? "w-full" : "w-0 group-hover:w-full group-hover:bg-secondary"}`}
+                      class={`absolute -bottom-0 left-1/2 h-[1.5px] bg-paragraph transition-all duration-300 ease-out -translate-x-1/2 ${isActive ? "w-full" : "w-0 group-hover:w-full group-hover:bg-paragraph"}`}
                     />
                   </a>
                 </li>
@@ -85,23 +85,19 @@ const lang = match ? match[1] : "en";
         type="button"
         aria-label="Abrir menú de navegación"
         title="Abrir menú"
-        class="flex xl:hidden items-center justify-center cursor-pointer w-10 h-10 bg-secondary rounded"
+        class="flex xl:hidden items-center justify-center cursor-pointer rounded"
         id="hamburger-btn"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
+          width="21"
+          height="16"
+          viewBox="0 0 21 16"
           fill="none"
         >
-          <rect x="0.5" y="0.5" width="39" height="39" rx="5.5" fill="#B52132"
-          ></rect>
-          <rect x="0.5" y="0.5" width="39" height="39" rx="5.5" stroke="black"
-          ></rect>
           <path
-            d="M6 29V26H33V29H6ZM6 21.5V18.5H33V21.5H6ZM6 14V11H33V14H6Z"
-            fill="white"></path>
+            d="M0 16V13.3333H20.5V16H0ZM0 9.33333V6.66667H20.5V9.33333H0ZM0 2.66667V0H20.5V2.66667H0Z"
+            fill="#151515"></path>
         </svg>
       </button>
     </div>

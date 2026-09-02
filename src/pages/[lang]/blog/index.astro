@@ -2,6 +2,7 @@
 import en from "../../../i18n/en";
 import es from "../../../i18n/es";
 import Layout from "../../../layouts/Layout.astro";
+import GridBlogs from "../../../sections/GridBlogs.astro";
 import Reviews from "../../../sections/Main/Reviews";
 import type { Language } from "../../../types/language.type";
 
@@ -15,6 +16,92 @@ const lang = Astro.params.lang as Language;
 const translations = { es, en };
 const t = translations[lang];
 const seo = t.seo.blog;
+const categories = [
+  {
+    id: "1",
+    title: "TODO",
+  },
+  {
+    id: "2",
+    title: "MAQUILLAJE",
+  },
+  {
+    id: "3",
+    title: "CABELLO",
+  },
+  {
+    id: "4",
+    title: "PELUQUERÍA",
+  },
+  {
+    id: "5",
+    title: "FACIALES",
+  },
+  {
+    id: "6",
+    title: "CEJAS Y PESTAÑAS",
+  },
+  {
+    id: "7",
+    title: "LASER",
+  },
+];
+const posts = [
+  {
+    image: "/images/blog/1.webp",
+    date: "AUGUST 18, 2026",
+    id: `1`,
+    title: "Maquillaje natural: donde menos es más",
+    description:
+      "Un maquillaje natural puede transformar tu apariencia sin ocultar quién eres. Conoce las claves para conseguir una piel luminosa, fresca y elegante.",
+    idCategory: "6",
+  },
+  {
+    image: "/images/blog/2.webp",
+    date: "AUGUST 19, 2026",
+    id: `1`,
+    title: "5 consejos para un maquillaje duradero",
+    description:
+      "Preparar correctamente la piel y elegir los productos adecuados puede ser la diferencia. Descubre nuestros consejos para tener tu maquillaje impecable durante horas.",
+    idCategory: "3",
+  },
+  {
+    image: "/images/blog/3.webp",
+    date: "AUGUST 20, 2026",
+    id: `1`,
+    title: "Encuentra el mejor look que habla de ti",
+    description:
+      "Tu maquillaje también comunica tu personalidad. Explora cómo elegir un look que resalte tus facciones, refleje tu estilo y te haga sentir auténtica.",
+    idCategory: "2",
+  },
+  {
+    image: "/images/blog/1.webp",
+    date: "AUGUST 18, 2026",
+    id: `1`,
+    title: "Maquillaje natural: donde menos es más",
+    description:
+      "Un maquillaje natural puede transformar tu apariencia sin ocultar quién eres. Conoce las claves para conseguir una piel luminosa, fresca y elegante.",
+    idCategory: "6",
+  },
+  {
+    image: "/images/blog/2.webp",
+    date: "AUGUST 19, 2026",
+    id: `1`,
+    title: "5 consejos para un maquillaje duradero",
+    description:
+      "Preparar correctamente la piel y elegir los productos adecuados puede ser la diferencia. Descubre nuestros consejos para tener tu maquillaje impecable durante horas.",
+    idCategory: "3",
+  },
+  {
+    image: "/images/blog/3.webp",
+    date: "AUGUST 20, 2026",
+    id: `1`,
+    title: "Encuentra el mejor look que habla de ti",
+    description:
+      "Tu maquillaje también comunica tu personalidad. Explora cómo elegir un look que resalte tus facciones, refleje tu estilo y te haga sentir auténtica.",
+    idCategory: "2",
+  },
+];
 ---
 
 <Layout
@@ -25,5 +112,14 @@ const seo = t.seo.blog;
   keywords={seo.keywords}
   canonicalPath="/blog"
 >
+  <section class="w-full pt-(--header-height) flex justify-center items-center">
+    <div
+      class="pt-20 pb-10 flex flex-col justify-center items-center gap-6 text-paragraph"
+    >
+      <p class="paragraph">{t.blog.tag}</p>
+      <h1 class="title-2">{t.blog.title}</h1>
+    </div>
+  </section>
+  <GridBlogs items={posts} category={categories} />
   <Reviews items={t.main.reviews} client:load />
 </Layout>

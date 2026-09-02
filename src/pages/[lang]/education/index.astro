@@ -2,6 +2,7 @@
 import en from "../../../i18n/en";
 import es from "../../../i18n/es";
 import Layout from "../../../layouts/Layout.astro";
+import GridEducation from "../../../sections/GridEducation.astro";
 import Questions from "../../../sections/Main/Questions.astro";
 import Reviews from "../../../sections/Main/Reviews";
 import type { Language } from "../../../types/language.type";
@@ -26,6 +27,10 @@ const seo = t.seo.education;
   keywords={seo.keywords}
   canonicalPath="/education"
 >
+  <section class="container-full pt-(--header-height) pb-14 flex justify-center">
+    <h1 class="title-2 text-paragraph pt-20">{t.education.title}</h1>
+  </section>
+  <GridEducation content={t.education.items} />
   <Reviews items={t.main.reviews} client:load />
   <Questions content={t.education.questions} lang={lang} />
 </Layout>

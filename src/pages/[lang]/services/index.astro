@@ -26,6 +26,11 @@ const seo = t.seo.services;
   keywords={seo.keywords}
   canonicalPath="/services"
 >
+  <section
+    class="container-full pt-(--header-height) pb-10 flex justify-center"
+  >
+    <h1 class="title-2 text-paragraph pt-20">{t.services.title}</h1>
+  </section>
   <Reviews items={t.main.reviews} client:load />
   <Questions content={t.services.questions} lang={lang} />
 </Layout>

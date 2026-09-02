@@ -244,6 +244,7 @@ export default {
     },
   },
   services: {
+    title: "Realza tu belleza",
     questions: {
       title: "Preguntas frecuentes",
       description:
@@ -283,6 +284,84 @@ export default {
     },
   },
   education: {
+    title: "Aprende, crea y transforma",
+    items: [
+      {
+        image: "/images/education/1.webp",
+        title: "Clase Privada de Automaquillaje",
+        description:
+          "Clase personalizada que enseña preparación de piel, selección de productos, base, correctores, contorno, iluminación, ojos y técnicas para transformar maquillajes de día en looks nocturnos profesionales.",
+        lists: [
+          "Preparación correcta de la piel.",
+          "Selección de productos según el tipo de piel.",
+          "Aplicación de base y correctores.",
+          "Contorno, iluminación y sellado.",
+          " Maquillaje de ojos de día y noche.",
+        ],
+        duration: "Duración: aproximadamente 3 horas.",
+        href: "#",
+      },
+      {
+        image: "/images/education/2.webp",
+        title: "Beauty Pro Master",
+        description:
+          "Programa intensivo para convertirse en maquilladora profesional, combinando técnicas de piel, ojos, maquillaje especializado, atención al cliente, gestión empresarial, marketing, prácticas reales, evaluación y certificación profesional.",
+        lists: [
+          "Formación desde cero, sin experiencia previa.",
+          "Prácticas guiadas con modelos reales.",
+          "Técnicas de piel, ojos y maquillaje especializado.",
+          "Gestión de clientes, precios y rentabilidad.",
+          "  Marketing, marca personal y redes sociales.",
+        ],
+        duration: "Duración: 6 semanas",
+        href: "#",
+      },
+      {
+        image: "/images/education/1.webp",
+        title: "Clase Privada de Automaquillaje",
+        description:
+          "Clase personalizada que enseña preparación de piel, selección de productos, base, correctores, contorno, iluminación, ojos y técnicas para transformar maquillajes de día en looks nocturnos profesionales.",
+        lists: [
+          "Preparación correcta de la piel.",
+          "Selección de productos según el tipo de piel.",
+          "Aplicación de base y correctores.",
+          "Contorno, iluminación y sellado.",
+          " Maquillaje de ojos de día y noche.",
+        ],
+        duration: "Duración: aproximadamente 3 horas.",
+        href: "#",
+      },
+      {
+        image: "/images/education/2.webp",
+        title: "Beauty Pro Master",
+        description:
+          "Programa intensivo para convertirse en maquilladora profesional, combinando técnicas de piel, ojos, maquillaje especializado, atención al cliente, gestión empresarial, marketing, prácticas reales, evaluación y certificación profesional.",
+        lists: [
+          "Formación desde cero, sin experiencia previa.",
+          "Prácticas guiadas con modelos reales.",
+          "Técnicas de piel, ojos y maquillaje especializado.",
+          "Gestión de clientes, precios y rentabilidad.",
+          "  Marketing, marca personal y redes sociales.",
+        ],
+        duration: "Duración: 6 semanas",
+        href: "#",
+      },
+      {
+        image: "/images/education/1.webp",
+        title: "Clase Privada de Automaquillaje",
+        description:
+          "Clase personalizada que enseña preparación de piel, selección de productos, base, correctores, contorno, iluminación, ojos y técnicas para transformar maquillajes de día en looks nocturnos profesionales.",
+        lists: [
+          "Preparación correcta de la piel.",
+          "Selección de productos según el tipo de piel.",
+          "Aplicación de base y correctores.",
+          "Contorno, iluminación y sellado.",
+          " Maquillaje de ojos de día y noche.",
+        ],
+        duration: "Duración: aproximadamente 3 horas.",
+        href: "#",
+      },
+    ],
     questions: {
       title: "Preguntas frecuentes",
       description:
@@ -316,6 +395,10 @@ export default {
         },
       ],
     },
+  },
+  blog: {
+    tag: "Consejos, tendencias y belleza",
+    title: "Inspiración para tu belleza",
   },
   contact: {
     hero: {

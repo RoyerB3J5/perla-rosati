@@ -1,0 +1,109 @@
+---
+interface Props {
+  category: {
+    id: string;
+    title: string;
+  }[];
+  items: {
+    date: string;
+    id: string;
+    title: string;
+    description: string;
+    image: string;
+    idCategory: string;
+  }[];
+}
+const { category, items } = Astro.props as Props;
+---
+
+<section
+  class="container-full flex flex-col justify-center items-center gap-14"
+>
+  <div class="flex justify-center items-stretch">
+    {
+      category.map((item) => (
+        <>
+          <button class="paragraph-medium text-paragrah uppercase tracking-[2.56px] cursor-pointer border-r-2 border-paragraph last:border-r-0 px-6 ">
+            {item.title}
+          </button>
+        </>
+      ))
+    }
+  </div>
+  <div class="w-full flex flex-col justify-center items-center gap-20">
+    <div
+      class="w-full flex jusitfy-center items-center border-[1.5px] border-paragraph gap-6"
+    >
+      <div
+        class="w-full max-w-[628px] h-auto relative overflow-hidden"
+        style="aspect-ratio: 628/542"
+      >
+        <img
+          src={items[4].image}
+          alt={items[4].title}
+          class="w-full h-full object-cover absolute inset-0"
+          decoding="async"
+          loading="eager"
+          width="1200"
+          height="1600"
+        />
+      </div>
+      <div
+        class="w-full flex flex-col justify-center items-center text-paragrap"
+      >
+        <div
+          class="w-full flex flex-col justify-center items-start gap-8 max-w-[564px]"
+        >
+          <div class="flex flex-col justify-center items-start gap-6">
+            <h2 class="title-4">{items[4].title}</h2>
+            <p class="paragraph-medium uppercase">
+              {items[4].date} . PERLA ROSATI
+            </p>
+            <div class="w-full h-[1.5px] bg-paragraph"></div>
+            <p class="paragraph">{items[4].description}</p>
+          </div>
+          <a
+            href="#"
+            class="paragraph-medium uppercase border-b-[1.5px] border-paragraph tracking-[2.56px] pb-2"
+          >
+            LEER ARTÍCULO
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start"
+    >
+      {
+        items.map((item) => (
+          <div class="flex flex-col justify-center items-start gap-6 text-paragraph h-full">
+            <div
+              class="w-full h-auto relative overflow-hidden"
+              style="aspect-ratio: 410.6/358.3"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                class="w-full h-full object-cover absolute inset-0 object-[50%_12%]"
+                decoding="async"
+                loading="lazy"
+                width="1200"
+                height="1600"
+              />
+            </div>
+            <div class="w-full h-[1.5px] bg-paragraph" />
+            <p class="paragraph-medium uppercase">{item.date} . PERLA ROSATI</p>
+            <h2 class="title-4">{item.title}</h2>
+            <p class="paragraph grow">{item.description}</p>
+            <a
+              class="paragraph-medium uppercase border-b-[1.5px] border-paragraph  tracking-[2.56px] pb-2 pt-4"
+              href="#"
+            >
+              LEER ARTÍCULO
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
