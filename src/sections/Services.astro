@@ -1,0 +1,64 @@
+---
+import ServicesCarousel from "../components/ServicesCarousel";
+
+interface Props {
+  categorie: {
+    id: string;
+    title: string;
+  }[];
+  items: {
+    title: string;
+    items: {
+      image: string;
+      title: string;
+      description: string;
+      href: string;
+    }[];
+  }[];
+}
+const { categorie, items } = Astro.props as Props;
+---
+
+<style>
+  .category-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .category-scroll::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<section
+  class="container-full flex flex-col justify-center items-center gap-12 md:gap-14"
+>
+  <div
+    class="category-scroll w-full xl:w-auto max-w-full flex justify-start xl:justify-center items-stretch flex-nowrap overflow-x-auto xl:overflow-visible scroll-smooth "
+  >
+    {
+      categorie.map((item) => (
+        <>
+          <a
+            href={`#${item.title.replace(/\s+/g, "-").toLowerCase()}`}
+            class="paragraph-medium text-paragrah uppercase tracking-[2.56px] cursor-pointer border-r-2 border-paragraph last:border-r-0 px-6 shrink-0 whitespace-nowrap"
+          >
+            {item.title}
+          </a>
+        </>
+      ))
+    }
+  </div>
+  <div class="w-full flex flex-col justify-center items-center gap-14">
+    {
+      items.map((item) => (
+        <div
+          class="w-full flex flex-col justify-center items-center md:items-start gap-6 md:gap-12"
+          id={item.title.replace(/\s+/g, "-").toLowerCase()}
+        >
+          <h2 class="title-3 text-paragraph">{item.title}</h2>
+          <ServicesCarousel items={item.items} client:load />
+        </div>
+      ))
+    }
+  </div>
+</section>

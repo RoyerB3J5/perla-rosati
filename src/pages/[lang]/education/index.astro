@@ -27,8 +27,8 @@ const seo = t.seo.education;
   keywords={seo.keywords}
   canonicalPath="/education"
 >
-  <section class="container-full pt-(--header-height) pb-14 flex justify-center">
-    <h1 class="title-2 text-paragraph pt-20">{t.education.title}</h1>
+  <section class="container-full pt-16 md:pt-(--header-height) pb-14 flex justify-center">
+    <h1 class="title-2 text-paragraph pt-16 md:pt-20 text-center ">{t.education.title}</h1>
   </section>
   <GridEducation content={t.education.items} />
   <Reviews items={t.main.reviews} client:load />

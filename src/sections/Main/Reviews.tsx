@@ -21,9 +21,10 @@ interface CarouselReviewProps {
 }
 
 export default function Review({ items }: CarouselReviewProps) {
-  if (items.length === 0) return null;
-
   const N = items.length;
+  // Triple buffer: [copy 0][copy 1 (visible start)][copy 2]
+  // We always live inside copy 1 and silently jump back to it on wrap,
+  // so the track never runs out of slides.
   const expandedItems = [...items, ...items, ...items];
 
   const [currentIndex, setCurrentIndex] = useState(N);
@@ -62,26 +63,40 @@ export default function Review({ items }: CarouselReviewProps) {
   const startAutoplay = useCallback(() => {
     stopAutoplay();
     autoplayTimer.current = setInterval(() => {
-      slide(1);
+      setIsTransitioning(true);
+      setCurrentIndex((prev) => prev + 1);
     }, AUTOPLAY_INTERVAL);
   }, [stopAutoplay]);
 
   useEffect(() => {
+    if (N === 0) return;
     startAutoplay();
     return () => stopAutoplay();
-  }, [startAutoplay, stopAutoplay]);
+  }, [startAutoplay, stopAutoplay, N]);
+
+  // Release the wrap-back lock after a silent snap. This effect deliberately
+  // never re-enables transitions: they stay off until the next real movement
+  // (autoplay tick, button or drag), which turns them on itself. Because no
+  // commit between load and first movement ever carries a transition, the
+  // initial snap from the server HTML to the middle copy cannot animate on
+  // any device — the carousel loads already in place and never jumps.
+  useEffect(() => {
+    if (!isTransitioning) {
+      const raf = requestAnimationFrame(() => {
+        isResetting.current = false;
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, [currentIndex, isTransitioning]);
 
   const handleTransitionEnd = () => {
     if (isResetting.current) return;
 
-    if (currentIndex >= 2 * N) {
+    if (currentIndex >= 2 * N || currentIndex < N) {
       isResetting.current = true;
       setIsTransitioning(false);
-      setCurrentIndex(N + ((currentIndex - N) % N));
-    } else if (currentIndex < N) {
-      isResetting.current = true;
-      setIsTransitioning(false);
-      setCurrentIndex(2 * N - 1 - ((N - 1 - currentIndex) % N));
+      const equivalentIndex = N + (((currentIndex % N) + N) % N);
+      setCurrentIndex(equivalentIndex);
     }
   };
 
@@ -166,11 +181,21 @@ export default function Review({ items }: CarouselReviewProps) {
     startAutoplay();
   };
 
+  if (N === 0) return null;
+
   const stepWidth = containerWidth;
-  const translateX = -currentIndex * stepWidth + dragOffset;
+  // Clamp the rendered index so fast repeated clicks can never translate
+  // past the cloned track (which would show empty space) before the
+  // silent wrap-back runs.
+  const clampedIndex = Math.max(0, Math.min(currentIndex, 3 * N - 1));
+  // Before measuring (SSR / pre-hydration) render at offset 0. Slides are
+  // sized with CSS (w-full), so first paint is already correct and never
+  // jumbled; once measured we snap (transition disabled) to the middle copy.
+  const translateX =
+    stepWidth > 0 ? -clampedIndex * stepWidth + dragOffset : 0;
 
   return (
-    <section className="container-full flex flex-col justify-center items-center py-20">
+    <section className="container-full flex flex-col justify-center items-center py-16 md:py-20">
       <div className="w-full relative">
         <div
           ref={containerRef}
@@ -196,25 +221,25 @@ export default function Review({ items }: CarouselReviewProps) {
             {expandedItems.map((item, index) => (
               <div
                 key={index}
-                className="w-full flex justify-between items-top"
-                style={{
-                  flex: `0 0 ${containerWidth}px`,
-                  minWidth: `${containerWidth}px`,
-                }}
+                className="w-full shrink-0 grow-0 flex flex-col md:flex-row justify-start md:justify-between items-start md:items-top gap-12 md:gap-0"
               >
                 <img
                   src="/icons/comillas.svg"
                   alt="Comillas"
                   width={230}
                   height={178}
-                  className="w-[230px] h-[178px]"
+                  className="w-[230px] md:w-[170px] xl:w-[230px]   h-[178px] md:h-auto xl:h-[178px] "
                 />
-                <div className="flex flex-col items-end justify-center gap-16 text-center w-full max-w-[929px]">
+                <div className="flex flex-col items-start md:items-end justify-center gap-12 md:gap-16 text-center w-full max-w-[929px]">
                   <div className="w-full h-[1.5px] bg-paragraph" />
-                  <h3 className="title-1 text-end">{item.title}</h3>
-                  <div className="flex justify-center items-start gap-16">
-                    <p className="paragraph uppercase">{item.name}</p>
-                    <p className="paragraph max-w-[402px] text-start">
+                  <h3 className="title-2 xl:title-1 text-start md:text-end">
+                    {item.title}
+                  </h3>
+                  <div className="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-16">
+                    <p className="paragraph uppercase order-2 md:order-1">
+                      {item.name}
+                    </p>
+                    <p className="paragraph max-w-[402px] text-start order-1 md:order-2">
                       {item.description}
                     </p>
                   </div>
@@ -223,7 +248,7 @@ export default function Review({ items }: CarouselReviewProps) {
             ))}
           </div>
         </div>
-        <div className="flex items-center justify-center gap-4 absolute bottom-0 right-[37%]">
+        <div className="flex items-center justify-center gap-4 absolute bottom-[-24px] md:-bottom-8 lg:bottom-0 right-auto md:right-1/2 translate-x-0 md:translate-x-1/2 lg:translate-x-0 lg:right-[47%] xl:right-[37%] left-0 md:left-auto">
           <button
             type="button"
             onClick={() => slide(-1)}

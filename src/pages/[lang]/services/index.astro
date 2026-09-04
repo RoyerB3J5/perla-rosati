@@ -4,6 +4,7 @@ import es from "../../../i18n/es";
 import Layout from "../../../layouts/Layout.astro";
 import Questions from "../../../sections/Main/Questions.astro";
 import Reviews from "../../../sections/Main/Reviews";
+import Services from "../../../sections/Services.astro";
 import type { Language } from "../../../types/language.type";
 
 export function getStaticPaths() {
@@ -16,6 +17,320 @@ const lang = Astro.params.lang as Language;
 const translations = { es, en };
 const t = translations[lang];
 const seo = t.seo.services;
+const categories = [
+  {
+    id: "1",
+    title: "TODO",
+  },
+  {
+    id: "2",
+    title: "MAQUILLAJE",
+  },
+  {
+    id: "3",
+    title: "CABELLO",
+  },
+  {
+    id: "4",
+    title: "PELUQUERÍA",
+  },
+  {
+    id: "5",
+    title: "FACIALES",
+  },
+  {
+    id: "6",
+    title: "CEJAS Y PESTAÑAS",
+  },
+  {
+    id: "7",
+    title: "LASER",
+  },
+];
+const servicesItems = [
+  {
+    title: "Maquillaje",
+    items: [
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+    ],
+  },
+  {
+    title: "Cabello",
+    items: [
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+    ],
+  },
+  {
+    title: "Peluquería",
+    items: [
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+    ],
+  },
+  {
+    title: "Faciales",
+    items: [
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+    ],
+  },
+  {
+    title: "Cejas y Pestañas",
+    items: [
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+    ],
+  },
+  {
+    title: "Laser",
+    items: [
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Maquillaje de Novia",
+        description:
+          "Disfruta una experiencia única desde el primer trazo de pincel: un maquillaje suave o glamoroso, adaptado a tu vestido y tu estilo.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Prueba de Maquillaje de Novia",
+        description:
+          "Una sesión previa para generar confianza y conocer tus expectativas, definiendo juntas el maquillaje perfecto para tu gran día de bodas.",
+        href: "#",
+      },
+      {
+        image: "#",
+        title: "Quinceañeras y Sweet 16",
+        description:
+          "Un maquillaje fresco y personalizado, acorde a tu outfit y tu personalidad, con técnicas innovadoras para que brilles en tu celebración.",
+        href: "#",
+      },
+    ],
+  },
+];
 ---
 
 <Layout
@@ -27,10 +342,11 @@ const seo = t.seo.services;
   canonicalPath="/services"
 >
   <section
-    class="container-full pt-(--header-height) pb-10 flex justify-center"
+    class="container-full pt-(--header-height) pb-8 md:pb-10 flex justify-center"
   >
-    <h1 class="title-2 text-paragraph pt-20">{t.services.title}</h1>
+    <h1 class="title-2 text-paragraph pt-16 md:pt-20">{t.services.title}</h1>
   </section>
+  <Services categorie={categories} items={servicesItems} />
   <Reviews items={t.main.reviews} client:load />
   <Questions content={t.services.questions} lang={lang} />
 </Layout>

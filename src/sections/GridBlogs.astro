@@ -16,27 +16,42 @@ interface Props {
 const { category, items } = Astro.props as Props;
 ---
 
+<style>
+  .category-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .category-scroll::-webkit-scrollbar {
+    display: none;
+  }
+</style>
 <section
   class="container-full flex flex-col justify-center items-center gap-14"
 >
-  <div class="flex justify-center items-stretch">
+  <div
+    class="category-scroll w-full xl:w-auto max-w-full flex justify-start xl:justify-center items-stretch flex-nowrap overflow-x-auto xl:overflow-visible scroll-smooth"
+  >
     {
       category.map((item) => (
         <>
-          <button class="paragraph-medium text-paragrah uppercase tracking-[2.56px] cursor-pointer border-r-2 border-paragraph last:border-r-0 px-6 ">
+          <a
+            href={`#${item.title.replace(/\s+/g, "-").toLowerCase()}`}
+            class="paragraph-medium text-paragrah uppercase tracking-[2.56px] cursor-pointer border-r-2 border-paragraph last:border-r-0 px-6 shrink-0 whitespace-nowrap"
+          >
             {item.title}
-          </button>
+          </a>
         </>
       ))
     }
   </div>
-  <div class="w-full flex flex-col justify-center items-center gap-20">
+  <div
+    class="w-full flex flex-col justify-center items-center gap-16 md:gap-20"
+  >
     <div
-      class="w-full flex jusitfy-center items-center border-[1.5px] border-paragraph gap-6"
+      class="w-full flex flex-col md:flex-row jusitfy-center items-center border-[1.5px] border-paragraph gap-0 xl:gap-6"
     >
       <div
-        class="w-full max-w-[628px] h-auto relative overflow-hidden"
-        style="aspect-ratio: 628/542"
+        class="w-full max-w-[628px] h-auto relative overflow-hidden aspect-628/542 md:aspect-628/652 lg:aspect-628/542"
       >
         <img
           src={items[4].image}
@@ -49,10 +64,10 @@ const { category, items } = Astro.props as Props;
         />
       </div>
       <div
-        class="w-full flex flex-col justify-center items-center text-paragrap"
+        class="w-full flex flex-col justify-center items-center text-paragraph"
       >
         <div
-          class="w-full flex flex-col justify-center items-start gap-8 max-w-[564px]"
+          class="w-full flex flex-col justify-center items-start gap-8 max-w-[564px] p-8 md:px-6  md:py-0 "
         >
           <div class="flex flex-col justify-center items-start gap-6">
             <h2 class="title-4">{items[4].title}</h2>

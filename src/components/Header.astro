@@ -30,7 +30,7 @@ const lang = match ? match[1] : "en";
 <header
   class={`fixed left-0 right-0 z-50 w-full flex flex-col justify-center items-center top-0 bg-transparent h-20`}
   id="site-header"
-  style="transition: background-color 0.3s ease-out;"
+  style="transition: background-color 0.3s ease-out, transform 0.3s ease-out;"
 >
   <div class="container-full flex justify-between items-center relative">
     <a
@@ -43,7 +43,7 @@ const lang = match ? match[1] : "en";
         alt="Logo de Perla Rosati Makeup"
         width="216"
         height="56"
-        class="cursor-pointer w-[94px] md:w-[216px] h-auto"
+        class="cursor-pointer w-[157px] md:w-[216px] h-auto"
       />
     </a>
     <div
@@ -79,7 +79,7 @@ const lang = match ? match[1] : "en";
         </ul>
       </nav>
     </div>
-    <div class="flex justify-center items-center gap-2 md:gap-4">
+    <div class="flex justify-center items-center gap-4">
       <ChangeLanguage />
       <button
         type="button"
@@ -117,9 +117,22 @@ const lang = match ? match[1] : "en";
       role="button"
       tabindex="0"
     />
+    <a
+      href={`/${lang}`}
+      aria-label="Ir a la página principal"
+      title="Perla Rosati Makeup - Init"
+    >
+      <img
+        src="/icons/logo.svg"
+        alt="Logo de Perla Rosati Makeup"
+        width="216"
+        height="56"
+        class="cursor-pointer w-[216px] h-auto"
+      />
+    </a>
     <nav class="w-full">
       <ul
-        class="relative flex items-start flex-col justify-center w-full gap-6"
+        class="relative flex items-start flex-col justify-center w-full "
       >
         {
           content?.nav.map((item, index) => {
@@ -128,16 +141,16 @@ const lang = match ? match[1] : "en";
             return (
               <>
                 <li
-                  class={`flex flex-col items-start justify-start group gap-3.5 px-4 w-full text-start  ${isActive ? "bg-secondary text-white uppercase " : ""}`}
+                  class={`flex flex-col items-start justify-start group gap-3.5  w-full text-start border-b-[1.5px] border-b-paragraph last:border-b-0  ${isActive ? "bg-secondary px-4 text-white uppercase " : ""}`}
                   id={`mobile-nav-item-${index}`}
                 >
                   <a
                     href={`/${lang}${item.href}`}
-                    class="relative transition-colors duration-300 flex justify-between items-center w-full py-5 gap-2"
+                    class="relative transition-colors duration-300 flex justify-between items-center w-full pb-4 pt-6 gap-2"
                     aria-expanded="false"
                   >
                     <p
-                      class={`text-[14px] leading-[25.5px] font-normal tracking-[-0.5px] ${isActive ? "text-white" : "text-black"}`}
+                      class={`title-4 uppercase ${isActive ? "text-paragraph" : "text-paragraph"}`}
                       set:html={item.label}
                     />
                   </a>
@@ -185,7 +198,7 @@ const lang = match ? match[1] : "en";
       });
     }
 
-    // Header background on scroll
+    // Header scroll behavior: hide on scroll down, show on scroll up
     const header = document.getElementById("site-header");
 
     function updateHeaderHeight() {
@@ -200,31 +213,41 @@ const lang = match ? match[1] : "en";
       window.addEventListener("resize", updateHeaderHeight);
     }
 
-    const firstContainerHeader =
-      document.querySelector(".header-container-1") ?? null;
-    if (!header || !firstContainerHeader) return;
+    let lastScrollY = window.scrollY;
+    let ticking = false;
 
-    const updateHeaderStyle = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const firstSection =
-        document.querySelector(".hero-main-section") ||
-        document.querySelector("main > section");
-      const threshold = firstSection
-        ? firstSection.offsetHeight
-        : window.innerHeight;
+    const updateHeaderOnScroll = () => {
+      const scrollY = window.scrollY;
+      const headerHeight = header?.offsetHeight || 80;
 
-      if (scrollY >= threshold) {
-        header.style.backgroundColor = "var(--color-primary-rgb)";
-        firstContainerHeader.style.display = "none";
+      // Add background when scrolled past a small threshold
+      if (scrollY > 10) {
+        header.style.backgroundColor = "rgb(246, 243, 238)";
       } else {
         header.style.backgroundColor = "transparent";
-        if (window.innerWidth >= 768) {
-          firstContainerHeader.style.display = "flex";
-        }
+      }
+
+      // Hide/show header based on scroll direction
+      if (scrollY > lastScrollY && scrollY > headerHeight) {
+        // Scrolling down - hide header
+        header.style.transform = "translateY(-100%)";
+      } else if (scrollY < lastScrollY) {
+        // Scrolling up - show header
+        header.style.transform = "translateY(0)";
+      }
+
+      lastScrollY = scrollY;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeaderOnScroll);
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", updateHeaderStyle, { passive: true });
-    updateHeaderStyle();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    updateHeaderOnScroll();
   });
 </script>

@@ -114,12 +114,13 @@ const posts = [
 >
   <section class="w-full pt-(--header-height) flex justify-center items-center">
     <div
-      class="pt-20 pb-10 flex flex-col justify-center items-center gap-6 text-paragraph"
+      class="pt-16 md:pt-20 pb-10 flex flex-col justify-center items-center gap-6 text-paragraph"
     >
       <p class="paragraph">{t.blog.tag}</p>
-      <h1 class="title-2">{t.blog.title}</h1>
+      <h1 class="title-2 text-center">{t.blog.title}</h1>
     </div>
   </section>
+  
   <GridBlogs items={posts} category={categories} />
   <Reviews items={t.main.reviews} client:load />
 </Layout>

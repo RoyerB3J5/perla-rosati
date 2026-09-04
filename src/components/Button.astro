@@ -16,20 +16,21 @@ interface Props {
   baseTextClass?: string;
 
   textClass?: string;
-
+  changeColor?: boolean;
   /** Nombre del icono (se busca en /images/{icon}.svg) */
   icon?: string;
 }
 
 const {
   text = "",
-  baseBtnClass = "flex justify-center items-center gap-4 cursor-pointer hover:-translate-y-[2px] transition-all duration-300 ease-in-out z-[10] hover:scale-[1.02] box-border py-2.75 px-6 md:w-auto rounded-full w-full border-[1.5px] border-paragraph",
+  baseBtnClass = "flex justify-center items-center gap-4 cursor-pointer hover:-translate-y-[2px] transition-all duration-300 ease-in-out z-[10] hover:scale-[1.02] box-border py-2.75 px-6 md:w-auto rounded-full w-full border-[1.5px] ",
   extraBtnClass = "",
-  baseTextClass = "text-[16px] font-medium text-paragraph leading-[21px] uppercase tracking-[2.56px]",
+  baseTextClass = "text-[16px] font-medium  leading-[21px] uppercase tracking-[2.56px]",
   textClass = "",
   href,
   target,
   rel,
+  changeColor,
   icon,
 } = Astro.props as Props;
 
@@ -40,11 +41,14 @@ const normalizedHref =
     ? href.replace(/^\/+/, "")
     : href;
 
+const colorFinal = changeColor
+  ? " border-white text-white md:text-paragraph md:border-paragraph"
+  : "border-paragraph text-paragraph";
 // No id necesario: usamos atributos data- para el script cliente
 
 // Construir clases finales
 const buttonClasses =
-  `${baseBtnClass} ${icon ? "gap-[10px]" : ""} ${extraBtnClass}`.trim();
+  `${baseBtnClass} ${icon ? "gap-[10px]" : ""} ${extraBtnClass} ${colorFinal}`.trim();
 const paragraphClasses = `${baseTextClass} ${textClass}`.trim();
 ---
 
@@ -57,13 +61,28 @@ const paragraphClasses = `${baseTextClass} ${textClass}`.trim();
       rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
     >
       {text ? <p class={paragraphClasses}>{text}</p> : <slot />}
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
         <g clip-path="url(#clip0_3_2783)">
-          <path d="M16 5C16 5.742 16.733 6.85 17.475 7.78C18.429 8.98 19.569 10.027 20.876 10.826C21.856 11.425 23.044 12 24 12M24 12C23.044 12 21.855 12.575 20.876 13.174C19.569 13.974 18.429 15.021 17.475 16.219C16.733 17.15 16 18.26 16 19M24 12L-3.0598e-07 12" stroke="#2B2626" stroke-width="2"/>
+          <path
+            d="M16 5C16 5.742 16.733 6.85 17.475 7.78C18.429 8.98 19.569 10.027 20.876 10.826C21.856 11.425 23.044 12 24 12M24 12C23.044 12 21.855 12.575 20.876 13.174C19.569 13.974 18.429 15.021 17.475 16.219C16.733 17.15 16 18.26 16 19M24 12L-3.0598e-07 12"
+            stroke="currentColor"
+            stroke-width="2"
+            class={
+              changeColor
+                ? "stroke-white md:stroke-[#2B2626]"
+                : "stroke-[#2B2626]"
+            }
+          />
         </g>
         <defs>
           <clipPath id="clip0_3_2783">
-            <rect width="24" height="24" fill="white"/>
+            <rect width="24" height="24" fill="white" />
           </clipPath>
         </defs>
       </svg>
@@ -71,13 +90,23 @@ const paragraphClasses = `${baseTextClass} ${textClass}`.trim();
   ) : (
     <button type="button" class={buttonClasses}>
       {text ? <p class={paragraphClasses}>{text}</p> : <slot />}
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
         <g clip-path="url(#clip0_3_2783)">
-          <path d="M16 5C16 5.742 16.733 6.85 17.475 7.78C18.429 8.98 19.569 10.027 20.876 10.826C21.856 11.425 23.044 12 24 12M24 12C23.044 12 21.855 12.575 20.876 13.174C19.569 13.974 18.429 15.021 17.475 16.219C16.733 17.15 16 18.26 16 19M24 12L-3.0598e-07 12" stroke="#2B2626" stroke-width="2"/>
+          <path
+            d="M16 5C16 5.742 16.733 6.85 17.475 7.78C18.429 8.98 19.569 10.027 20.876 10.826C21.856 11.425 23.044 12 24 12M24 12C23.044 12 21.855 12.575 20.876 13.174C19.569 13.974 18.429 15.021 17.475 16.219C16.733 17.15 16 18.26 16 19M24 12L-3.0598e-07 12"
+            stroke="#2B2626"
+            stroke-width="2"
+          />
         </g>
         <defs>
           <clipPath id="clip0_3_2783">
-            <rect width="24" height="24" fill="white"/>
+            <rect width="24" height="24" fill="white" />
           </clipPath>
         </defs>
       </svg>

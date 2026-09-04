@@ -11,8 +11,7 @@ const { content, lang } = Astro.props as Props;
 ---
 
 <section
-  class="w-full h-auto flex justify-center items-center overflow-hidden relative"
-  style="aspect-ratio: 1440/808"
+  class="w-[calc(100%-2rem)] md:w-full h-auto flex justify-center items-center overflow-hidden relative aspect-398/808 md:aspect-1440/950 xl:aspect-1440/808 mx-auto md:mx-0"
 >
   <img
     src="/images/version.webp"
@@ -24,12 +23,12 @@ const { content, lang } = Astro.props as Props;
     loading="lazy"
   />
   <div
-    class="max-w-[534px] flex flex-col justify-between items-center py-17 w-full text-paragraph relative z-5 h-full"
+    class="max-w-[800px] xl:max-w-[534px] flex flex-col justify-between items-center px-4 md:px-0 py-17 md:py-8 lg:py-12 xl:py-17 w-full text-paragraph relative z-5 h-full"
   >
     <h2 class="title-2 text-center">
       {content.title}
     </h2>
-    <div class="flex flex-col justify-center items-center gap-8">
+    <div class="flex flex-col justify-center items-center gap-8 md:gap-4 lg:gap-8">
       <p class="paragraph text-center w-[90%]">{content.descripcion}</p>
       <Button
         text={content.button.label}

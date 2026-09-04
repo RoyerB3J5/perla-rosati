@@ -10,11 +10,13 @@ interface Props {
 const { content, lang } = Astro.props as Props;
 ---
 
-<section class="container-full py-20 grid grid-cols-3 grid-rows-2 gap-6">
+<section
+  class="container-full py-16 md:py-20 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6"
+>
   <div
-    class="aspect-[410.6/525] flex flex-col gap-8 justify-center items-start px-17 text-paragraph"
+    class="md:aspect-[410.6/525] flex flex-col gap-8 justify-center items-center md:items-start md:px-4 lg:px-17 text-paragraph mb-2 md:mb-0"
   >
-    <h2 class="title-2 w-[264px]">
+    <h2 class="title-2 w-full md:w-[264px] text-center md:text-left">
       {content.title}
     </h2>
     <Button
@@ -22,18 +24,20 @@ const { content, lang } = Astro.props as Props;
       href={`${lang}/${content.button.href}`}
     />
   </div>
-  <div class="col-start-2 row-span-2 relative">
+  <div
+    class="md:col-start-2 md:row-span-2 relative aspect-65/89 md:aspect-auto"
+  >
     <img
       src="/images/cliente-2.webp"
       alt="Client 2"
-      class="w-full h-full object-cover"
+      class="w-full h-full object-cover object-[50%_20%] md:object-center"
       height="2090"
       width="800"
       decoding="async"
       loading="lazy"
     />
   </div>
-  <div class="aspect-[410.6/525] relative">
+  <div class="aspect-65/89 md:aspect-[410.6/525] relative">
     <img
       src="/images/cliente-3.webp"
       alt="Client 3"
@@ -44,7 +48,7 @@ const { content, lang } = Astro.props as Props;
       loading="lazy"
     />
   </div>
-  <div class="aspect-[410.6/525] relative">
+  <div class="aspect-[410.6/525] relative hidden md:block">
     <img
       src="/images/cliente-1.webp"
       alt="Client 4"
@@ -55,7 +59,7 @@ const { content, lang } = Astro.props as Props;
       loading="lazy"
     />
   </div>
-  <div class="aspect-[410.6/525] relative">
+  <div class="aspect-[410.6/525] relative hidden md:block">
     <img
       src="/images/cliente-4.webp"
       alt="Client 4"

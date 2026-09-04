@@ -12,22 +12,22 @@ const { content } = Astro.props as Props;
 <section
   class="w-full flex justify-center items-center pt-(--header-height) relative"
 >
-  <div class="container-full flex justify-center items-center gap-6 py-20">
+  <div class="container-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-6 py-16 md:py-20">
     <img
       src="/images/map.webp"
       alt="Map"
       width="1024"
       height="1024"
-      class="w-1/2 h-auto"
+      class="w-full md:w-1/2 h-auto order-2 md:order-1"
       decoding="async"
       loading="eager"
     />
-    <div class="flex flex-col justify-center items-start gap-5.5 p-8">
+    <div class="flex flex-col justify-center items-start gap-6 md:gap-5.5 p-0 md:p-8 order-1 md:order-2">
       <div
         class="w-full flex flex-col justify-start items-start gap-6 text-paragraph"
       >
         <p class="uppercase paragraph-medium">{content.tag}</p>
-        <h1 class="title-3">{content.title}</h1>
+        <h1 class="title-2 md:title-3">{content.title}</h1>
       </div>
       <div class="w-full h-[1.5px] bg-paragraph"></div>
       <p class="paragraph">{content.description}</p>

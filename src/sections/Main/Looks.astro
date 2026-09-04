@@ -9,10 +9,10 @@ const { content, lang } = Astro.props as Props;
 ---
 
 <section
-  class="container-full flex justify-center items-center py-20 gap-20 relative"
+  class="container-full flex flex-col md:flex-row justify-center items-center py-16 md:py-20 gap-8 xl:gap-20 relative"
 >
   <div
-    class="flex-1 h-auto relative overflow-hidden flex justify-start items-end p-10"
+    class="w-full md:flex-1 h-auto relative overflow-hidden flex justify-start items-end p-10 order-2 md:order-1"
     style="aspect-ratio: 560/696;"
   >
     <img
@@ -35,7 +35,7 @@ const { content, lang } = Astro.props as Props;
     />
   </div>
   <div
-    class="w-[52%] h-auto bg-secondary py-21 flex flex-col justify-center items-center text-paragraph gap-14"
+    class="w-full md:w-[52%] h-auto bg-secondary py-15 md:py-21 flex flex-col justify-center items-center text-paragraph gap-12 md:gap-14 order-1 md:order-2 px-4 xl:px-0"
   >
     <div class="flex flex-col justify-center items-center gap-6 max-w-[532px]">
       <p
@@ -43,7 +43,7 @@ const { content, lang } = Astro.props as Props;
       >
         {content.tag}
       </p>
-      <h2 class="title-2">{content.title}</h2>
+      <h2 class="title-2 text-center">{content.title}</h2>
     </div>
     <img
       src="/images/looks-2-main.webp"

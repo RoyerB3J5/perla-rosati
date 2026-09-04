@@ -30,7 +30,7 @@ const seo = t.seo.aboutUs;
   keywords={seo.keywords}
   canonicalPath="/about-us"
 >
-  <Hero content={t.aboutUs.hero} />
+  <Hero content={t.aboutUs.hero} changeColor={true} />
   <Perla content={t.aboutUs.perla} lang={lang} isButton={false} />
   <Reviews items={t.main.reviews} client:load />
   <Me content={t.aboutUs.me} />

@@ -55,6 +55,12 @@ html {
   font-weight: 400;
   line-height: 100%;
 }
+@media (max-width: 1023px) {
+  .title-1 {
+    font-size: 72px;
+  }
+}
+
 @media (max-width: 769px) {
   .title-1 {
     font-size: 48px;
@@ -67,9 +73,14 @@ html {
   font-weight: 400;
   line-height: 110%;
 }
+@media (max-width: 1025px) {
+  .title-2 {
+    font-size: 54px;
+  }
+}
 @media (max-width: 769px) {
   .title-2 {
-    font-size: 32px;
+    font-size: 48px;
   }
 }
 .title-3 {
@@ -80,7 +91,7 @@ html {
 }
 @media (max-width: 769px) {
   .title-3 {
-    font-size: 46px;
+    font-size: 32px;
   }
 }
 .title-4 {

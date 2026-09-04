@@ -38,6 +38,7 @@ export default {
       description:
         "Creamos looks personalizados que resaltan tus mejores rasgos y te hacen sentir segura, auténtica y especial en cada ocasión.",
       image: "hero-main",
+      imageMobile: "hero-main-mobile",
       button: {
         label: "Reserva ahora",
         href: "#",
@@ -168,6 +169,7 @@ export default {
       description:
         "En Perla Rosati Makeup creemos que la belleza no se transforma, se potencia. Creamos looks personalizados que respetan tu esencia, realzan tus rasgos y te hacen sentir segura, auténtica y especial.",
       image: "hero-about",
+      imageMobile: "hero-about-mobile",
       button: {
         label: "Reserva ahora",
         href: "#",
@@ -244,7 +246,7 @@ export default {
     },
   },
   services: {
-    title:"Realza tu belleza",
+    title: "Realza tu belleza",
     questions: {
       title: "Preguntas frecuentes",
       description:

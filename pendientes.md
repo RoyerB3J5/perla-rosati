@@ -1,0 +1,8 @@
+- Traducir contenido
+- Hacer animaciones
+- Shapehub
+- Poner links
+- Conectar con crm
+- Chatbot
+- Formularios
+- Favicon

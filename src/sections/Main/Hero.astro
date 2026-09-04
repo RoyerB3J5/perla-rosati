@@ -4,8 +4,9 @@ type Translations = typeof import("../../i18n/en").default;
 type HeroContent = Translations["main"]["hero"];
 interface Props {
   content: HeroContent;
+  changeColor?: boolean;
 }
-const { content } = Astro.props as Props;
+const { content, changeColor } = Astro.props as Props;
 
 // Comprueba si la URL coincide con la raíz o los prefijos de idioma (/ , /es, /es/, /en, /en/)
 const pathname = Astro.url.pathname;
@@ -13,30 +14,45 @@ const isHomePage = /^\/(en|es)?\/?$/.test(pathname);
 ---
 
 <section
-  class="w-full h-screen flex justify-center items-end overflow-hidden relative"
+  class="w-full h-screen md:h-[60vh] xl:h-screen flex justify-center items-end overflow-hidden relative"
 >
   <img
     src={`/images/${content.image}.webp`}
     alt="Hero image"
     width="2752"
     height="1720"
-    class="z-0 w-full h-full absolute inset-0 object-cover object-top"
+    class="z-0 w-full h-full absolute inset-0 object-cover object-top hidden md:block"
+  />
+  <img
+    src={`/images/${content.imageMobile}.webp`}
+    alt="Hero image"
+    width="750"
+    height="1486"
+    class="z-0 w-full h-full absolute inset-0 object-cover object-center md:hidden block"
   />
   <div
-    class="container-full flex justify-start items-center text-paragraph h-[calc(100vh-var(--header-height))] relative z-10 py-[1vw] 3xl:py-[4vw]"
+    class="container-full flex justify-start items-center h-[calc(100vh-var(--header-height))] md:h-[calc(60vh-var(--header-height))] xl:h-[calc(100vh-var(--header-height))] relative z-10 py-8 xl:py-[1vw] 3xl:py-[4vw]"
   >
-    <div class="flex flex-col justify-between items-start h-full max-w-[553px]">
-      <div class="flex flex-col justify-center items-start gap-6">
+    <div
+      class="flex flex-col justify-between items-start h-full max-w-none md:max-w-[51%] xl:max-w-[553px]"
+    >
+      <div
+        class="flex flex-col justify-center items-start gap-6 text-paragraph"
+      >
         <p class="paragraph-medium tracking-[2.56px] uppercase">
           {content.tag}
         </p>
         <h1 class="title-1">{content.title}</h1>
       </div>
       <div
-        class="pt-4 flex flex-col justify-center items-start gap-8 border-t-[1.5px] border-paragraph"
+        class={`pt-4 flex flex-col justify-center items-start gap-8 border-t-[1.5px]  ${changeColor ? "text-white border-white md:text-paragraph md:border-paragraph" : "border-paragraph text-paragraph"}`}
       >
         <p class="paragraph">{content.description}</p>
-        <Button text={content.button.label} href={content.button.href} />
+        <Button
+          text={content.button.label}
+          href={content.button.href}
+          changeColor={changeColor}
+        />
       </div>
     </div>
   </div>
