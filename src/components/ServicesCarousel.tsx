@@ -38,7 +38,7 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
   const isResetting = useRef(false);
 
   // Slide widths are pure CSS (see the slide classNames: 1 per view below
-  // 640px, 2 from 640px, 3 from 1030px), so the server-rendered HTML is
+  // 640px, 2 from 640px, 3 from 1024px via lg:), so the server-rendered HTML
   // already correctly laid out on first paint. Here we only measure one step
   // (slide + gap) in pixels for the translateX math, straight from the
   // rendered DOM, so padding/gaps can never drift out of sync.
@@ -226,18 +226,21 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
             {expandedItems.map((item, index) => (
               <div
                 // NOTE: keep these in sync with GAP (24px) and the
-                // breakpoints 1 / 2 / 3 per view (<640 / <1030 / >=1030).
-                className="shrink-0 grow-0 basis-full sm:basis-[calc((100%-24px)/2)] min-[1030px]:basis-[calc((100%-48px)/3)] flex flex-col justify-start items-start gap-8"
+                // breakpoints 1 / 2 / 3 per view (<640 / <1024 / >=1024).
+                // Use lg: (not min-[1030px]:) on purpose: Tailwind emits the
+                // min-[] rule BEFORE sm: in the stylesheet, so at large widths
+                // sm:basis would override it and only 2 items would fit.
+                className="shrink-0 grow-0 basis-full sm:basis-[calc((100%-24px)/2)] lg:basis-[calc((100%-48px)/3)] flex flex-col justify-start items-start gap-8"
                 key={index}
               >
                 <div className="flex flex-col justify-center items-start gap-6 text-paragraph h-full">
-                  <div className="w-full h-auto aspect-410/513 bg-[#C8C8C8]"></div>
+                  <div className="w-full h-auto aspect-410/513 bg-[#C8C8C8] reveal-tl-br"></div>
                   <div className="w-full h-[1.5px] bg-paragraph" />
-                  <h3 className="paragraph-medium">{item.title}</h3>
-                  <p className="paragraph grow">{item.description}</p>
+                  <h3 className="paragraph-medium fade-up-a">{item.title}</h3>
+                  <p className="paragraph grow fade-up-a">{item.description}</p>
                 </div>
                 <a
-                  className="flex justify-center items-center gap-4 cursor-pointer hover:-translate-y-[2px] transition-all duration-300 ease-in-out z-[10] hover:scale-[1.02] box-border py-2.75 px-6 md:w-[264px] rounded-full w-full border-[1.5px] border-paragraph text-[16px] font-medium text-paragraph leading-[21px] uppercase tracking-[2.56px]"
+                  className="flex justify-center items-center gap-4 cursor-pointer hover:-translate-y-[2px] transition-all duration-300 ease-in-out z-[10] hover:scale-[1.02] box-border py-2.75 px-6 md:w-[264px] rounded-full w-full border-[1.5px] border-paragraph text-[16px] font-medium text-paragraph leading-[21px] uppercase tracking-[2.56px] fade-up-slow"
                   href={item.href}
                 >
                   BOOK NOW

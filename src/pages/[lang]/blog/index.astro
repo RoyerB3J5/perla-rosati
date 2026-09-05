@@ -1,4 +1,5 @@
 ---
+import AnimatedTitle from "../../../components/AnimatedTitle.astro";
 import en from "../../../i18n/en";
 import es from "../../../i18n/es";
 import Layout from "../../../layouts/Layout.astro";
@@ -116,8 +117,8 @@ const posts = [
     <div
       class="pt-16 md:pt-20 pb-10 flex flex-col justify-center items-center gap-6 text-paragraph"
     >
-      <p class="paragraph">{t.blog.tag}</p>
-      <h1 class="title-2 text-center">{t.blog.title}</h1>
+      <p class="paragraph fade-up-a">{t.blog.tag}</p>
+      <AnimatedTitle text={t.blog.title} tag="h1" class="title-2 text-center" />
     </div>
   </section>
   

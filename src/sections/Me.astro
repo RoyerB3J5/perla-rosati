@@ -1,4 +1,5 @@
 ---
+import AnimatedTitle from "../components/AnimatedTitle.astro";
 import Button from "../components/Button.astro";
 
 type Translations = typeof import("../i18n/en").default;
@@ -13,11 +14,9 @@ const { content } = Astro.props as Props;
   <div
     class="container-full flex flex-col justify-center items-center md:items-start pt-16 md:pt-20 gap-12 text-paragraph"
   >
-    <h2 class="title-2">
-      {content.title}
-    </h2>
+    <AnimatedTitle text={content.title} tag="h2" class="title-2" />
     <div
-      class="w-full h-auto relative overflow-hidden p-8 md:p-10 flex justify-center md:justify-start items-end"
+      class="w-full h-auto relative overflow-hidden p-8 md:p-10 flex justify-center md:justify-start items-end reveal-ltr"
       style="aspect-ratio: 2000/875;"
     >
       <img
@@ -49,7 +48,7 @@ const { content } = Astro.props as Props;
       />
     </div>
     <div class="w-full flex justify-end items-center">
-      <p class="w-full md:w-[65%] paragraph pt-8 border-t-[1.5px] border-paragraph">
+      <p class="w-full md:w-[65%] paragraph pt-8 border-t-[1.5px] border-paragraph fade-up-a">
         {content.description}
       </p>
     </div>

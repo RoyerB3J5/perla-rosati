@@ -142,9 +142,28 @@ html {
 @keyframes fadeUpFast {
   from {
     opacity: 0;
-    transform: translateY(15%);
+    transform: translateY(6.25rem);
   }
   to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUpSlow {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+    /* Curva de desaceleración para la subida principal */
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-3%); /* Altura máxima del rebote */
+    /* Transición suave y amortiguada para el regreso */
+    animation-timing-function: ease-in-out;
+  }
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
@@ -188,7 +207,18 @@ html {
 }
 
 .fade-up-a.active {
-  animation: fadeUpFast 0.4s ease-in-out forwards;
+  animation: fadeUpFast 0.3s ease-in-out forwards;
+}
+
+.fade-up-slow {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.fade-up-slow.active {
+  /* Duración de 1.8s para dar el tiempo adecuado a ambos tramos */
+  animation: fadeUpSlow 1.8s forwards;
+  animation-delay: var(--delay, 0s);
 }
 
 .fade-down-a {
@@ -198,6 +228,14 @@ html {
 
 .fade-down-a.active {
   animation: fadeDown 0.6s ease-in-out forwards;
+}
+
+/* Header intro: plays automatically on page load (no IntersectionObserver).
+   Deliberately NOT .fade-down-a and NOT `forwards`: a filled animation keeps
+   overriding the inline `transform` that the hide-on-scroll script writes to
+   #site-header, which would permanently break hiding/showing on scroll. */
+.header-intro {
+  animation: fadeDown 0.6s ease-in-out;
 }
 
 .fade-left-a {
@@ -215,6 +253,74 @@ html {
 .fade-right-a.active {
   animation: fadeRight 0.6s ease-in-out forwards;
 }
+
+[class*="reveal-"] img {
+
+  transform: scale(1.2);
+
+  transform-origin: center center;
+
+  transition: transform 0.9s ease-in-out;
+}
+
+[class*="reveal-"].active img {
+  transform: scale(1);
+}
+
+.reveal-ltr,
+.reveal-rtl,
+.reveal-tl-br {
+  -webkit-mask-size: 200% 100%;
+  mask-size: 200% 100%;
+  transition: -webkit-mask-position 0.8s cubic-bezier(0.77, 0, 0.175, 1),
+              mask-position 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.reveal-ltr {
+  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+}
+.reveal-ltr.active {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+
+/* Variación 2: Derecha a Izquierda */
+.reveal-rtl {
+  -webkit-mask-image: linear-gradient(to right, transparent 50%, black 50%);
+  mask-image: linear-gradient(to right, transparent 50%, black 50%);
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+.reveal-rtl.active {
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+}
+
+/* Variación 3: Esquina Sup. Izq. a Inf. Der. */
+.reveal-tl-br {
+  -webkit-mask-image: linear-gradient(135deg, black 50%, transparent 50%);
+  mask-image: linear-gradient(135deg, black 50%, transparent 50%);
+  -webkit-mask-size: 200% 200%; /* Esta necesita máscara más grande por la diagonal */
+  mask-size: 200% 200%;
+  -webkit-mask-position: 100% 100%;
+  mask-position: 100% 100%;
+}
+.reveal-tl-br.active {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+
+.fade-up-gallery {
+  opacity: 0;
+}
+
+.fade-up-gallery.active {
+  animation: fadeUpFast 0.6s ease-out forwards;
+}
+
 
 .container-full {
   width: 100%;

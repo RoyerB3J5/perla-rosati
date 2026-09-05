@@ -1,8 +1,10 @@
 import {
+  Fragment,
   useState,
   useEffect,
   useRef,
   useCallback,
+  type CSSProperties,
   type MouseEvent,
   type TouchEvent,
 } from "react";
@@ -18,6 +20,72 @@ type ReviewItem = {
 
 interface CarouselReviewProps {
   items: ReviewItem[];
+}
+
+// React port of AnimatedTitle.astro (word-by-word fade-up): same splitting,
+// same timing (0.2s stagger, 2.2s duration) and same IntersectionObserver
+// trigger. Scoped as .review-words because AnimatedTitle's <style> is
+// Astro-scoped and does not apply here.
+const WORD_DELAY_STEP = "0.2s";
+const WORD_DURATION = "2.2s";
+
+function ReviewTitle({ text }: { text: string }) {
+  const ref = useRef<HTMLHeadingElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!("IntersectionObserver" in window)) {
+      setInView(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Force a reflow so the browser applies the initial hidden
+            // state before .active, mirroring Layout.astro behaviour.
+            entry.target.getBoundingClientRect();
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => setInView(true));
+            });
+            io.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const words = text ? text.split(" ") : [];
+
+  return (
+    <h3
+      ref={ref}
+      className={`review-words text-[56px] md:text-[74px] 3xl:text-[96px] font-title text-paragraph leading-[110%] font-normal  text-start md:text-end ${inView ? " active" : ""}`}
+    >
+      {words.map((word, index) => (
+        <Fragment key={index}>
+          <span
+            className="word"
+            style={
+              {
+                "--index": index,
+                "--delay-step": WORD_DELAY_STEP,
+                "--duration": WORD_DURATION,
+              } as CSSProperties
+            }
+          >
+            {word}
+          </span>
+          {index < words.length - 1 && " "}
+        </Fragment>
+      ))}
+    </h3>
+  );
 }
 
 export default function Review({ items }: CarouselReviewProps) {
@@ -37,6 +105,20 @@ export default function Review({ items }: CarouselReviewProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const autoplayTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const isResetting = useRef(false);
+
+  // Which real item is currently shown (normalised, so the silent
+  // wrap-back snap to an equivalent copy does not count as a change).
+  const activeReal = N > 0 ? ((currentIndex % N) + N) % N : 0;
+  // Bumped only when the visible review actually changes; used to remount
+  // that slide's title so its word stagger replays on every new review.
+  const [playEpoch, setPlayEpoch] = useState(0);
+  const lastRealRef = useRef(activeReal);
+  useEffect(() => {
+    if (activeReal !== lastRealRef.current) {
+      lastRealRef.current = activeReal;
+      setPlayEpoch((e) => e + 1);
+    }
+  }, [activeReal]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -196,56 +278,97 @@ export default function Review({ items }: CarouselReviewProps) {
 
   return (
     <section className="container-full flex flex-col justify-center items-center py-16 md:py-20">
+      <style>{`
+        .review-words {
+          display: block;
+        }
+        .review-words .word {
+          display: inline-block;
+          font-family: inherit !important;
+          font-size: inherit !important;
+          font-weight: inherit !important;
+          line-height: inherit !important;
+          letter-spacing: inherit !important;
+          color: inherit !important;
+          vertical-align: baseline;
+          opacity: 0;
+          transform: translateY(50px);
+          will-change: transform, opacity, filter;
+        }
+        .review-words.active .word {
+          animation: reviewWordUp var(--duration, 2.2s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation-delay: calc(var(--index) * var(--delay-step, 0.2s));
+        }
+        @keyframes reviewWordUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
       <div className="w-full relative">
-        <div
-          ref={containerRef}
-          className="w-full overflow-hidden cursor-grab active:cursor-grabbing select-none"
-          style={{ touchAction: "pan-y" }}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUpOrLeave}
-          onMouseLeave={handleMouseUpOrLeave}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          onDragStart={(e) => e.preventDefault()}
-        >
-          <div
-            className="flex"
-            style={{
-              transform: `translate3d(${translateX}px, 0, 0)`,
-              transition: isTransitioning ? "transform 300ms ease-out" : "none",
-            }}
-            onTransitionEnd={handleTransitionEnd}
-          >
-            {expandedItems.map((item, index) => (
+        <div className="w-full flex flex-col md:flex-row justify-start md:justify-between items-start md:items-top gap-12 md:gap-0">
+          <img
+            src="/icons/comillas.svg"
+            alt="Comillas"
+            width={230}
+            height={178}
+            className="w-[230px] md:w-[170px] xl:w-[230px]   h-[178px] md:h-auto xl:h-[178px] "
+          />
+          <div className="flex flex-col items-start md:items-end justify-center gap-12 md:gap-16 text-center w-full max-w-[550px] lg:max-w-[750px] 3xl:max-w-[929px]">
+            <div className="w-full h-[1.5px] bg-paragraph" />
+            <div
+              ref={containerRef}
+              className="w-full overflow-hidden cursor-grab active:cursor-grabbing select-none"
+              style={{ touchAction: "pan-y" }}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUpOrLeave}
+              onMouseLeave={handleMouseUpOrLeave}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onDragStart={(e) => e.preventDefault()}
+            >
               <div
-                key={index}
-                className="w-full shrink-0 grow-0 flex flex-col md:flex-row justify-start md:justify-between items-start md:items-top gap-12 md:gap-0"
+                className="flex"
+                style={{
+                  transform: `translate3d(${translateX}px, 0, 0)`,
+                  transition: isTransitioning
+                    ? "transform 300ms ease-out"
+                    : "none",
+                }}
+                onTransitionEnd={handleTransitionEnd}
               >
-                <img
-                  src="/icons/comillas.svg"
-                  alt="Comillas"
-                  width={230}
-                  height={178}
-                  className="w-[230px] md:w-[170px] xl:w-[230px]   h-[178px] md:h-auto xl:h-[178px] "
-                />
-                <div className="flex flex-col items-start md:items-end justify-center gap-12 md:gap-16 text-center w-full max-w-[929px]">
-                  <div className="w-full h-[1.5px] bg-paragraph" />
-                  <h3 className="title-2 xl:title-1 text-start md:text-end">
-                    {item.title}
-                  </h3>
-                  <div className="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-16">
-                    <p className="paragraph uppercase order-2 md:order-1">
-                      {item.name}
-                    </p>
-                    <p className="paragraph max-w-[402px] text-start order-1 md:order-2">
-                      {item.description}
-                    </p>
+                {expandedItems.map((item, index) => (
+                  <div
+                    key={index}
+                    className="w-full shrink-0 grow-0 flex flex-col items-start md:items-end justify-center gap-12 md:gap-16 text-center"
+                  >
+                    <ReviewTitle
+                      key={
+                        N > 0 && index % N === activeReal
+                          ? `active-${activeReal}-${playEpoch}`
+                          : `idle-${index}`
+                      }
+                      text={item.title}
+                    />
+                    <div className="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-16">
+                      <p className="paragraph uppercase order-2 md:order-1 fade-up-a" >
+                        {item.name}
+                      </p>
+                      <p className="paragraph max-w-[402px] text-start order-1 md:order-2 fade-up-a">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
         <div className="flex items-center justify-center gap-4 absolute bottom-[-24px] md:-bottom-8 lg:bottom-0 right-auto md:right-1/2 translate-x-0 md:translate-x-1/2 lg:translate-x-0 lg:right-[47%] xl:right-[37%] left-0 md:left-auto">

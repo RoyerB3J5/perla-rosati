@@ -1,4 +1,5 @@
 ---
+import AnimatedTitle from "../../components/AnimatedTitle.astro";
 import Button from "../../components/Button.astro";
 type Translations = typeof import("../../i18n/en").default;
 type HeroContent = Translations["main"]["hero"];
@@ -39,19 +40,20 @@ const isHomePage = /^\/(en|es)?\/?$/.test(pathname);
       <div
         class="flex flex-col justify-center items-start gap-6 text-paragraph"
       >
-        <p class="paragraph-medium tracking-[2.56px] uppercase">
+        <p class="paragraph-medium tracking-[2.56px] uppercase fade-up-a">
           {content.tag}
         </p>
-        <h1 class="title-1">{content.title}</h1>
+        <AnimatedTitle text={content.title} tag="h1" class="title-1" />
       </div>
       <div
-        class={`pt-4 flex flex-col justify-center items-start gap-8 border-t-[1.5px]  ${changeColor ? "text-white border-white md:text-paragraph md:border-paragraph" : "border-paragraph text-paragraph"}`}
+        class={`fade-up-a pt-4 flex flex-col justify-center items-start gap-8 border-t-[1.5px]  ${changeColor ? "text-white border-white md:text-paragraph md:border-paragraph" : "border-paragraph text-paragraph"}`} style="animation-delay: 1.5s;"  
       >
-        <p class="paragraph">{content.description}</p>
+        <p class="paragraph " >{content.description}</p>
         <Button
           text={content.button.label}
           href={content.button.href}
           changeColor={changeColor}
+          extraBtnClass="fade-up-slow [--delay:1.8s]"
         />
       </div>
     </div>

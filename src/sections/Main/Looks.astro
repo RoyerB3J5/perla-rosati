@@ -1,4 +1,5 @@
 ---
+import AnimatedTitle from "../../components/AnimatedTitle.astro";
 type Translations = typeof import("../../i18n/en").default;
 type LooksContent = Translations["main"]["looks"];
 interface Props {
@@ -12,7 +13,7 @@ const { content, lang } = Astro.props as Props;
   class="container-full flex flex-col md:flex-row justify-center items-center py-16 md:py-20 gap-8 xl:gap-20 relative"
 >
   <div
-    class="w-full md:flex-1 h-auto relative overflow-hidden flex justify-start items-end p-10 order-2 md:order-1"
+    class="w-full md:flex-1 h-auto relative overflow-hidden flex justify-start items-end p-10 order-2 md:order-1 reveal-ltr"
     style="aspect-ratio: 560/696;"
   >
     <img
@@ -39,26 +40,30 @@ const { content, lang } = Astro.props as Props;
   >
     <div class="flex flex-col justify-center items-center gap-6 max-w-[532px]">
       <p
-        class="paragraph-medium tracking-[2.56px] uppercase w-[80%] text-center"
+        class="paragraph-medium tracking-[2.56px] uppercase w-[80%] text-center fade-up-a"
       >
         {content.tag}
       </p>
-      <h2 class="title-2 text-center">{content.title}</h2>
+      <AnimatedTitle
+        text={content.title}
+        tag="h2"
+        class="title-2 text-center"
+      />
     </div>
     <img
       src="/images/looks-2-main.webp"
       alt="Looks Main 2"
       width="240"
       height="240"
-      class="w-60 h-60"
+      class="w-60 h-60 reveal-rtl"
       decoding="async"
       loading="lazy"
     />
     <div class="flex flex-col justify-center items-center gap-8 max-w-[368px]">
-      <p class="text-center paragraph">{content.description}</p>
+      <p class="text-center paragraph fade-up-a">{content.description}</p>
       <a
         href={`${lang}/${content.link.href}`}
-        class="paragraph-medium tracking-[2.56px] uppercase py-2 border-b-[1.5px] border-paragraph"
+        class="paragraph-medium tracking-[2.56px] uppercase py-2 border-b-[1.5px] border-paragraph fade-up-slow [--delay:0.5s]"
         >{content.link.label}
       </a>
     </div>

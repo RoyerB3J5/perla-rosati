@@ -1,4 +1,5 @@
 ---
+import AnimatedTitle from "../../components/AnimatedTitle.astro";
 import Button from "../../components/Button.astro";
 import { Plus, Minus } from "@lucide/astro";
 type Translations = typeof import("../../i18n/en").default;
@@ -18,7 +19,7 @@ const { content } = Astro.props as Props;
       alt="Map"
       width="1024"
       height="1024"
-      class="w-full md:w-1/2 h-auto order-2 md:order-1"
+      class="w-full md:w-1/2 h-auto order-2 md:order-1 reveal-ltr"
       decoding="async"
       loading="eager"
     />
@@ -26,15 +27,15 @@ const { content } = Astro.props as Props;
       <div
         class="w-full flex flex-col justify-start items-start gap-6 text-paragraph"
       >
-        <p class="uppercase paragraph-medium">{content.tag}</p>
-        <h1 class="title-2 md:title-3">{content.title}</h1>
+        <p class="uppercase paragraph-medium fade-up-a">{content.tag}</p>
+        <AnimatedTitle text={content.title} tag="h1" class="title-2 md:title-3" />
       </div>
-      <div class="w-full h-[1.5px] bg-paragraph"></div>
-      <p class="paragraph">{content.description}</p>
-      <ul class="flex flex-col justify-start items-start gap-1 text-paragraph">
+      <div class="w-full h-[1.5px] bg-paragraph fade-up-a" style="animation-delay:0.5s"></div>
+      <p class="paragraph fade-up-a" style="animation-delay:0.5s">{content.description}</p>
+      <ul class="flex flex-col justify-start items-start gap-1 text-paragraph fade-up-a" style="animation-delay:0.5s">
         {
           content.items.map((item) => (
-            <li class="paragraph list-disc list-outside ml-4">
+            <li class="paragraph list-disc list-outside ml-4 ">
               <span class="font-medium">{item.label}</span>
               <a
                 href={item.href}
@@ -48,7 +49,7 @@ const { content } = Astro.props as Props;
           ))
         }
       </ul>
-      <Button text={content.button.label} href={content.button.href} />
+      <Button text={content.button.label} href={content.button.href} extraBtnClass="fade-up-slow [--delay:0.5s]" />
     </div>
   </div>
 </section>

@@ -1,5 +1,5 @@
 - Traducir contenido
-- Hacer animaciones
+- Links de Footer
 - Shapehub
 - Poner links
 - Conectar con crm

@@ -1,4 +1,5 @@
 ---
+import AnimatedTitle from "../../components/AnimatedTitle.astro";
 import Button from "../../components/Button.astro";
 
 type Translations = typeof import("../../i18n/en").default;
@@ -11,7 +12,7 @@ const { content, lang } = Astro.props as Props;
 ---
 
 <section
-  class="w-[calc(100%-2rem)] md:w-full h-auto flex justify-center items-center overflow-hidden relative aspect-398/808 md:aspect-1440/950 xl:aspect-1440/808 mx-auto md:mx-0"
+  class="w-[calc(100%-2rem)] md:w-full h-auto flex justify-center items-center overflow-hidden relative aspect-398/808 md:aspect-1440/950 xl:aspect-1440/808 mx-auto md:mx-0 reveal-rtl"
 >
   <img
     src="/images/version.webp"
@@ -25,14 +26,13 @@ const { content, lang } = Astro.props as Props;
   <div
     class="max-w-[800px] xl:max-w-[534px] flex flex-col justify-between items-center px-4 md:px-0 py-17 md:py-8 lg:py-12 xl:py-17 w-full text-paragraph relative z-5 h-full"
   >
-    <h2 class="title-2 text-center">
-      {content.title}
-    </h2>
+    <AnimatedTitle text={content.title} tag="h2" class="title-2 text-center" />
     <div class="flex flex-col justify-center items-center gap-8 md:gap-4 lg:gap-8">
-      <p class="paragraph text-center w-[90%]">{content.descripcion}</p>
+      <p class="paragraph text-center w-[90%] fade-up-a">{content.descripcion}</p>
       <Button
         text={content.button.label}
         href={`${lang}/${content.button.href}`}
+        extraBtnClass="fade-up-slow [--delay:0.5s]"
       />
     </div>
   </div>

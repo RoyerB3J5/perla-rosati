@@ -1,4 +1,5 @@
 ---
+import AnimatedTitle from "../components/AnimatedTitle.astro";
 import ServicesCarousel from "../components/ServicesCarousel";
 
 interface Props {
@@ -33,16 +34,18 @@ const { categorie, items } = Astro.props as Props;
   class="container-full flex flex-col justify-center items-center gap-12 md:gap-14"
 >
   <div
-    class="category-scroll w-full xl:w-auto max-w-full flex justify-start xl:justify-center items-stretch flex-nowrap overflow-x-auto xl:overflow-visible scroll-smooth "
+    data-category-menu
+    class="category-scroll w-full xl:w-auto max-w-full flex justify-start xl:justify-center items-stretch flex-nowrap overflow-x-auto xl:overflow-visible scroll-smooth fade-up-a"
   >
     {
       categorie.map((item) => (
         <>
           <a
             href={`#${item.title.replace(/\s+/g, "-").toLowerCase()}`}
-            class="paragraph-medium text-paragrah uppercase tracking-[2.56px] cursor-pointer border-r-2 border-paragraph last:border-r-0 px-6 shrink-0 whitespace-nowrap"
+            class="paragraph-medium text-paragrah uppercase tracking-[2.56px] cursor-pointer border-r-2 border-paragraph last:border-r-0 px-6 shrink-0 whitespace-nowrap group relative"
           >
             {item.title}
+            <div class="group-hover:bg-paragraph group-hover:text-white w-[50%] h-[1px] aboslute -bottom-2 left-1/2 translate-x-1/2 transition-all duration-300 ease-in-out"></div>
           </a>
         </>
       ))
@@ -52,13 +55,85 @@ const { categorie, items } = Astro.props as Props;
     {
       items.map((item) => (
         <div
-          class="w-full flex flex-col justify-center items-center md:items-start gap-6 md:gap-12"
+          class="w-full flex flex-col justify-center items-center md:items-start gap-6 md:gap-12 scroll-mt-10"
           id={item.title.replace(/\s+/g, "-").toLowerCase()}
         >
-          <h2 class="title-3 text-paragraph">{item.title}</h2>
+          <AnimatedTitle text={item.title} tag="h2" class="title-3 text-paragraph" />
           <ServicesCarousel items={item.items} client:load />
         </div>
       ))
     }
   </div>
 </section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Smooth, paced scrolling for the category submenu. Native anchor jumps
+    // are instant (scroll-smooth on the menu only affects its own horizontal
+    // overflow, not the page), and CSS can't control the duration, so we
+    // animate the page scroll manually with a fixed duration + easing.
+    const menu = document.querySelector("[data-category-menu]");
+    if (!menu) return;
+    const links = menu.querySelectorAll('a[href^="#"]');
+    if (links.length === 0) return;
+
+    const DURATION = 1100;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const easeInOutCubic = (t) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    let raf = 0;
+    const cancelScroll = () => cancelAnimationFrame(raf);
+
+    function smoothScrollTo(targetY) {
+      cancelScroll();
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      if (Math.abs(distance) < 2) return;
+      let startTime = null;
+      // Let the user take over: any manual scroll input stops the animation.
+      const stopOnInput = () => cancelScroll();
+      window.addEventListener("wheel", stopOnInput, {
+        passive: true,
+        once: true,
+      });
+      window.addEventListener("touchmove", stopOnInput, {
+        passive: true,
+        once: true,
+      });
+      const step = (now) => {
+        if (startTime === null) startTime = now;
+        const progress = Math.min((now - startTime) / DURATION, 1);
+        window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+        if (progress < 1) {
+          raf = requestAnimationFrame(step);
+        }
+      };
+      raf = requestAnimationFrame(step);
+    }
+
+    links.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const rawHref = link.getAttribute("href");
+        if (!rawHref || rawHref.length < 2) return;
+        const target = document.getElementById(rawHref.slice(1));
+        if (!target) return;
+        // Respect users who prefer reduced motion: keep the native jump.
+        if (reduceMotion) return;
+        event.preventDefault();
+        const headerHeight =
+          parseFloat(
+            getComputedStyle(document.documentElement).getPropertyValue(
+              "--header-height",
+            ),
+          ) || 80;
+        const targetY =
+          target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+        smoothScrollTo(targetY);
+        window.history.replaceState(null, "", rawHref);
+      });
+    });
+  });
+</script>

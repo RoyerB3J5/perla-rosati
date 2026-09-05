@@ -1,0 +1,79 @@
+---
+interface Props {
+  text: string;
+  tag?: "h1" | "h2" | "h3" | "h4" | "p" | "span";
+  class?: string;
+  delayStep?: number;
+  duration?: number;
+}
+
+const {
+  text,
+  tag: Tag = "h1",
+  class: className = "",
+  delayStep = 0.2, // Aumentado de 0.12s a 0.18s para distanciar más las entradas
+  duration = 2.2, // Aumentado de 0.8s a 1.4s para ralentizar el movimiento
+} = Astro.props;
+
+const words = text ? text.split(" ") : [];
+---
+
+<Tag class={`fade-up-words ${className}`}>
+  {
+    words.map((word, index) => (
+      <>
+        <span
+          class="word"
+          style={`--index: ${index}; --delay-step: ${delayStep}s; --duration: ${duration}s;`}
+        >
+          {word}
+        </span>
+        {index < words.length - 1 && " "}
+      </>
+    ))
+  }
+</Tag>
+
+<style>
+  .fade-up-words {
+    display: block;
+  }
+
+  .fade-up-words .word {
+    display: inline-block;
+
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    color: inherit !important;
+
+    vertical-align: baseline;
+
+    /* Estado inicial */
+    opacity: 0;
+    transform: translateY(
+      50px
+    ); /* Recorrido reducido a 20px para mayor sutileza *//* Desenfoque suave inicial */
+    will-change: transform, opacity, filter;
+  }
+
+  .fade-up-words.active .word {
+    /* Curva cubic-bezier(0.22, 1, 0.36, 1) desacelera de forma muy progresiva */
+    animation: fadeUpWord var(--duration, 1.4s) cubic-bezier(0.22, 1, 0.36, 1)
+      forwards;
+    animation-delay: calc(var(--index) * var(--delay-step, 0.18s));
+  }
+
+  @keyframes fadeUpWord {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

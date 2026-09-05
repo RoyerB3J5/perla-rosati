@@ -1,4 +1,5 @@
 ---
+import AnimatedTitle from "../../../components/AnimatedTitle.astro";
 import en from "../../../i18n/en";
 import es from "../../../i18n/es";
 import Layout from "../../../layouts/Layout.astro";
@@ -28,7 +29,7 @@ const seo = t.seo.education;
   canonicalPath="/education"
 >
   <section class="container-full pt-16 md:pt-(--header-height) pb-14 flex justify-center">
-    <h1 class="title-2 text-paragraph pt-16 md:pt-20 text-center ">{t.education.title}</h1>
+    <AnimatedTitle text={t.education.title} tag="h1" class="title-2 text-paragraph pt-16 md:pt-20 text-center" />
   </section>
   <GridEducation content={t.education.items} />
   <Reviews items={t.main.reviews} client:load />
