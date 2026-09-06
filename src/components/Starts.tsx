@@ -7,7 +7,7 @@ function Starts() {
   const [rating, setRating] = useState<number | null>(null);
   const showForm = rating !== null && rating <= 3;
   const total = 5;
-  const reviewLink = "https://www.facebook.com/profile.php?id=61593408904345&sk=reviews";
+  const reviewLink = "#";
 
   // Move any client-only side effects (redirect) into useEffect so SSR won't break.
   useEffect(() => {
@@ -41,9 +41,9 @@ function Starts() {
               onClick={() => handleRatingSelect(idx)}
             >
               {isActive ? (
-                <FaStar size={24} className="text-accent" />
+                <FaStar size={24} className="text-paragraph" />
               ) : (
-                <FaRegStar size={24} className="text-accent" />
+                <FaRegStar size={24} className="text-paragraph" />
               )}
             </button>
           );

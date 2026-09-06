@@ -5,8 +5,8 @@ import { emailAddress, facebookLink, instagramLink } from "../../constants/info"
 ---
 
 <LayoutSec
-  title="Leave a Review | Prestige Growth Partners"
-  description="Share your feedback and experience with Prestige Growth Partners."
+  title="Leave a Review | Perla Rosati Makeup"
+  description="Share your feedback and experience with Perla Rosati Makeup in Orlando. Your review means the world to us."
   canonicalPath="/review"
 >
   <img
@@ -23,8 +23,8 @@ import { emailAddress, facebookLink, instagramLink } from "../../constants/info"
       <div class="w-full flex flex-col justify-center items-center gap-5">
         <a href="/">
           <img
-            src="/images/logo.svg"
-            alt="Logo de Prestige Growth Partners"
+            src="/icons/logo.svg"
+            alt="Logo de Perla Rosati Makeup"
             width="180"
             height="36"
             class="cursor-pointer w-60 md:w-45 h-auto"
@@ -32,9 +32,9 @@ import { emailAddress, facebookLink, instagramLink } from "../../constants/info"
         </a>
         <div class="flex flex-col justify-center items-center">
           <p
-            class="text-[12px] leading-[150%] max-w-[320px] text-center text-white font-normal"
+            class="text-[12px] leading-[150%] max-w-[320px] text-center text-paragraph font-normal"
           >
-            We hope you loved the experience with <br /> Prestige Growth Partners
+            We hope you loved the experience with <br /> Perla Rosati Makeup
             <br /> Your feedback means the world to us.
           </p>
         </div>
@@ -55,7 +55,7 @@ import { emailAddress, facebookLink, instagramLink } from "../../constants/info"
           >
             Please tap the option that best reflects the quality of our service.
           </p>
-          <Starts client:idle />
+          <Starts client:load />
         </div>
       </div>
     </div>
@@ -66,30 +66,30 @@ import { emailAddress, facebookLink, instagramLink } from "../../constants/info"
       <div class="flex justify-center items-center gap-3">
         <a
           href={`mailto:${emailAddress}`}
-          class="p-2 rounded-full flex items-center justify-center bg-primary shrink-0"
+          class="p-2 rounded-full flex items-center justify-center bg-paragraph shrink-0"
         >
           <img src="/images/mail-white.svg" alt="Mail" class="w-4 h-4" />
         </a>
         <a
           href={facebookLink}
-          class="p-2 rounded-full flex items-center justify-center bg-primary shrink-0"
+          class="p-2 rounded-full flex items-center justify-center bg-paragraph shrink-0"
         >
           <img src="/images/facebook.svg" alt="Facebook" class="w-4 h-4" />
         </a>
         <a
           href={instagramLink}
-          class="p-2 rounded-full flex items-center justify-center bg-primary shrink-0"
+          class="p-2 rounded-full flex items-center justify-center bg-paragraph shrink-0"
         >
           <img src="/images/instagram.svg" alt="Instagram" class="w-4 h-4" />
         </a>
       </div>
       <div class="flex flex-col justify-center items-center gap-2.25">
-        <p class="text-[12px] font-normal leading-[140%] text-white">
+        <p class="text-[12px] font-normal leading-[140%] text-paragraph">
           Powered by
         </p>
         <a href="https://inkshapegroup.com/en/">
           <img
-            src="/images/icons/inkshape.svg"
+            src="/icons/inkshape.svg"
             alt="Imagen del Footer"
             width="3745"
             height="996"
@@ -107,8 +107,8 @@ import { emailAddress, facebookLink, instagramLink } from "../../constants/info"
       btn.addEventListener("click", async (e) => {
         e.stopPropagation();
         const shareData = {
-          title: "Prestige Growth Partners",
-          text: "Prestige Growth Partners - Discover how Prestige Growth Partners transforms your business with innovative marketing solutions and systems designed to accelerate your growth and maximize your impact.",
+            title: "Perla Rosati Makeup",
+            text: "Perla Rosati Makeup - Professional makeup, hairstyling and beauty courses in Orlando, Florida. Book your appointment and celebrate your essence.",
           url: window.location.href,
         };
 

@@ -54,7 +54,7 @@ export default function NuvisionForm() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#d3ae6a",
+            background: "#f6f3ee",
             overflow: "hidden",
           }}
         >

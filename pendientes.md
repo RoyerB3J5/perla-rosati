@@ -1,8 +1,6 @@
-- Traducir contenido
-- Links de Footer
-- Shapehub
 - Poner links
 - Conectar con crm
 - Chatbot
 - Formularios
-- Favicon
+
+- Traducir contenido

@@ -50,10 +50,10 @@ const absoluteImage = image.startsWith("http")
   ? image
   : `${SITE_URL}${image.startsWith("/") ? "" : "/"}${image}`;
 
-// Base FinancialService / Organization Schema
+// Base BeautySalon / Organization Schema
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "FinancialService",
+  "@type": "BeautySalon",
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
   legalName: SITE_NAME,
@@ -65,8 +65,10 @@ const organizationSchema = {
   email: emailAddress,
   address: {
     "@type": "PostalAddress",
+    streetAddress: "13550 Village Park Drive",
     addressLocality: "Orlando",
     addressRegion: "FL",
+    postalCode: "32837",
     addressCountry: "US",
   },
   geo: {
@@ -74,8 +76,14 @@ const organizationSchema = {
     latitude: 28.5383,
     longitude: -81.3792,
   },
-  sameAs: [instagramLink, facebookLink].filter(Boolean),
-  priceRange: "$$$",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  sameAs: [instagramLink, facebookLink].filter((l) => l && l !== "#"),
+  priceRange: "$$",
 };
 
 const websiteSchema = {
@@ -151,7 +159,6 @@ const allSchemas = [organizationSchema, websiteSchema, ...customSchemas];
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@PrestigeGP" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={absoluteImage} />

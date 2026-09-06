@@ -6,30 +6,31 @@ import SaveContact from "../../components/SaveContact.astro";
 const content = [
   {
     title: "Instagram",
-    link: "https://www.instagram.com/prestigegrowthpartnerscorp/?hl=es",
+    link: "#",
   },
   {
     title: "Facebook",
-    link: "https://www.facebook.com/profile.php?id=61593408904345&sk=reviews",
+    link: "#",
   },
   {
     title: "Website",
     link: "/",
   },
+
   {
-    title: "About Us",
-    link: "/en/about-us",
+    title: "Services",
+    link: "/en/services",
   },
   {
-    title: "Success Stories",
-    link: "/en/success-stories",
+    title: "Education",
+    link: "/en/education",
   },
 ];
 ---
 
 <LayoutSec
-  title="Link in Bio | Prestige Growth Partners"
-  description="Connect with Prestige Growth Partners. Access $150K to $1M in business funding, schedule a consultation, or follow our social channels."
+  title="Bio | Perla Rosati Makeup"
+  description="Learn more about Perla Rosati Makeup in Orlando: book your makeup or beauty appointment, save our contact, or follow us on social media."
   canonicalPath="/bio"
 >
   <img
@@ -38,38 +39,41 @@ const content = [
     class="absolute top-6 right-6 w-6 h-6 cursor-pointer share-btn"
   />
   <section
-    class="w-full flex flex-col justify-center items-center gap-8 py-18 px-6 max-w-125 z-10 min-h-screen"
+    class="w-full flex flex-col justify-center items-center gap-8 py-18 px-6 max-w-125 z-10"
   >
     <div class="w-full flex flex-col justify-center items-center gap-5.25">
       <a href="/">
         <img
-          src="/images/logo.svg"
-          alt="Logo de Prestige Growth Partners"
+          src="/icons/logo.svg"
+          alt="Logo de Perla Rosati"
           width="180"
           height="36"
           class="cursor-pointer w-60 md:w-45 h-auto"
         />
       </a>
       <div class="flex flex-col justify-center items-center gap-3">
-        <h1 class="text-[16px] leading-[175%] font-bold text-white">
-          @PrestigeGrowthPartners
+        <h1
+          class="text-[24px] leading-[175%] font-bold text-paragraph font-title"
+        >
+          @PerlaRosati
         </h1>
         <div
           class="flex justify-center items-center gap-0.75 mt-0.5 mb-2.75 font-paragraph"
         >
           <img src="/images/pin-map.svg" alt="Ubicación" class="w-3 h-3" />
           <p
-            class="text-[10.5px] leading-5.5 font-medium text-white font-paragraph"
+            class="text-[10.5px] leading-5.5 font-medium text-paragraph font-paragraph"
           >
-            Florida, USA
+            Orlando, Florida
           </p>
         </div>
         <p
-          class="text-[12px] leading-[150%] text-center font-medium text-white font-paragraph"
+          class="text-[12px] leading-[150%] text-center font-medium text-paragraph"
         >
-          Discover how Prestige Growth Partners transforms your business with
-          innovative marketing solutions and systems designed to accelerate your
-          growth and maximize your impact.
+          Discover how Perla Rosati Makeup enhances your natural beauty with
+          personalized makeup looks, professional hairstyling and skincare
+          rituals designed to make you feel confident, radiant and
+          unforgettable.
         </p>
       </div>
       <SocialMedia />
@@ -94,14 +98,14 @@ const content = [
       </button>
     </div>
     <div class="flex flex-col justify-center items-center gap-2.25 mt-10">
-      <p class="text-[14px] font-normal leading-[140%] text-white">
+      <p class="text-[14px] font-normal leading-[140%] text-paragraph">
         Powered by
       </p>
       <a href="
         https://inkshapegroup.com
         ">
         <img
-          src="/images/icons/inkshape.svg"
+          src="/icons/inkshape.svg"
           alt="Imagen del Footer"
           width="3745"
           height="996"
@@ -131,39 +135,37 @@ const content = [
         class="absolute top-5 right-5 w-5 h-5 cursor-pointer"
         id="close-panel"
       />
-      <p class="text-[16px]">Prestige Growth Partners</p>
+      <p class="text-[16px]">Perla Rosati</p>
       <div class="flex flex-col justify-center items-start gap-8 mt-3">
         <p class="text-[18px] font-bold mb-5 w-full text-center">
-          Prestige Growth Partners - The Ultimate Solution
+          Perla Rosati Makeup - Realza tu belleza
         </p>
         <div
           class="flex justify-center items-center gap-5 text-[16px] font-medium"
         >
           <p class="font-bold text-[22px]">@</p>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@prestigegrowthpartners.com"
-            >admin@prestigegrowthpartners.com</a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=perlarosatimakeup@gmail.com"
+            >perlarosatimakeup@gmail.com</a
           >
         </div>
         <div
           class="flex justify-center items-center gap-5 text-[16px] font-medium"
         >
           <img src="/images/phone-3.svg" alt="Telefono" class="w-6 h-6" />
-          <a href="tel:+17863386177">786-338-6177</a>
+          <a href="tel:+17867813547">(786) 781-3547</a>
         </div>
         <div
           class="flex justify-center items-center gap-5 text-[16px] font-medium"
         >
           <img src="/images/map-1.svg" alt="Ubicación" class="w-6 h-6" />
-          <a>Florida, USA</a>
+          <a>13550 Village Park Drive, Orlando, FL 32837</a>
         </div>
         <div
           class="flex justify-center items-center gap-5 text-[16px] font-medium"
         >
           <img src="/images/web.svg" alt="Website" class="w-6 h-6" />
-          <a href="https://www.prestigegrowthpartners.com/"
-            >prestigegrowthpartners.com</a
-          >
+          <a href="/en">Perla Rosati Makeup</a>
         </div>
         <SaveContact />
       </div>
@@ -249,8 +251,8 @@ const content = [
         btn.addEventListener("click", async (e) => {
           e.stopPropagation();
           const shareData = {
-            title: "Prestige Growth Partners",
-            text: "Prestige Growth Partners - Discover how Prestige Growth Partners transforms your business with innovative marketing solutions and systems designed to accelerate your growth and maximize your impact.",
+            title: "Perla Rosati Makeup",
+            text: "Perla Rosati Makeup - Professional makeup, hairstyling and beauty courses in Orlando, Florida. Book your appointment and celebrate your essence.",
             url: window.location.href,
           };
 

@@ -51,7 +51,7 @@ export default {
         "En Perla Rosati Makeup creemos que cada rostro es único. Por eso combinamos técnica, experiencia y atención personalizada para crear un resultado que refleje tu estilo y personalidad.",
       link: {
         label: "nuestros servicios",
-        href: "#",
+        href: "/en/services",
       },
     },
     process: {
@@ -98,14 +98,14 @@ export default {
       image: "perla",
       link: {
         label: "CONOCE MÁS SOBRE MI",
-        href: "#",
+        href: "/en/about-us",
       },
     },
     clients: {
       title: "Nuestros clientes",
       button: {
         label: "galería",
-        href: "/gallery",
+        href: "/en/gallery",
       },
     },
     reviews: [
@@ -522,19 +522,19 @@ export default {
       items: [
         {
           label: "Maquillaje",
-          href: "#",
+          href: "/en/services#makeup",
         },
         {
           label: "Cabello",
-          href: "#",
+          href: "/en/services#hair",
         },
         {
           label: "Faciales",
-          href: "#",
+          href: "/en/services#facials",
         },
         {
           label: "Educación",
-          href: "#",
+          href: "/en/education",
         },
       ],
     },
@@ -558,54 +558,54 @@ export default {
   },
   seo: {
     main: {
-      title: "Perla Rosati Makeup | Professional Makeup Artist",
+      title: "Maquillaje Profesional en Orlando | Perla Rosati Makeup",
       description:
-        "Perla Rosati is a professional makeup artist specializing in bridal and special occasion makeup. Experience the best makeup services in Orlando, Florida!",
+        "Realza tu belleza con maquillaje profesional personalizado en Orlando, FL. Novias, eventos sociales y looks que celebran tu esencia. ¡Reserva hoy!",
       keywords:
-        "Perla Rosati Makeup, Professional Makeup Artist, Bridal Makeup, Special Occasion Makeup, Orlando Florida",
+        "maquillaje profesional Orlando, maquilladora en Orlando Florida, maquillaje de novias Orlando, maquillaje social, Perla Rosati Makeup",
     },
     aboutUs: {
-      title: "Perla Rosati Makeup | Professional Makeup Artist",
+      title: "Nosotros | Perla Rosati, Maquilladora en Orlando",
       description:
-        "Perla Rosati is a professional makeup artist specializing in bridal and special occasion makeup. Experience the best makeup services in Orlando, Florida!",
+        "Conoce a Perla Rosati, maquilladora venezolana en Orlando con más de 9 años de experiencia. Un estudio donde tu belleza se potencia, no se transforma.",
       keywords:
-        "Perla Rosati Makeup, Professional Makeup Artist, Bridal Makeup, Special Occasion Makeup, Orlando Florida",
+        "Perla Rosati maquilladora, historia Perla Rosati, maquilladora venezolana en Orlando, estudio de maquillaje Orlando Florida, maquilladora profesional",
     },
     services: {
-      title: "Perla Rosati Makeup | Professional Makeup Artist",
+      title: "Servicios de Maquillaje y Belleza en Orlando | Perla Rosati",
       description:
-        "Perla Rosati is a professional makeup artist specializing in bridal and special occasion makeup. Experience the best makeup services in Orlando, Florida!",
+        "Maquillaje de novias, social, quinceañeras, cabello, faciales, cejas y pestañas en Orlando. Reserva y luce radiante en tu gran día.",
       keywords:
-        "Perla Rosati Makeup, Professional Makeup Artist, Bridal Makeup, Special Occasion Makeup, Orlando Florida",
+        "maquillaje de novias Orlando, maquillaje para quinceañeras, peinado Orlando, faciales Orlando Florida, cejas y pestañas Orlando, servicios de belleza",
     },
     education: {
-      title: "Perla Rosati Makeup | Professional Makeup Artist",
+      title: "Cursos de Maquillaje en Orlando | Automaquillaje y Pro Master",
       description:
-        "Perla Rosati is a professional makeup artist specializing in bridal and special occasion makeup. Experience the best makeup services in Orlando, Florida!",
+        "Aprende automaquillaje en 3 horas o fórmate como maquilladora profesional en 6 semanas en Orlando. Clases online y presenciales con certificado.",
       keywords:
-        "Perla Rosati Makeup, Professional Makeup Artist, Bridal Makeup, Special Occasion Makeup, Orlando Florida",
+        "curso de automaquillaje Orlando, curso de maquillaje profesional Florida, Beauty Pro Master, clases de maquillaje online, certificación maquillaje Florida",
     },
     gallery: {
-      title: "Perla Rosati Makeup | Professional Makeup Artist",
+      title: "Galería de Maquillaje | Trabajos Reales en Orlando",
       description:
-        "Perla Rosati is a professional makeup artist specializing in bridal and special occasion makeup. Experience the best makeup services in Orlando, Florida!",
+        "Explora nuestra galería: maquillaje de novias, social y quinceañeras reales hechos en Orlando. Inspírate y encuentra el look de tus sueños.",
       keywords:
-        "Perla Rosati Makeup, Professional Makeup Artist, Bridal Makeup, Special Occasion Makeup, Orlando Florida",
+        "galería de maquillaje Orlando, fotos maquillaje de novias, looks de maquillaje social, portafolio maquilladora Orlando, maquillaje quinceañeras",
     },
 
     blog: {
-      title: "Perla Rosati Makeup | Professional Makeup Artist",
+      title: "Blog de Belleza y Maquillaje | Consejos y Tendencias",
       description:
-        "Perla Rosati is a professional makeup artist specializing in bridal and special occasion makeup. Experience the best makeup services in Orlando, Florida!",
+        "Consejos de maquillaje natural, looks duraderos y tendencias de belleza en Orlando. Inspiración de Perla Rosati para resaltar tu estilo auténtico.",
       keywords:
-        "Perla Rosati Makeup, Professional Makeup Artist, Bridal Makeup, Special Occasion Makeup, Orlando Florida",
+        "blog de maquillaje, consejos de belleza, maquillaje natural, maquillaje duradero, tendencias de maquillaje Orlando",
     },
     contact: {
-      title: "Perla Rosati Makeup | Professional Makeup Artist",
+      title: "Contacto y Reservas en Orlando | Perla Rosati Makeup",
       description:
-        "Perla Rosati is a professional makeup artist specializing in bridal and special occasion makeup. Experience the best makeup services in Orlando, Florida!",
+        "Reserva tu cita en 13550 Village Park Drive, Orlando. WhatsApp (786) 781-3547, respuesta en 24h. Mar a sáb 9am–6pm. ¡Escríbenos hoy!",
       keywords:
-        "Perla Rosati Makeup, Professional Makeup Artist, Bridal Makeup, Special Occasion Makeup, Orlando Florida",
+        "reservar maquillaje Orlando, contacto Perla Rosati, cita maquilladora Orlando, WhatsApp maquillaje Florida, estudio de maquillaje dirección",
     },
   },
 };
