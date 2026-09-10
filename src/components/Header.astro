@@ -105,12 +105,12 @@ const lang = match ? match[1] : "en";
 </header>
 
 <div
-  class="fixed top-0 right-0 bottom-0 xl:hidden flex items-start bg-white text-paragraph flex-col justify-between h-full z-60 pb-12 px-4 pt-6 gap-12 transform translate-x-full transition-transform duration-300 ease-out w-full"
+  class="fixed top-0 right-0 bottom-0 xl:hidden flex items-start bg-white text-paragraph flex-col justify-between h-full z-60 pb-12 pt-6 gap-12 transform translate-x-full transition-transform duration-300 ease-out w-full"
   id="mobile-menu"
 >
   <div class="flex flex-col justify-center items-start gap-6 w-full">
     <X
-      class="block cursor-pointer z-20 w-6 h-6 text-paragraph self-end"
+      class="block cursor-pointer z-20 w-6 h-6 text-paragraph self-end mr-4"
       id="close-btn"
       aria-label="Cerrar menú de navegación"
       title="Cerrar menú"
@@ -121,19 +121,18 @@ const lang = match ? match[1] : "en";
       href={`/${lang}`}
       aria-label="Ir a la página principal"
       title="Perla Rosati Makeup - Init"
+      class="ml-4"
     >
       <img
         src="/icons/logo.svg"
         alt="Logo de Perla Rosati Makeup"
         width="216"
         height="56"
-        class="cursor-pointer w-[216px] h-auto"
+        class="cursor-pointer w-[157px] h-auto"
       />
     </a>
     <nav class="w-full">
-      <ul
-        class="relative flex items-start flex-col justify-center w-full "
-      >
+      <ul class="relative flex items-start flex-col justify-center w-full">
         {
           content?.nav.map((item, index) => {
             const itemPathWithoutHash = item.href.split("#")[0];
@@ -141,16 +140,16 @@ const lang = match ? match[1] : "en";
             return (
               <>
                 <li
-                  class={`flex flex-col items-start justify-start group gap-3.5  w-full text-start border-b-[1.5px] border-b-paragraph last:border-b-0  ${isActive ? "bg-secondary px-4 text-white uppercase " : ""}`}
+                  class={`flex flex-col items-start justify-start group gap-3.5  w-full text-start border-b-[1.5px] border-b-[#E7E7E7] px-4   ${isActive ? "bg-paragraph  text-white uppercase " : ""}`}
                   id={`mobile-nav-item-${index}`}
                 >
                   <a
                     href={`/${lang}${item.href}`}
-                    class="relative transition-colors duration-300 flex justify-between items-center w-full pb-4 pt-6 gap-2"
+                    class="relative transition-colors duration-300 flex justify-between items-center w-full py-6 gap-2"
                     aria-expanded="false"
                   >
                     <p
-                      class={`title-4 uppercase ${isActive ? "text-paragraph" : "text-paragraph"}`}
+                      class={`text-[17px] font-normal leading-[150%] tracking-[-0.5px] uppercase ${isActive ? "text-white" : "text-paragraph"}`}
                       set:html={item.label}
                     />
                   </a>

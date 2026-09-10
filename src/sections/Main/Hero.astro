@@ -32,7 +32,11 @@ const isHomePage = /^\/(en|es)?\/?$/.test(pathname);
     class="z-0 w-full h-full absolute inset-0 object-cover object-[50%_15%] md:hidden block"
   />
   <div
-    class="container-full flex justify-start items-center h-[calc(100vh-var(--header-height))] md:h-[calc(60vh-var(--header-height))] xl:h-[calc(100vh-var(--header-height))] relative z-10 py-2 md:py-8 xl:py-[1vw] 3xl:py-[4vw]"
+    class={`z-3 w-full h-full absolute inset-0 ${changeColor ? "bg-gradient-to-b from-black/0 from-[69.03%] to-black" : "bg-gradient-to-b from-white/0 from-[70.65%] to-white/40"}`}
+  >
+  </div>
+  <div
+    class="container-full flex justify-start items-center h-[calc(98vh-var(--header-height))] md:h-[calc(60vh-var(--header-height))] xl:h-[calc(100vh-var(--header-height))] relative z-10 pt-2 pb-6 md:py-8 xl:py-[1vw] 3xl:py-[4vw]"
   >
     <div
       class="flex flex-col justify-between items-start h-full max-w-none md:max-w-[51%] xl:max-w-[553px]"
@@ -46,9 +50,10 @@ const isHomePage = /^\/(en|es)?\/?$/.test(pathname);
         <AnimatedTitle text={content.title} tag="h1" class="title-1" />
       </div>
       <div
-        class={`fade-up-a pt-4 flex flex-col justify-center items-start gap-8 border-t-[1.5px]  ${changeColor ? "text-white border-white md:text-paragraph md:border-paragraph" : "border-paragraph text-paragraph"}`} style="animation-delay: 1.5s;"  
+        class={`fade-up-a pt-4 flex flex-col justify-center items-start gap-6 md:gap-8 border-t-[1.5px]  ${changeColor ? "text-white border-white md:text-paragraph md:border-paragraph" : "border-paragraph text-paragraph"}`}
+        style="animation-delay: 1.5s;"
       >
-        <p class="paragraph " >{content.description}</p>
+        <p class="paragraph">{content.description}</p>
         <Button
           text={content.button.label}
           href={content.button.href}
