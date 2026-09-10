@@ -13,8 +13,11 @@ interface Props {
     image: string;
     idCategory: string;
   }[];
+  lang?: string;
 }
-const { category, items } = Astro.props as Props;
+const { category, items, lang = "en" } = Astro.props as Props;
+// Destacado: el 5º post de la página; si la página trae menos, usa el primero.
+const featured = items[4] ?? items[0];
 ---
 
 <style>
@@ -33,15 +36,20 @@ const { category, items } = Astro.props as Props;
     class="category-scroll w-full xl:w-auto max-w-full flex justify-start xl:justify-center items-stretch flex-nowrap overflow-x-auto xl:overflow-visible scroll-smooth fade-up-a"
   >
     {
-      category.map((item) => (
+      category.map((item, i) => (
         <>
-          <a
-            href={`#${item.title.replace(/\s+/g, "-").toLowerCase()}`}
+          <button
+            type="button"
+            data-category-filter={item.id}
+            data-active={i === 0 ? "true" : "false"}
             class="paragraph-medium text-paragrah uppercase tracking-[2.56px] cursor-pointer border-r-2 border-paragraph last:border-r-0 px-6 shrink-0 whitespace-nowrap group"
           >
             {item.title}
-            <div class="group-hover:bg-paragraph group-hover:text-white w-[50%] h-[1px] aboslute -bottom-1 left-1/2 translate-x-1/2 transition-all duration-300 ease-in-out" />
-          </a>
+            <div
+              data-filter-underline
+              class={`group-hover:bg-paragraph group-hover:text-white w-[50%] h-[1px] aboslute -bottom-1 left-1/2 translate-x-1/2 transition-all duration-300 ease-in-out${i === 0 ? " bg-paragraph" : ""}`}
+            />
+          </button>
         </>
       ))
     }
@@ -50,14 +58,15 @@ const { category, items } = Astro.props as Props;
     class="w-full flex flex-col justify-center items-center gap-16 md:gap-20"
   >
     <div
+      id="blog-featured"
       class="w-full flex flex-col md:flex-row jusitfy-center items-center border-[1.5px] border-paragraph gap-0 xl:gap-6"
     >
       <div
         class="w-full max-w-[628px] h-auto relative overflow-hidden aspect-628/542 md:aspect-628/652 lg:aspect-628/542 reveal-ltr"
       >
         <img
-          src={items[4].image}
-          alt={items[4].title}
+          src={featured.image}
+          alt={featured.title}
           class="w-full h-full object-cover absolute inset-0"
           decoding="async"
           loading="eager"
@@ -72,12 +81,12 @@ const { category, items } = Astro.props as Props;
           class="w-full flex flex-col justify-center items-start gap-8 max-w-[564px] p-8 md:px-6 md:py-0"
         >
           <div class="flex flex-col justify-center items-start gap-6">
-            <AnimatedTitle text={items[4].title} tag="h2" class="title-4" />
+            <AnimatedTitle text={featured.title} tag="h2" class="title-4" />
             <p
               class="paragraph-medium uppercase fade-up-a"
               style="animation-delay:0.5s"
             >
-              {items[4].date} . PERLA ROSATI
+              {featured.date} . PERLA ROSATI
             </p>
             <div
               class="w-full h-[1.5px] bg-paragraph fade-up-a"
@@ -85,11 +94,11 @@ const { category, items } = Astro.props as Props;
             >
             </div>
             <p class="paragraph fade-up-a" style="animation-delay:0.5s">
-              {items[4].description}
+              {featured.description}
             </p>
           </div>
           <a
-            href="#"
+            href={`/${lang}/blog/${featured.id}`}
             class="paragraph-medium uppercase border-b-[1.5px] border-paragraph tracking-[2.56px] pb-2 fade-up-slow [--delay:0.5s]"
           >
             LEER ARTÍCULO
@@ -98,11 +107,16 @@ const { category, items } = Astro.props as Props;
       </div>
     </div>
     <div
+      id="blog-grid"
       class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start"
     >
       {
         items.map((item) => (
-          <div class="flex flex-col justify-center items-start gap-6 text-paragraph h-full">
+          <div
+            data-blog-card
+            data-category-id={item.idCategory}
+            class="flex flex-col justify-center items-start gap-6 text-paragraph h-full"
+          >
             <div
               class="w-full h-auto relative overflow-hidden reveal-tl-br"
               style="aspect-ratio: 410.6/358.3"
@@ -127,7 +141,7 @@ const { category, items } = Astro.props as Props;
             </p>
             <a
               class="paragraph-medium uppercase border-b-[1.5px] border-paragraph  tracking-[2.56px] pb-2 pt-4 fade-up-slow [--delay:0.5s]"
-              href="#"
+              href={`/${lang}/blog/${item.id}`}
             >
               LEER ARTÍCULO
             </a>
@@ -137,3 +151,47 @@ const { category, items } = Astro.props as Props;
     </div>
   </div>
 </section>
+
+<script>
+  // Filtro por categoría: compara el id de cada pill con el idCategory de
+  // cada tarjeta. La primera pill (TODO/ALL) muestra todo y arranca activa.
+  // No oculta directamente: marca con `data-filtered-out` y avisa con el
+  // evento `blog:filter` para que la paginación recalcule sobre el conjunto
+  // filtrado. Sin JS, se muestra todo.
+  const pills = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-category-filter]"),
+  );
+  const filterCards = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-blog-card]"),
+  );
+
+  if (pills.length > 0) {
+    const showAllId = pills[0].dataset.categoryFilter ?? "";
+
+    const applyFilter = (categoryId: string) => {
+      pills.forEach((pill) => {
+        const active = pill.dataset.categoryFilter === categoryId;
+        pill.dataset.active = active ? "true" : "false";
+        pill
+          .querySelector("[data-filter-underline]")
+          ?.classList.toggle("bg-paragraph", active);
+      });
+      filterCards.forEach((card) => {
+        const matches =
+          categoryId === showAllId ||
+          card.dataset.categoryId === categoryId;
+        if (matches) card.removeAttribute("data-filtered-out");
+        else card.setAttribute("data-filtered-out", "true");
+      });
+      window.dispatchEvent(
+        new CustomEvent("blog:filter", { detail: { categoryId } }),
+      );
+    };
+
+    pills.forEach((pill) => {
+      pill.addEventListener("click", () => {
+        applyFilter(pill.dataset.categoryFilter ?? "");
+      });
+    });
+  }
+</script>

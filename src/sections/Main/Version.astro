@@ -31,7 +31,7 @@ const { content, lang } = Astro.props as Props;
       <p class="paragraph text-center w-[90%] fade-up-a">{content.descripcion}</p>
       <Button
         text={content.button.label}
-        href={`${lang}/${content.button.href}`}
+        href={`/${lang}${content.button.href}`}
         extraBtnClass="fade-up-slow [--delay:0.5s]"
       />
     </div>

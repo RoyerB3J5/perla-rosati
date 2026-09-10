@@ -1,6 +1,6 @@
 - Poner links
-- Conectar con crm
 - Chatbot
 - Formularios
+- Probar blogs
 
 - Traducir contenido

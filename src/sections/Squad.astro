@@ -1,0 +1,273 @@
+---
+import AnimatedTitle from "../components/AnimatedTitle.astro";
+import Button from "../components/Button.astro";
+
+type Translations = typeof import("../i18n/en").default;
+type SquadContent = Translations["aboutUs"]["squad"];
+interface Props {
+  content: SquadContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<section
+  class="container-full flex justify-center items-center flex-col gap-14 py-16 md:py-20"
+>
+  <AnimatedTitle text={content.title} tag="h2" class="title-2 text-center" />
+  <div class="w-full flex flex-col justify-center items-center gap-12">
+    {
+      content.items.map((item, index) => {
+        const isEven = index % 2 === 0;
+
+        // 1. Extraemos las imágenes del item
+        const images = item.images || [];
+        // 2. Calculamos cuántas imágenes quedan después de las 2 primeras vistas
+        const remainingImages = images.length - 2;
+
+        // 3. Preparamos los URLs completos para pasarlos al frontend
+        const imageUrls = images.map((img) => `/images/squad/${img}.webp`);
+
+        return (
+          <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center">
+            {/* Bento Grid con grid-rows-2 */}
+            <div
+              class={`w-full grid grid-cols-2 grid-rows-2 gap-4 lg:gap-6 ${isEven ? "order-2 md:order-1 fade-right-a" : "order-2 fade-left-a"}`}
+            >
+              {/* 1. Primer Div (Imagen 0) */}
+              <div
+                class="row-span-2 aspect-[302/628] relative overflow-hidden gallery-trigger cursor-pointer group"
+                data-images={JSON.stringify(imageUrls)}
+                data-index="0"
+              >
+                {images[0] && (
+                  <img
+                    src={imageUrls[0]}
+                    alt={`${item.title} 1`}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
+              </div>
+
+              {/* 2. Segundo Div (Imagen 1) */}
+              <div
+                class="relative overflow-hidden w-full h-full gallery-trigger cursor-pointer group"
+                data-images={JSON.stringify(imageUrls)}
+                data-index="1"
+              >
+                {images[1] && (
+                  <img
+                    src={imageUrls[1]}
+                    alt={`${item.title} 2`}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
+              </div>
+
+              {/* 3. Tercer Div (Imagen 2 de fondo) */}
+              <div
+                class="relative overflow-hidden w-full h-full gallery-trigger cursor-pointer group"
+                data-images={JSON.stringify(imageUrls)}
+                data-index="2"
+              >
+                {images[2] && (
+                  <img
+                    src={imageUrls[2]}
+                    alt={`${item.title} 3`}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
+
+                {/* Overlay negro opaco con la cantidad restante (+X) */}
+                {remainingImages > 0 && (
+                  <div class="absolute inset-0 bg-paragraph/60 flex items-center justify-center transition-colors duration-300 group-hover:bg-paragraph/40">
+                    <span class="text-white text-[48px] md:text-[64px] font-normal leading-[150%] tracking-wider drop-shadow-md">
+                      +{remainingImages}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Columna de Texto (Sin cambios) */}
+            <div
+              class={`p-0 md:p-4 lg:p-8 flex flex-col justify-center items-start gap-8 md:gap-5 lg:gap-8 text-paragraph ${isEven ? "order-1 md:order-2" : "order-1"}`}
+            >
+              <div
+                class={`w-full h-[1.5px] bg-[#BAB6B2] ${isEven ? "fade-left-a" : "fade-right-a"}`}
+              />
+              <div
+                class={`flex flex-col justify-center items-start gap-6 ${isEven ? "fade-left-a" : "fade-right-a"}`}
+              >
+                <h3 class="title-4">{item.title}</h3>
+                <p class="paragraph">{item.description}</p>
+              </div>
+              <div
+                class={`flex flex-col justify-center items-start gap-6 ${isEven ? "fade-left-a" : "fade-right-a"}`}
+              >
+                <p class="paragraph uppercase">{item.schedules.title}</p>
+                <ul class="paragraph list-disc list-inside flex flex-col justify-center items-start gap-1">
+                  {item.schedules.items.map((schedule) => (
+                    <li class="paragraph ml-4">{schedule}</li>
+                  ))}
+                </ul>
+              </div>
+              <div
+                class={`w-full h-[1.5px] bg-[#BAB6B2] ${isEven ? "fade-left-a" : "fade-right-a"}`}
+              />
+              <p class={`paragraph ${isEven ? "fade-left-a" : "fade-right-a"}`}>
+                {item.ready}
+              </p>
+              <p class={`paragraph ${isEven ? "fade-left-a" : "fade-right-a"}`}>
+                {item.schedule}
+              </p>
+              <Button
+                text={item.button.label}
+                href={item.button.href}
+                extraBtnClass="fade-up-slow [--delay:0.5s]"
+              />
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
+
+{/* --- ESTRUCTURA DEL MODAL (POPUP GALERÍA) --- */}
+<div
+  id="gallery-modal"
+  class="fixed inset-0 z-50 hidden bg-black/95 items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm"
+>
+  {/* Botón de cerrar */}
+  <button
+    id="close-modal"
+    class="absolute top-6 right-8 text-white text-[32px] hover:text-gray-400 transition-colors z-50 cursor-pointer"
+  >
+    &times;
+  </button>
+
+  {/* Botón Anterior */}
+  <button
+    id="prev-btn"
+    class="absolute left-4 md:left-10 text-white text-[32px] l hover:text-gray-400 transition-colors z-50 p-4 cursor-pointer top-4 md:top-auto"
+  >
+    &#10094;
+  </button>
+
+  {/* Imagen (h-[80%] w-auto) */}
+  <img
+    id="modal-image"
+    src=""
+    alt="Imagen ampliada"
+    class="h-[75%] md:h-[80%] w-auto max-w-[90%] object-contain shadow-2xl transition-opacity duration-300"
+  />
+
+  {/* Botón Siguiente */}
+  <button
+    id="next-btn"
+    class="absolute top-4 md:top-auto right-auto left-16 md:left-auto md:right-10 text-white text-[32px] hover:text-gray-400 transition-colors z-50 p-4 cursor-pointer"
+  >
+    &#10095;
+  </button>
+</div>
+
+{/* --- LÓGICA JAVASCRIPT DEL MODAL --- */}
+<script>
+  // El script se envuelve en un evento para ejecutarse cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("gallery-modal");
+    const modalImg = document.getElementById("modal-image") as HTMLImageElement;
+    const closeBtn = document.getElementById("close-modal");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const triggers = document.querySelectorAll(".gallery-trigger");
+
+    let currentGallery: string[] = [];
+    let currentIndex = 0;
+
+    // Función para abrir el modal
+    const openModal = (images: string[], index: number) => {
+      currentGallery = images;
+      currentIndex = index;
+      updateImage();
+
+      // Quitamos hidden y agregamos flex desde el script
+      modal?.classList.remove("hidden");
+      modal?.classList.add("flex");
+
+      setTimeout(() => {
+        modal?.classList.remove("opacity-0");
+      }, 10);
+      document.body.style.overflow = "hidden"; // Evitar scroll de fondo
+    };
+
+    // Función para cerrar el modal
+    const closeModal = () => {
+      modal?.classList.add("opacity-0");
+      setTimeout(() => {
+        // Quitamos flex y agregamos hidden al terminar la animación
+        modal?.classList.remove("flex");
+        modal?.classList.add("hidden");
+        modalImg.src = "";
+      }, 300);
+      document.body.style.overflow = ""; // Restaurar scroll
+    };
+
+    // Función para actualizar la imagen
+    const updateImage = () => {
+      // Efecto suave de transición al cambiar de imagen
+      modalImg.style.opacity = "0";
+      setTimeout(() => {
+        modalImg.src = currentGallery[currentIndex];
+        modalImg.style.opacity = "1";
+      }, 150);
+    };
+
+    // Agregar evento click a todos los divs con la clase 'gallery-trigger'
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const imagesRaw = target.getAttribute("data-images");
+        const indexRaw = target.getAttribute("data-index");
+
+        if (imagesRaw && indexRaw) {
+          const images = JSON.parse(imagesRaw);
+          const index = parseInt(indexRaw, 10);
+          openModal(images, index);
+        }
+      });
+    });
+
+    // Eventos de navegación
+    prevBtn?.addEventListener("click", (e) => {
+      e.stopPropagation(); // Evitar cerrar el modal si se hace click fuera
+      currentIndex =
+        currentIndex === 0 ? currentGallery.length - 1 : currentIndex - 1;
+      updateImage();
+    });
+
+    nextBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentIndex =
+        currentIndex === currentGallery.length - 1 ? 0 : currentIndex + 1;
+      updateImage();
+    });
+
+    // Cerrar con botón X
+    closeBtn?.addEventListener("click", closeModal);
+
+    // Cerrar al hacer click fuera de la imagen (en el fondo oscuro)
+    modal?.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Navegación con el teclado (flechas y escape)
+    document.addEventListener("keydown", (e) => {
+      if (!modal?.classList.contains("hidden")) {
+        if (e.key === "Escape") closeModal();
+        if (e.key === "ArrowLeft") prevBtn?.click();
+        if (e.key === "ArrowRight") nextBtn?.click();
+      }
+    });
+  });
+</script>

@@ -36,7 +36,7 @@ const { content, lang, isButton } = Astro.props as Props;
         isButton && (
           <Button
             text={content.link.label}
-            href={`${lang}/${content.link.href}`}
+            href={`/${lang}${content.link.href}`}
             extraBtnClass="fade-up-slow [--delay:0.5s]"
           />
         )

@@ -1,53 +1,36 @@
 ---
+// Página SSR (sin getStaticPaths, sin build-time): las queries a GoHighLevel
+// corren EN CADA VISITA dentro de la función serverless, igual que BLOG-REFERENCE.
+// La paginación es interna (client-side, sin `?page=` en la URL).
+export const prerender = false;
+
 import AnimatedTitle from "../../../components/AnimatedTitle.astro";
 import en from "../../../i18n/en";
 import es from "../../../i18n/es";
 import Layout from "../../../layouts/Layout.astro";
-import GridBlogs from "../../../sections/GridBlogs.astro";
+import BlogSection from "../../../sections/BlogSection";
 import Reviews from "../../../sections/Main/Reviews";
+// Queries en vivo (sin usar por ahora):
+// import { getPostsPage, getCategories } from "../../../lib/ghl/blog-services";
+// import type { BlogCardDTO } from "../../../lib/ghl/types";
 import type { Language } from "../../../types/language.type";
-
-export function getStaticPaths() {
-  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
-}
-
-export const defaultRedirect = "/en";
 
 const lang = Astro.params.lang as Language;
 const translations = { es, en };
-const t = translations[lang];
+const t = translations[lang] ?? en;
 const seo = t.seo.blog;
-const categories = [
-  {
-    id: "1",
-    title: "TODO",
-  },
-  {
-    id: "2",
-    title: "MAQUILLAJE",
-  },
-  {
-    id: "3",
-    title: "CABELLO",
-  },
-  {
-    id: "4",
-    title: "PELUQUERÍA",
-  },
-  {
-    id: "5",
-    title: "FACIALES",
-  },
-  {
-    id: "6",
-    title: "CEJAS Y PESTAÑAS",
-  },
-  {
-    id: "7",
-    title: "LASER",
-  },
+
+// --- Contenido estático (en uso) ---
+const CATEGORIES = [
+  { id: "1", title: "TODO" },
+  { id: "2", title: "MAQUILLAJE" },
+  { id: "3", title: "CABELLO" },
+  { id: "4", title: "PELUQUERÍA" },
+  { id: "5", title: "FACIALES" },
+  { id: "6", title: "CEJAS Y PESTAÑAS" },
+  { id: "7", title: "LASER" },
 ];
-const posts = [
+const POSTS = [
   {
     image: "/images/blog/1.webp",
     date: "AUGUST 18, 2026",
@@ -103,6 +86,34 @@ const posts = [
     idCategory: "2",
   },
 ];
+
+// --- Queries en vivo (sin usar por ahora) ---
+/*
+// Queries en vivo: traemos TODOS los posts (recorriendo las páginas de GHL)
+// para poder paginar internamente en el navegador sin cambiar la URL.
+const POSTS_PER_PAGE = 9;
+let POSTS: BlogCardDTO[] = [];
+let CATEGORIES: { id: string; title: string }[] = [];
+
+try {
+  const [firstPage, categories] = await Promise.all([
+    getPostsPage(1),
+    getCategories(),
+  ]);
+  POSTS = [...firstPage.items];
+  for (let p = 2; p <= firstPage.totalPages; p++) {
+    const res = await getPostsPage(p);
+    POSTS.push(...res.items);
+  }
+  CATEGORIES = categories.map((c) => ({ id: c.id, title: c.label.toUpperCase() }));
+} catch (err) {
+  console.error("[blog] GHL fetch failed, rendering empty list:", err);
+  POSTS = [];
+  CATEGORIES = [];
+}
+*/
+
+const POSTS_PER_PAGE = 9;
 ---
 
 <Layout
@@ -121,7 +132,24 @@ const posts = [
       <AnimatedTitle text={t.blog.title} tag="h1" class="title-2 text-center" />
     </div>
   </section>
-  
-  <GridBlogs items={posts} category={categories} />
+
+  {
+    POSTS.length > 0 ? (
+      <BlogSection
+        items={POSTS}
+        category={CATEGORIES}
+        lang={lang}
+        perPage={POSTS_PER_PAGE}
+        client:load
+      />
+    ) : (
+      <p class="paragraph text-paragraph text-center pb-16">
+        {lang === "es"
+          ? "Pronto publicaremos nuevos artículos."
+          : "New articles coming soon."}
+      </p>
+    )
+  }
+
   <Reviews items={t.main.reviews} client:load />
 </Layout>

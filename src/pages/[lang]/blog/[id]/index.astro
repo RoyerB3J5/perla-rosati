@@ -1,0 +1,76 @@
+---
+export const prerender = false;
+
+import en from "../../../../i18n/en";
+import es from "../../../../i18n/es";
+import Layout from "../../../../layouts/Layout.astro";
+import Reviews from "../../../../sections/Main/Reviews";
+import { getPostById } from "../../../../lib/ghl/blog-services";
+import type { Language } from "../../../../types/language.type";
+
+const lang = Astro.params.lang as Language;
+const translations = { es, en };
+const t = translations[lang] ?? en;
+const seo = t.seo.blog;
+
+//const { id } = Astro.params;
+//const post = id ? await getPostById(id) : null;
+
+//if (!post) {
+//return new Response(null, { status: 404 });
+//}
+const post = {
+  id: "1",
+  image: "/images/blog/1.webp",
+  date: "AUGUST 18, 2026",
+  autor: "PERLA ROSATI",
+  title: "Maquillaje natural: donde menos es más",
+  content:
+    "Sé que esta página es de trabajo, pero también sé que mi trabajo es cumplir el propósito que me fue asignado. Desde mayo he estado en un proceso de formación, no solo profesionalmente, sino también espiritualmente.  Enyermy Studio Pro nace de una visión que me fue entregada en el 2019, acompañada de las palabras de mis pastores: “Tú no solo transformarás la vida de muchas mujeres por fuera, sino que también las ayudarás a descubrir su identidad y a ver el gran valor que tienen.” A veces nos ocupamos tanto que olvidamos cuál es nuestro propósito. Pero en estos últimos dos meses, en medio de tanto trabajo y tantas responsabilidades, el Señor ha llamado mi atención de una manera sobrenatural. Hace poco tuve una reunión con mis pastores porque me sentía al borde del colapso en medio de este proceso de expansión. Durante la conversación, mi pastor usó una palabra para describir mi propósito: Philanthropy. Esa palabra llamó profundamente mi atención porque apenas una semana antes había venido a mi mente y yo misma había buscado su significado.", // HTML completo
+};
+---
+
+<Layout
+  lang={lang}
+  t={t}
+  title={post.title}
+  description={""}
+  keywords={seo.keywords}
+  image={post.image}
+  canonicalPath={`/blog/${post.id}`}
+>
+  <section
+    class="flex flex-col justify-center items-center pt-(--header-height) max-w-[824px] gap-6 pb-14 px-4 md:px-0"
+  >
+    <div
+      class="w-full h-auto aspect-343/460 md:aspect-1200/820 relative overflow-hidden rounded-2xl"
+    >
+      <img
+        src={post.image}
+        alt={post.title}
+        class="w-full h-full object-cover absolute inset-0 object-[50%_10%]"
+        width={1200}
+        height={820}
+        loading="eager"
+      />
+    </div>
+    <div class="flex flex-col justify-center items-start gap-6 w-full">
+      <div class="w-full flex flex-col justify-center items-start gap-4 fade-up-a">
+        <p class="text-paragraph text-[13px] font-normal leading-[150%]">
+          Posted by Perla ROSATI on {post.date}
+        </p>
+        <div class="w-full h-px bg-paragraph"></div>
+        <h1
+          class="text-paragraph text-[28px] md:text-[36px] font-normal tracking-[-0.5px] leading-[120%] font-title fade-left"
+        >
+          {post.title}
+        </h1>
+      </div>
+      <p
+        set:html={post.content}
+        class="paragraph font-normal text-paragraph fade-left tracking-[-0.5px] fade-up-a"
+      />
+    </div>
+  </section>
+  <Reviews items={t.main.reviews} client:load />
+</Layout>

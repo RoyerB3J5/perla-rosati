@@ -62,7 +62,7 @@ const { content, lang } = Astro.props as Props;
     <div class="flex flex-col justify-center items-center gap-8 max-w-[368px]">
       <p class="text-center paragraph fade-up-a">{content.description}</p>
       <a
-        href={`${lang}/${content.link.href}`}
+        href={`/${lang}${content.link.href}`}
         class="paragraph-medium tracking-[2.56px] uppercase py-2 border-b-[1.5px] border-paragraph fade-up-slow [--delay:0.5s]"
         >{content.link.label}
       </a>

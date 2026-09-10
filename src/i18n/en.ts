@@ -2,23 +2,23 @@ export default {
   header: {
     nav: [
       {
-        label: "Inicio",
+        label: "Home",
         href: "/",
       },
       {
-        label: "Nosotros",
+        label: "About",
         href: "/about-us",
       },
       {
-        label: "Servicios",
+        label: "Services",
         href: "/services",
       },
       {
-        label: "Educación",
+        label: "Education",
         href: "/education",
       },
       {
-        label: "Galería",
+        label: "Gallery",
         href: "/gallery",
       },
       {
@@ -26,396 +26,866 @@ export default {
         href: "/blog",
       },
       {
-        label: "Contacto",
+        label: "Contact",
         href: "/contact",
       },
     ],
   },
   main: {
     hero: {
-      tag: "Maquillaje profesional pensado para ti",
-      title: "Realza tu belleza, celebra tu esencia.",
+      tag: "Pro makeup made for you",
+      title: "Enhance your beauty, celebrate you.",
       description:
-        "Creamos looks personalizados que resaltan tus mejores rasgos y te hacen sentir segura, auténtica y especial en cada ocasión.",
+        "Custom looks that highlight your best features so you feel confident, authentic, and special.",
       image: "hero-main",
       imageMobile: "hero-main-mobile",
       button: {
-        label: "Reserva ahora",
+        label: "Book now",
         href: "#",
       },
     },
     looks: {
-      tag: "Más que maquillaje, una experiencia personalizada",
-      title: "El look de tus sueños.",
+      tag: "More than makeup, a custom experience",
+      title: "Your dream look.",
       description:
-        "En Perla Rosati Makeup creemos que cada rostro es único. Por eso combinamos técnica, experiencia y atención personalizada para crear un resultado que refleje tu estilo y personalidad.",
+        "At Perla Rosati Makeup every face is unique. We blend skill, experience, and personal care to reflect your style.",
       link: {
-        label: "nuestros servicios",
-        href: "/en/services",
+        label: "our services",
+        href: "/services",
       },
     },
     process: {
-      title: "Tu belleza, nuestro proceso",
+      title: "Your beauty, our process",
       button: {
-        label: "Reserva ahora",
+        label: "Book now",
         href: "#",
       },
       items: [
         {
           image: "process-1",
-          title: "1/ Conocemos tu estilo",
+          title: "1/ Know your style",
           description:
-            "Conversamos contigo sobre tu evento, tus preferencias, tu estilo personal y tus expectativas para entender exactamente el look que buscas.",
+            "We talk about your event, tastes, and expectations to define the exact look you want.",
         },
         {
           image: "process-2",
-          title: "2/ Diseñamos tu look",
+          title: "2/ Design your look",
           description:
-            "Seleccionamos cuidadosamente las técnicas, tonos y acabados adecuados según tu tipo de piel, tus rasgos faciales y la ocasión especial.",
+            "We pick techniques, shades, and finishes to suit your skin, features, and occasion.",
         },
         {
           image: "process-3",
-          title: "3/ Realzamos tu belleza",
+          title: "3/ Enhance your beauty",
           description:
-            "Cuidamos cada detalle con precisión y dedicación para lograr un resultado elegante, radiante y de larga duración para tu gran día.",
+            "We perfect every detail for an elegant, radiant, long-lasting result.",
         },
       ],
     },
     version: {
-      title: "Descubre una versión de ti que ya existe",
+      title: "Meet a version of you that exists",
       descripcion:
-        "El maquillaje no busca cambiar quién eres, sino ayudarte a reconocer lo que ya tienes. Resalta tu mirada y expresión. Sentirte bella cambia cómo te ves y cómo te miras a ti misma.",
+        "Makeup will not change you — it reveals you. It lifts your eyes and expression. Feeling beautiful changes how you see yourself.",
       button: {
-        label: "Nuestros servicios",
+        label: "Our services",
         href: "/services",
       },
     },
     perla: {
-      tag: "Maquillaje profesional para realzar tu esencia",
+      tag: "Pro makeup to enhance your essence",
       title: "Perla Rosati",
       description:
-        "Soy Perla Rosati, maquilladora profesional de Maracaibo, Venezuela, ahora en Orlando, Florida. Comencé en el maquillaje por mi madre. Soy abogada, pero elegí ser maquilladora y esteticista. Mis años de experiencia reflejan creatividad y profesionalismo. Mi meta es ayudar a las mujeres a mostrar su belleza interior. Quiero que TÚ te atrevas a hacer que brille.",
+        "I am Perla Rosati, pro artist from Maracaibo, Venezuela, now in Orlando, Florida. Inspired by my mother, I left law to become a makeup artist and esthetician. My work blends creativity and skill to bring out your inner beauty. Dare to shine.",
       image: "perla",
       link: {
-        label: "CONOCE MÁS SOBRE MI",
-        href: "/en/about-us",
+        label: "MORE ABOUT ME",
+        href: "/about-us",
       },
     },
     clients: {
-      title: "Nuestros clientes",
+      title: "Our clients",
       button: {
-        label: "galería",
-        href: "/en/gallery",
+        label: "gallery",
+        href: "/gallery",
       },
     },
     reviews: [
       {
-        title: "Belleza Que Te Hace Sentir Segura",
+        title: "Beauty That Builds Confidence",
         description:
-          "Las atenciones de Perla y las otras chicas del estudio fueron excelentes. Me senti muy comoda apesar de que llegué con muchas inseguridades en ningún momento me senti juzgada. El maquillaje quedo espectacular y el pelo ni se diga. Muy agradecida por el trabajo que hicieron las chicas",
+          "Perla and the team were excellent. I arrived insecure yet never felt judged. Makeup was stunning and hair amazing. So grateful.",
         name: "Maria",
       },
       {
-        title: "Belleza, Profesionalismo y Confianza",
+        title: "Beauty, Skill, and Trust",
         description:
-          "Mi experiencia en el studio de Perla ha sido súper chévere, son muy profesionales , Perla con sus maquillajes del más allá y Valeria ni hablar, llevo más de año colocándome las pestañas con ella y es insuperable . El ambiente súper especial",
+          "My time at Perla's studio was great — very pro. Perla's makeup is unreal, and Valeria is top for lashes. I have come for over a year. Lovely vibe.",
         name: "Jane",
       },
       {
-        title: "Un Lugar Donde Te Sientes En Casa",
+        title: "A Place That Feels Like Home",
         description:
-          "Solo puedo decir cosas buenas de Perla y su equipo, hoy tuve la oportunidad de arreglarme con ellas y Desde que entré a su estudio me sentí en casa. sentí que la conocía de toda la vida. Su humildad y autenticidad es única.",
+          "Only good things about Perla and her team. From the start I felt at home, like I had known them forever. Unique warmth and care.",
         name: "Eliana",
       },
       {
-        title: "Una Experiencia de Cinco Estrellas",
+        title: "A Five-Star Experience",
         description:
-          "Encantada con el lugar , la amable atención de Perla , Valeria me hizo las cejas a mi y a mi hija y el resultado es 5 estrellas, tambien hoy me hizo facial adn salmon es lo Maximo quedé como nueva , gracias por tu amabilidad , paciencia y profesional asesoría !!!!! 5 Estrellas todo.",
+          "Love this place. Kind care from Perla. Valeria did brows for me and my daughter — 5 stars. My facial was amazing, I feel renewed. Thank you!",
         name: "Diana",
       },
     ],
     questions: {
-      title: "Preguntas frecuentes",
-      description:
-        "Estas son las preguntas más frecuentes que hacen nuestros clientes.",
+      title: "FAQs",
+      description: "Top questions from our clients.",
       items: [
         {
-          title: "¿Cómo puedo reservar mi cita?",
+          title: "How do I book?",
           answer:
-            "Puedes realizar tu reserva directamente desde nuestra sección de reservas y seleccionar el servicio que deseas.",
+            "Book right from our booking section by picking the service you want.",
         },
         {
-          title: "¿El maquillaje se adapta a mi tipo de rostro?",
+          title: "Does makeup suit my face?",
           answer:
-            "Sí. Cada look se personaliza considerando tus facciones, estilo, preferencias y el tipo de evento.",
+            "Yes. Each look is tailored to your features, style, taste, and event.",
         },
         {
-          title: "¿Qué servicios de belleza ofrecen?",
+          title: "What beauty services do you offer?",
           answer:
-            "Contamos con una variedad de servicios de maquillaje y belleza, incluyendo maquillaje profesional, estilismo profesional y cuidado de la piel, diseñados para realzar tu belleza y brindarte una experiencia completa.",
+            "Pro makeup, hairstyling, and skincare for a full beauty experience.",
         },
         {
-          title: "¿Puedo regalar un servicio de Perla Rosati Makeup?",
+          title: "Can I gift a service?",
           answer:
-            "Sí. También puedes adquirir una tarjeta de regalo, ideal para sorprender a una amiga, pareja o familiar en cualquier ocasión.",
+            "Yes. Buy a gift card — ideal for a friend, partner, or family member.",
         },
       ],
     },
   },
   aboutUs: {
     hero: {
-      tag: "Maquillaje que resalta quién eres",
-      title: "Tu belleza, nuestra inspiración..",
+      tag: "Makeup that highlights you",
+      title: "Your beauty, our inspiration.",
       description:
-        "En Perla Rosati Makeup creemos que la belleza no se transforma, se potencia. Creamos looks personalizados que respetan tu esencia, realzan tus rasgos y te hacen sentir segura, auténtica y especial.",
+        "At Perla Rosati Makeup beauty is not changed, it is enhanced. Custom looks that honor you and boost confidence.",
       image: "hero-about",
       imageMobile: "hero-about-mobile",
       button: {
-        label: "Reserva ahora",
+        label: "Book now",
         href: "#",
       },
     },
     perla: {
-      tag: "De una pasión por el maquillaje para realzar tu belleza.",
-      title: "Un sueño que tomó forma",
+      tag: "From makeup passion to enhance you.",
+      title: "A dream come true",
       description:
-        "En 2022, Perla Rosati Makeup Studio abrió sus puertas en Orlando, Florida, haciendo realidad un sueño construido durante años. Lo que comenzó como una pasión se convirtió en un espacio profesional dedicado a crear experiencias de belleza cada vez más especiales y personalizadas.",
+        "In 2022, Perla Rosati Makeup Studio opened in Orlando, Florida — a dream built over years. Passion became a studio crafting special, custom beauty experiences.",
       image: "perla-about",
       link: {
-        label: "CONOCE MÁS SOBRE MI",
+        label: "MORE ABOUT ME",
         href: "#",
       },
     },
     me: {
-      title: "Soy Perla Rosati",
+      title: "I am Perla Rosati",
       description:
-        "Maquilladora profesional originaria de Maracaibo, Venezuela, actualmente radicada en Orlando, Florida. Mi pasión por el maquillaje nació observando a mi mamá frente al espejo, y aunque soy abogada de profesión, elegí convertirme en artista del maquillaje por vocación. Me formé como maquilladora y esteticista profesional, y hoy cuento con más de 9 años de experiencia ayudando a que la belleza interior de cada mujer brille en el exterior — desde novias en su gran día hasta clientas que buscan lucir radiantes en cualquier ocasión especial.",
+        "Pro makeup artist from Maracaibo, Venezuela, based in Orlando, Florida. Inspired by my mom, I left law to follow makeup. Trained as artist and esthetician, with 9+ years helping each woman's inner beauty shine — from brides to special events.",
     },
     process: {
-      title: "Nuestra Metodología",
+      title: "Our Method",
       button: {
-        label: "Reserva ahora",
+        label: "Book now",
         href: "#",
       },
       items: [
         {
           image: "about/method-1",
-          title: "1/ DESCUBRIR",
+          title: "1/ DISCOVER",
           description:
-            "Conversamos contigo para conocer tu historia, tu estilo personal y la esencia que queremos resaltar en cada detalle de tu look.",
+            "We learn your story, style, and essence to shape every detail of your look.",
         },
         {
           image: "about/method-2",
-          title: "2/ DISEÑAR",
+          title: "2/ DESIGN",
           description:
-            "Seleccionamos con precisión las técnicas, tonos y acabados que mejor armonizan con tus rasgos, tu piel y la ocasión especial.",
+            "We pick techniques, tones, and finishes that flatter your skin and occasion.",
         },
         {
           image: "about/method-3",
-          title: "3/ DESLUMBRAR",
+          title: "3/ DAZZLE",
           description:
-            "Perfeccionamos cada detalle con dedicación y precisión para lograr un resultado elegante, radiante y duradero que te haga sentir verdaderamente espectacular.",
+            "We refine each detail for an elegant, radiant, lasting look you will love.",
+        },
+      ],
+    },
+    squad: {
+      title: "Meet our team",
+      items: [
+        {
+          title: "Perla Rosati",
+          description: "Pro Makeup & Educator",
+          schedules: {
+            title: "BOOK NOW",
+            items: ["Mon to Sat", "8:00 am - 6:00 pm"],
+          },
+          ready: "Ready for your next look?",
+          schedule: "Book with Perla and find a time that fits you.",
+          button: {
+            label: "book now",
+            href: "#",
+          },
+          images: ["perla-1", "perla-2", "perla-3", "perla-4"],
+        },
+        {
+          title: "Luisa Ramirez",
+          description: "Pro Makeup",
+          schedules: {
+            title: "BOOK NOW",
+            items: ["Saturday", "8:00 am - 6:00 pm"],
+          },
+          ready: "Ready for your next look?",
+          schedule: "Book with Luisa and find a time that fits you.",
+          button: {
+            label: "book now",
+            href: "#",
+          },
+          images: ["luisa-1", "luisa-2", "luisa-3", "luisa-4"],
+        },
+        {
+          title: "Maria de Los Angeles Alvarez",
+          description: "Pro Makeup",
+          schedules: {
+            title: "BOOK NOW",
+            items: ["Saturday", "8:00 am - 6:00 pm"],
+          },
+          ready: "Ready for your next look?",
+          schedule: "Book with Maria and find a time that fits you.",
+          button: {
+            label: "book now",
+            href: "#",
+          },
+          images: ["maria-1", "maria-2", "maria-3", "maria-4"],
+        },
+        {
+          title: "Deisy D'Abreu",
+          description: "Hairstylist",
+          schedules: {
+            title: "BOOK NOW",
+            items: ["Thu to Sat", "8:00 am - 5:00 pm"],
+          },
+          ready: "Ready for your next look?",
+          schedule: "Book with Deisy and find a time that fits you.",
+          button: {
+            label: "book now",
+            href: "#",
+          },
+          images: ["deisy-1", "deisy-2", "deisy-3", "deisy-4", "deisy-5"],
+        },
+        {
+          title: "Elizabeth Gonzalez",
+          description: "Hairstylist",
+          schedules: {
+            title: "BOOK NOW",
+            items: ["Tue to Sat", "8:00 am - 5:00 pm"],
+          },
+          ready: "Ready for your next look?",
+          schedule: "Book with Elizabeth and find a time that fits you.",
+          button: {
+            label: "book now",
+            href: "#",
+          },
+          images: [
+            "elizabeth-1",
+            "elizabeth-2",
+            "elizabeth-3",
+            "elizabeth-4",
+            "elizabeth-5",
+          ],
+        },
+        {
+          title: "Valeria Kebbe",
+          description: "Facials / Brows & Lashes / Laser",
+          schedules: {
+            title: "BOOK NOW",
+            items: ["Tue to Sat", "8:00 am - 6:00 pm"],
+          },
+          ready: "Ready for your next look?",
+          schedule: "Book with Valeria and find a time that fits you.",
+          button: {
+            label: "book now",
+            href: "#",
+          },
+          images: ["valeria-1", "valeria-2", "valeria-3", "valeria-4"],
         },
       ],
     },
     questions: {
-      title: "Preguntas frecuentes",
-      description:
-        "Estas son las preguntas más frecuentes que hacen nuestros clientes.",
+      title: "FAQs",
+      description: "Top questions from our clients.",
       items: [
         {
-          title: "¿Cuántos años de experiencia tiene Perla Rosati?",
-          answer:
-            "Más de 9 años de experiencia profesional en el arte del maquillaje.",
+          title: "How much experience does Perla have?",
+          answer: "9+ years of pro experience in makeup artistry.",
         },
         {
-          title: "¿Perla Rosati realiza los servicios personalmente?",
+          title: "Does Perla do services herself?",
           answer:
-            "Perla Rosati atiende según su disponibilidad. En temporada alta, algunos servicios pueden ser realizados por su equipo profesional, capacitado y entrenado directamente por ella, manteniendo sus mismos estándares de calidad.",
+            "Perla serves based on availability. In peak season, her trained team may serve you with her same quality standards.",
         },
         {
-          title: "¿Dictan clases o cursos de maquillaje?",
+          title: "Do you teach makeup classes?",
           answer:
-            "Sí, ofrecemos cursos de automaquillaje y entrenamiento profesional. Conoce más en nuestra sección de Educación.",
+            "Yes, self-makeup and pro training. See our Education section.",
         },
         {
-          title: "¿Atienden en inglés?",
-          answer: "Sí, atendemos tanto en español como en inglés.",
+          title: "Do you serve in English?",
+          answer: "Yes, we serve in both Spanish and English.",
         },
       ],
     },
   },
   services: {
-    title: "Realza tu belleza",
+    title: "Enhance your beauty",
+    categories: [
+      {
+        id: "#",
+        title: "ALL",
+      },
+      {
+        id: "makeup",
+        title: "MAKEUP",
+      },
+      {
+        id: "hair",
+        title: "HAIR",
+      },
+      {
+        id: "hairstyling",
+        title: "Hairstyling",
+      },
+      {
+        id: "facials",
+        title: "FACIALS",
+      },
+      {
+        id: "eyebrows-lashes",
+        title: "EYEBROWS & LASHES",
+      },
+      {
+        id: "laser",
+        title: "LASER",
+      },
+    ],
+    servicesItems: [
+      {
+        id: "makeup",
+        title: "Makeup",
+        items: [
+          {
+            image: "/images/services/maquillaje-novia.webp",
+            title: "Bridal makeup",
+            description:
+              "Custom, lasting bridal makeup made to match your bridal style.",
+            href: "#",
+          },
+          {
+            image: "/images/looks-main.webp",
+            title: "Bridal makeup trial",
+            description:
+              "Find your ideal bridal look, testing shades and styles first.",
+            href: "#",
+          },
+          {
+            image: "/images/gallery/gallery-21.webp",
+            title: "Quince & Sweet 16 makeup",
+            description:
+              "Fresh, custom makeup to shine all through your party.",
+            href: "#",
+          },
+          {
+            image: "/images/services/maquillaje-social.webp",
+            title: "Studio social makeup",
+            description:
+              "Custom day or night event makeup with a flawless finish.",
+            href: "#",
+          },
+          {
+            image: "/images/gallery/gallery-31.webp",
+            title: "On-location social makeup",
+            description:
+              "Event makeup on location, matched to time, outfit, and style.",
+            href: "#",
+          },
+          {
+            image: "/images/gallery/gallery-27.webp",
+            title: "Photoshoot makeup",
+            description: "Custom makeup to fit each shoot's concept and goal.",
+            href: "#",
+          },
+        ],
+      },
+      {
+        id: "hair",
+        title: "Hair",
+        items: [
+          {
+            image: "/images/services/ondas-glam.webp",
+            title: "Glam waves",
+            description:
+              "Long-lasting glam waves to suit you; price varies by hair.",
+            href: "#",
+          },
+          {
+            image: "/images/services/recogido.webp",
+            title: "Updos",
+            description:
+              "Elegant, chic updo; price varies by hair type and length.",
+            href: "#",
+          },
+          {
+            image: "/images/services/semirecogido.webp",
+            title: "Half-up styles",
+            description:
+              "Versatile half-up style; price varies by hair, fits your look.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Braids",
+            description:
+              "Modern custom braids for texture and style, for any event.",
+            href: "#",
+          },
+          {
+            image: "/images/services/secado-planchado.webp",
+            title: "Blowout & flat iron",
+            description:
+              "Polished, smooth, lasting blowout with flat-iron finish.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Girls hairstyles",
+            description:
+              "Comfy style for girls, by age and event. Up to age 8.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Pro blowout",
+            description:
+              "Blowout for movement and shine; price varies by hair.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Blowout + waves",
+            description: "Blowout with soft glam waves; price varies by hair.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Hair hydration",
+            description: "Restore softness and glow; price varies by hair.",
+            href: "#",
+          },
+          {
+            image: "/images/services/botox-capilar.webp",
+            title: "Hair botox",
+            description: "Revive shine with hair botox; price varies by hair.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Keratin smoothing",
+            description: "Keratin to tame frizz; price varies by hair.",
+            href: "#",
+          },
+        ],
+      },
+      {
+        id: "hairstyling",
+        title: "Hairstyling",
+        items: [
+          {
+            image: "#",
+            title: "Haircut",
+            description:
+              "Custom cut with wash, flat rate, to suit your features.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Haircut + blowout",
+            description:
+              "Cut plus pro blowout, flat rate, for a fresh, polished look.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Root touch-up",
+            description: "Refresh roots with wash and blowout, flat rate.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Full color",
+            description:
+              "Custom full color; price varies by length and hair health.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Custom color service",
+            description:
+              "Tailored to your goal. Needs prior consult to assess hair and set a plan.",
+            href: "#",
+          },
+        ],
+      },
+      {
+        id: "facials",
+        title: "Facials",
+        items: [
+          {
+            image: "/images/services/facial-mantenimiento.webp",
+            title: "Maintenance facial",
+            description: "Keep skin bright and balanced with upkeep care.",
+            href: "#",
+          },
+          {
+            image: "/images/services/facial-adolescente.webp",
+            title: "Teen facial",
+            description: "Gentle custom care for teen skin, clean and healthy.",
+            href: "#",
+          },
+          {
+            image: "/images/services/facial-profundo.webp",
+            title: "Deep facial",
+            description: "Purify and revive skin, refine texture and glow.",
+            href: "#",
+          },
+          {
+            image: "/images/services/microdermoabrasion.webp",
+            title: "Microdermabrasion",
+            description: "Renew texture and glow; includes deep cleanse.",
+            href: "#",
+          },
+          {
+            image: "/images/services/facial-plasma.webp",
+            title: "Deep facial with PRP",
+            description: "Boost renewal with PRP, tailored to your needs.",
+            href: "#",
+          },
+        ],
+      },
+      {
+        id: "eyebrows-lashes",
+        title: "EYEBROWS & LASHES",
+        items: [
+          {
+            image: "/images/services/diseno-depilacion.webp",
+            title: "Brow design & shaping",
+            description: "Clean, flattering brow shape for your features.",
+            href: "#",
+          },
+          {
+            image: "/images/services/henna.webp",
+            title: "Brow design + henna",
+            description: "Shape plus henna for definition and a polished look.",
+            href: "#",
+          },
+          {
+            image: "/images/services/lashlifting.webp",
+            title: "Lash lift",
+            description: "Lift natural lashes for a wider, defined look.",
+            href: "#",
+          },
+          {
+            image: "/images/services/extension-pestanas.webp",
+            title: "Classic lash extensions",
+            description: "Elegant, natural length and definition.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Volume lash extensions",
+            description: "Fuller, bold lashes tailored to your style.",
+            href: "#",
+          },
+          {
+            image: "/images/services/extension-hibridas.webp",
+            title: "Hybrid lash extensions",
+            description: "Natural + volume mix for a balanced look.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Extension removal",
+            description: "No refills on others' work; safe removal only.",
+            href: "#",
+          },
+          {
+            image: "/images/services/brow-lamination.webp",
+            title: "Brow lamination",
+            description: "Align and style brows for a fuller shape.",
+            href: "#",
+          },
+        ],
+      },
+      {
+        id: "laser",
+        title: "Laser",
+        items: [
+          {
+            image: "#",
+            title: "Upper-lip laser",
+            description: "Slow regrowth with diode laser for smooth skin.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Bikini laser",
+            description: "Less bikini hair with diode laser, no shaving.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Underarm laser",
+            description: "Less underarm hair for smooth, even skin.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Brazilian laser",
+            description: "Less hair with diode laser, lasting smoothness.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Buttocks laser",
+            description: "Slow regrowth with diode laser, smoother skin.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Chin laser",
+            description: "Less chin hair with diode laser, smoother skin.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Sideburn laser",
+            description: "Cleaner sideburns with diode laser, smooth look.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Full-arm laser",
+            description: "Less full-arm hair with diode laser, smooth skin.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Half-arm laser",
+            description: "Less half-arm hair for smooth, even skin.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Full-leg laser",
+            description:
+              "Less full-leg hair with diode laser, lasting smoothness.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Half-leg laser",
+            description: "Less half-leg hair for smooth, even skin.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Full-back laser",
+            description: "Less back hair with diode laser, smoother skin.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Full chest & abs laser",
+            description: "Less chest and abs hair for smooth skin.",
+            href: "#",
+          },
+          {
+            image: "#",
+            title: "Lower abs line laser",
+            description: "Less lower abs hair for smooth, even skin.",
+            href: "#",
+          },
+        ],
+      },
+    ],
     questions: {
-      title: "Preguntas frecuentes",
-      description:
-        "Estas son las preguntas más frecuentes que hacen nuestros clientes.",
+      title: "FAQs",
+      description: "Top questions from our clients.",
       items: [
         {
-          title: "¿CÓMO RESERVO UN SERVICIO?",
+          title: "HOW DO I BOOK?",
           answer:
-            'Puedes reservar directamente desde nuestra web o escribiéndonos por WhatsApp al <a href="https://wa.me/17867813547">(786) 781-3547</a>.',
+            'Book right on our site or via WhatsApp at <a href="https://wa.me/17867813547">(786) 781-3547</a>.',
         },
         {
-          title: "¿TODOS LOS SERVICIOS REQUIEREN DEPÓSITO?",
+          title: "DO SERVICES NEED A DEPOSIT?",
           answer:
-            "Sí, la mayoría de nuestros servicios requiere un depósito para confirmar tu cita; el monto varía según el servicio elegido.",
+            "Yes, most need a deposit to confirm; amount varies by service.",
         },
         {
-          title: "¿CUÁNTO DURA CADA SERVICIO?",
+          title: "HOW LONG IS EACH SERVICE?",
           answer:
-            "La duración varía según el servicio: desde 1 hora para maquillaje social hasta 1 hora y 30 minutos para maquillaje de novia.",
+            "It varies: from 1 hour for social makeup to 1.5 hours for bridal.",
         },
         {
-          title: "¿OFRECEN MAQUILLAJE A DOMICILIO?",
+          title: "DO YOU OFFER HOME MAKEUP?",
           answer:
-            "No, únicamente el servicio de maquillaje social. Sujeto a ciertas condiciones. Ponte en contacto con nosotros para conocer todos los detalles.",
+            "Only social makeup, under conditions. Contact us for details.",
         },
         {
-          title: "¿PUEDO CANCELAR O REPROGRAMAR MI CITA?",
-          answer:
-            "Puedes reprogramar tu cita contactándonos con al menos 24 horas de anticipación; el depósito no es reembolsable.",
+          title: "CAN I CANCEL OR RESCHEDULE?",
+          answer: "Reschedule with 24h notice; deposit is non-refundable.",
         },
         {
-          title: "¿QUÉ DEBO LLEVAR O PREPARAR ANTES DE MI CITA? ",
+          title: "HOW SHOULD I PREP FOR MY VISIT? ",
           answer:
-            "Te recomendamos asistir con el rostro limpio y sin maquillaje. Asimismo, es importante llegar con el cabello limpio y completamente seco, al natural.",
+            "Come with a clean, makeup-free face and clean, dry, natural hair.",
         },
       ],
     },
   },
   education: {
-    title: "Aprende, crea y transforma",
+    title: "Learn, create, transform",
     items: [
       {
         image: "/images/education/1.webp",
-        title: "Clase Privada de Automaquillaje",
+        title: "Private Self-Makeup Class",
         description:
-          "Clase personalizada que enseña preparación de piel, selección de productos, base, correctores, contorno, iluminación, ojos y técnicas para transformar maquillajes de día en looks nocturnos profesionales.",
+          "Custom class: skin prep, products, base, contour, eyes, and day-to-night looks.",
         lists: [
-          "Preparación correcta de la piel.",
-          "Selección de productos según el tipo de piel.",
-          "Aplicación de base y correctores.",
-          "Contorno, iluminación y sellado.",
-          " Maquillaje de ojos de día y noche.",
+          "Right skin prep.",
+          "Products for your skin type.",
+          "Base and concealer.",
+          "Contour, highlight, set.",
+          "Day and night eye looks.",
         ],
-        duration: "Duración: aproximadamente 3 horas.",
+        duration: "Length: about 3 hours.",
         href: "#",
       },
       {
         image: "/images/education/2.webp",
         title: "Beauty Pro Master",
         description:
-          "Programa intensivo para convertirse en maquilladora profesional, combinando técnicas de piel, ojos, maquillaje especializado, atención al cliente, gestión empresarial, marketing, prácticas reales, evaluación y certificación profesional.",
+          "Intensive path to pro artist: skin, eyes, client care, business, marketing, live practice, and certification.",
         lists: [
-          "Formación desde cero, sin experiencia previa.",
-          "Prácticas guiadas con modelos reales.",
-          "Técnicas de piel, ojos y maquillaje especializado.",
-          "Gestión de clientes, precios y rentabilidad.",
-          "  Marketing, marca personal y redes sociales.",
+          "Start from zero, no experience.",
+          "Guided practice on live models.",
+          "Skin, eyes, and pro techniques.",
+          "Clients, pricing, profit.",
+          "Branding, marketing, socials.",
         ],
-        duration: "Duración: 6 semanas",
+        duration: "Length: 6 weeks",
         href: "#",
       },
       {
-        image: "/images/education/1.webp",
-        title: "Clase Privada de Automaquillaje",
+        image: "/images/education/3.webp",
+        title: "Beauty Pro Master Academy — Florida Licensed",
         description:
-          "Clase personalizada que enseña preparación de piel, selección de productos, base, correctores, contorno, iluminación, ojos y técnicas para transformar maquillajes de día en looks nocturnos profesionales.",
+          "Pro program with makeup, skincare, and facials to serve clients, build skill, and grow your business.",
         lists: [
-          "Preparación correcta de la piel.",
-          "Selección de productos según el tipo de piel.",
-          "Aplicación de base y correctores.",
-          "Contorno, iluminación y sellado.",
-          " Maquillaje de ojos de día y noche.",
+          "Pro makeup training.",
+          "Skincare and facial basics.",
+          "Skin check and prep.",
+          "Pricing, clients, business.",
+          "Branding and pro growth.",
         ],
-        duration: "Duración: aproximadamente 3 horas.",
+        duration: "Length: 7 weeks",
         href: "#",
       },
       {
-        image: "/images/education/2.webp",
-        title: "Beauty Pro Master",
+        image: "/images/education/4.webp",
+        title: "PRO Makeup Intensive | Full Day Experience",
         description:
-          "Programa intensivo para convertirse en maquilladora profesional, combinando técnicas de piel, ojos, maquillaje especializado, atención al cliente, gestión empresarial, marketing, prácticas reales, evaluación y certificación profesional.",
+          "One-day intensive for artists: demo, coached practice, skin prep, pro makeup, photos, and tips.",
         lists: [
-          "Formación desde cero, sin experiencia previa.",
-          "Prácticas guiadas con modelos reales.",
-          "Técnicas de piel, ojos y maquillaje especializado.",
-          "Gestión de clientes, precios y rentabilidad.",
-          "  Marketing, marca personal y redes sociales.",
+          "One-day custom intensive.",
+          "You pick 2 pro techniques.",
+          "Model practice with coaching.",
+          "Digital guide + certificate.",
+          "Pro photos for portfolio.",
         ],
-        duration: "Duración: 6 semanas",
+        duration: "Length: about 6 to 8 hours.",
         href: "#",
       },
       {
-        image: "/images/education/1.webp",
-        title: "Clase Privada de Automaquillaje",
+        image: "/images/education/5.webp",
+        title: "Couples Self-Makeup Special",
         description:
-          "Clase personalizada que enseña preparación de piel, selección de productos, base, correctores, contorno, iluminación, ojos y técnicas para transformar maquillajes de día en looks nocturnos profesionales.",
+          "Shared self-makeup lesson: skincare, base, eyes, lashes, and day-to-event looks with custom tips.",
         lists: [
-          "Preparación correcta de la piel.",
-          "Selección de productos según el tipo de piel.",
-          "Aplicación de base y correctores.",
-          "Contorno, iluminación y sellado.",
-          " Maquillaje de ojos de día y noche.",
+          "Made for two or more.",
+          "Skin prep and care.",
+          "Base, contour, blush, glow.",
+          "Day-to-night eye looks.",
+          "Guide, certificate, custom tips.",
         ],
-        duration: "Duración: aproximadamente 3 horas.",
+        duration: "Length: about 4 hours.",
         href: "#",
       },
     ],
     questions: {
-      title: "Preguntas frecuentes",
-      description:
-        "Estas son las preguntas más frecuentes que hacen nuestros clientes.",
+      title: "FAQs",
+      description: "Top questions from our clients.",
       items: [
         {
-          title:
-            "¿NECESITO EXPERIENCIA PREVIA PARA TOMAR EL CURSO PROFESIONAL?",
+          title: "DO I NEED EXPERIENCE FOR THE PRO COURSE?",
           answer:
-            'Puedes reservar directamente desde nuestra web o escribiéndonos por WhatsApp al <a href="https://wa.me/17867813547">(786) 781-3547</a>.',
+            'No. Book on our site or via WhatsApp at <a href="https://wa.me/17867813547">(786) 781-3547</a>.',
         },
         {
-          title: "¿EL CURSO DE AUTOMAQUILLAJE ESTÁ DISPONIBLE EN LÍNEA?",
-          answer:
-            "Sí, está disponible en modalidad online, con el mismo contenido y acompañamiento personalizado.",
+          title: "IS SELF-MAKEUP ONLINE?",
+          answer: "Yes, online with the same content and custom support.",
         },
         {
-          title: "¿DÓNDE SE DICTAN LOS CURSOS PRESENCIALES?",
+          title: "WHERE ARE IN-PERSON CLASSES?",
           answer:
-            "En nuestro estudio: 13550 Village Park Drive, Orlando, Florida 32837.",
+            "At our studio: 13550 Village Park Drive, Orlando, Florida 32837.",
         },
         {
-          title: "¿EL CURSO PROFESIONAL INCLUYE KIT DE MATERIALES?",
-          answer:
-            "No incluye un kit de materiales. Sin embargo, la clase incluye todos los materiales necesarios para realizar las prácticas, los cuales estarán disponibles en el estudio durante la sesión.",
+          title: "DOES THE PRO COURSE INCLUDE A KIT?",
+          answer: "No kit, but all practice items are provided in-studio.",
         },
         {
-          title: "¿SE ENTREGA CERTIFICADO AL FINALIZAR EL CURSO?",
+          title: "DO I GET A CERTIFICATE?",
           answer:
-            "Se entrega un certificado de participación al finalizar todos los cursos. Además, en los cursos correspondientes, se incluye la licencia de Florida como parte de la formación.",
+            "Yes, all courses include a certificate. Select ones add a Florida license.",
         },
       ],
     },
   },
   blog: {
-    tag: "Consejos, tendencias y belleza",
-    title: "Inspiración para tu belleza",
+    tag: "Tips, trends, and beauty",
+    title: "Beauty inspiration",
   },
   contact: {
     hero: {
-      tag: "Conoce nuestro espacio",
-      title: "Estamos aquí para ti",
-      description:
-        "¿Tienes dudas sobre nuestros servicios o quieres reservar tu cita? Escríbenos, estamos para ayudarte.",
+      tag: "See our space",
+      title: "We are here for you",
+      description: "Questions or ready to book? Message us — we will help.",
       items: [
         {
-          label: "Dirección:",
+          label: "Address:",
           value: "13550 Village Park Drive, Orlando, Florida 32837",
           href: "#",
         },
         {
-          label: "Teléfono:",
+          label: "Phone:",
           value: "(786) 781-3547",
           href: "tel:+17867813547",
         },
@@ -425,86 +895,78 @@ export default {
           href: "https://mail.google.com/mail/?view=cm&fs=1&to=perlarosatimakeup@gmail.com",
         },
         {
-          label: "Horario: ",
-          value:
-            "Martes a sábado de 9:00 am – 6:00 pm. Domingo y lunes solo con cita previa.",
+          label: "Hours: ",
+          value: "Tue to Sat 9:00 am – 6:00 pm. Sun & Mon by appointment.",
           href: "#",
         },
       ],
       button: {
-        label: "escríbenos por whatsapp",
+        label: "chat on whatsapp",
         href: "#",
       },
     },
     form: {
-      tag: "Cuéntanos qué necesitas",
-      title: "Hablemos de tu belleza",
-      description:
-        "Ponte en contacto con nosotros y te responderemos en un plazo de 24 horas.",
+      tag: "Tell us what you need",
+      title: "Let's talk beauty",
+      description: "Contact us — we reply within 24 hours.",
     },
     questions: {
-      title: "Preguntas frecuentes",
-      description:
-        "Estas son las preguntas más frecuentes que hacen nuestros clientes.",
+      title: "FAQs",
+      description: "Top questions from our clients.",
       items: [
         {
-          title: "¿CUÁL ES LA MEJOR FORMA DE CONTACTARLOS?",
+          title: "WHAT IS THE BEST WAY TO REACH YOU?",
           answer:
-            "La vía más rápida es WhatsApp al <a href='https://wa.me/17867813547' target='_blank' rel='noopener noreferrer'>(786) 781-3547</a>.",
+            "Fastest via WhatsApp at <a href='https://wa.me/17867813547' target='_blank' rel='noopener noreferrer'>(786) 781-3547</a>.",
         },
         {
-          title: "¿CUÁL ES EL HORARIO DE ATENCIÓN?",
-          answer:
-            "Martes a sábado de 9:00 am – 6:00 pm. Domingo y lunes solo con cita previa.",
+          title: "WHAT ARE YOUR HOURS?",
+          answer: "Tue to Sat 9:00 am – 6:00 pm. Sun & Mon by appointment.",
         },
         {
-          title: "¿EN CUÁNTO TIEMPO RESPONDEN LOS MENSAJES?",
-          answer:
-            "Respondemos todos los mensajes en un plazo máximo de 24 horas.",
+          title: "HOW FAST DO YOU REPLY?",
+          answer: "We reply to all messages within 24 hours.",
         },
         {
-          title: "¿DÓNDE ESTÁ UBICADO EL ESTUDIO?",
-          answer:
-            "En 13550 Village Park Drive, Orlando, Florida 32837, Estados Unidos.",
+          title: "WHERE IS THE STUDIO?",
+          answer: "13550 Village Park Drive, Orlando, Florida 32837, USA.",
         },
         {
-          title: "¿PUEDO VISITAR EL ESTUDIO SIN CITA PREVIA?",
-          answer:
-            "Recomendamos agendar tu cita previamente para garantizar tu atención.",
+          title: "CAN I WALK IN WITHOUT BOOKING?",
+          answer: "Please book ahead to ensure we can serve you.",
         },
         {
-          title: "¿TIENEN ESTACIONAMIENTO DISPONIBLE?",
-          answer:
-            "Sí, contamos con estacionamiento gratuito frente al estudio.",
+          title: "DO YOU HAVE PARKING?",
+          answer: "Yes, free parking right in front of the studio.",
         },
       ],
     },
   },
   footer: {
     description:
-      "Maquilladora profesional y fundadora del estudio, con más de 9 años de experiencia en maquillaje de novias, eventos sociales y formación de nuevas maquilladoras.",
-    copy: "© Perla Rosati Makeup Studio. Todos los derechos reservados.",
+      "Pro makeup artist and studio founder, with 9+ years in bridal, social events, and training new artists.",
+    copy: "© Perla Rosati Makeup Studio. All rights reserved.",
     navigation: {
-      title: "Navegación",
+      title: "Explore",
       items: [
         {
-          label: "Inicio",
+          label: "Home",
           href: "/",
         },
         {
-          label: "Nosotros",
+          label: "About",
           href: "/about-us",
         },
         {
-          label: "Servicios",
+          label: "Services",
           href: "/services",
         },
         {
-          label: "Educación",
+          label: "Education",
           href: "/education",
         },
         {
-          label: "Galería",
+          label: "Gallery",
           href: "/gallery",
         },
         {
@@ -512,34 +974,34 @@ export default {
           href: "/blog",
         },
         {
-          label: "Contacto",
+          label: "Contact",
           href: "/contact",
         },
       ],
     },
     services: {
-      title: "Servicios",
+      title: "Services",
       items: [
         {
-          label: "Maquillaje",
-          href: "/en/services#makeup",
+          label: "Makeup",
+          href: "/services#makeup",
         },
         {
-          label: "Cabello",
-          href: "/en/services#hair",
+          label: "Hair",
+          href: "/services#hair",
         },
         {
-          label: "Faciales",
-          href: "/en/services#facials",
+          label: "Facials",
+          href: "/services#facials",
         },
         {
-          label: "Educación",
-          href: "/en/education",
+          label: "Education",
+          href: "/education",
         },
       ],
     },
     contact: {
-      title: "Contacto",
+      title: "Contact",
       items: [
         {
           label: "(786) 781-3547",
@@ -558,54 +1020,54 @@ export default {
   },
   seo: {
     main: {
-      title: "Maquillaje Profesional en Orlando | Perla Rosati Makeup",
+      title: "Pro Makeup in Orlando | Perla Rosati Makeup",
       description:
-        "Realza tu belleza con maquillaje profesional personalizado en Orlando, FL. Novias, eventos sociales y looks que celebran tu esencia. ¡Reserva hoy!",
+        "Boost your glow with custom pro makeup in Orlando, FL. Brides, events, and looks that celebrate you. Book today!",
       keywords:
-        "maquillaje profesional Orlando, maquilladora en Orlando Florida, maquillaje de novias Orlando, maquillaje social, Perla Rosati Makeup",
+        "pro makeup Orlando, makeup artist Orlando Florida, bridal makeup Orlando, social makeup, Perla Rosati Makeup",
     },
     aboutUs: {
-      title: "Nosotros | Perla Rosati, Maquilladora en Orlando",
+      title: "About | Perla Rosati, Makeup Artist in Orlando",
       description:
-        "Conoce a Perla Rosati, maquilladora venezolana en Orlando con más de 9 años de experiencia. Un estudio donde tu belleza se potencia, no se transforma.",
+        "Meet Perla Rosati, Venezuelan artist in Orlando with 9+ years. A studio where beauty is enhanced, not changed.",
       keywords:
-        "Perla Rosati maquilladora, historia Perla Rosati, maquilladora venezolana en Orlando, estudio de maquillaje Orlando Florida, maquilladora profesional",
+        "Perla Rosati artist, Perla Rosati story, Venezuelan makeup artist Orlando, makeup studio Orlando Florida, pro makeup artist",
     },
     services: {
-      title: "Servicios de Maquillaje y Belleza en Orlando | Perla Rosati",
+      title: "Makeup & Beauty Services in Orlando | Perla Rosati",
       description:
-        "Maquillaje de novias, social, quinceañeras, cabello, faciales, cejas y pestañas en Orlando. Reserva y luce radiante en tu gran día.",
+        "Bridal, social, quince makeup, hair, facials, brows and lashes in Orlando. Book and shine on your big day.",
       keywords:
-        "maquillaje de novias Orlando, maquillaje para quinceañeras, peinado Orlando, faciales Orlando Florida, cejas y pestañas Orlando, servicios de belleza",
+        "bridal makeup Orlando, quince makeup, hairstyling Orlando, facials Orlando Florida, brows and lashes Orlando, beauty services",
     },
     education: {
-      title: "Cursos de Maquillaje en Orlando | Automaquillaje y Pro Master",
+      title: "Makeup Courses in Orlando | Self-Makeup & Pro Master",
       description:
-        "Aprende automaquillaje en 3 horas o fórmate como maquilladora profesional en 6 semanas en Orlando. Clases online y presenciales con certificado.",
+        "Learn self-makeup in 3 hours or train as a pro artist in 6 weeks in Orlando. Online and in-person with certificate.",
       keywords:
-        "curso de automaquillaje Orlando, curso de maquillaje profesional Florida, Beauty Pro Master, clases de maquillaje online, certificación maquillaje Florida",
+        "self-makeup course Orlando, pro makeup course Florida, Beauty Pro Master, online makeup classes, Florida makeup license",
     },
     gallery: {
-      title: "Galería de Maquillaje | Trabajos Reales en Orlando",
+      title: "Makeup Gallery | Real Work in Orlando",
       description:
-        "Explora nuestra galería: maquillaje de novias, social y quinceañeras reales hechos en Orlando. Inspírate y encuentra el look de tus sueños.",
+        "Browse our gallery: real bridal, social, and quince makeup in Orlando. Get inspired and find your dream look.",
       keywords:
-        "galería de maquillaje Orlando, fotos maquillaje de novias, looks de maquillaje social, portafolio maquilladora Orlando, maquillaje quinceañeras",
+        "makeup gallery Orlando, bridal makeup photos, social makeup looks, Orlando artist portfolio, quince makeup",
     },
 
     blog: {
-      title: "Blog de Belleza y Maquillaje | Consejos y Tendencias",
+      title: "Beauty & Makeup Blog | Tips & Trends",
       description:
-        "Consejos de maquillaje natural, looks duraderos y tendencias de belleza en Orlando. Inspiración de Perla Rosati para resaltar tu estilo auténtico.",
+        "Natural makeup tips, lasting looks, and beauty trends in Orlando. Inspiration from Perla Rosati for your true style.",
       keywords:
-        "blog de maquillaje, consejos de belleza, maquillaje natural, maquillaje duradero, tendencias de maquillaje Orlando",
+        "makeup blog, beauty tips, natural makeup, lasting makeup, Orlando makeup trends",
     },
     contact: {
-      title: "Contacto y Reservas en Orlando | Perla Rosati Makeup",
+      title: "Contact & Booking in Orlando | Perla Rosati Makeup",
       description:
-        "Reserva tu cita en 13550 Village Park Drive, Orlando. WhatsApp (786) 781-3547, respuesta en 24h. Mar a sáb 9am–6pm. ¡Escríbenos hoy!",
+        "Book at 13550 Village Park Drive, Orlando. WhatsApp (786) 781-3547, reply in 24h. Tue–Sat 9am–6pm. Write today!",
       keywords:
-        "reservar maquillaje Orlando, contacto Perla Rosati, cita maquilladora Orlando, WhatsApp maquillaje Florida, estudio de maquillaje dirección",
+        "book makeup Orlando, Perla Rosati contact, Orlando makeup booking, Florida makeup WhatsApp, makeup studio address",
     },
   },
 };

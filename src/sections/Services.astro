@@ -9,6 +9,7 @@ interface Props {
   }[];
   items: {
     title: string;
+    id: string;
     items: {
       image: string;
       title: string;
@@ -41,7 +42,7 @@ const { categorie, items } = Astro.props as Props;
       categorie.map((item) => (
         <>
           <a
-            href={`#${item.title.replace(/\s+/g, "-").toLowerCase()}`}
+            href={`#${item.id.replace(/\s+/g, "-").toLowerCase()}`}
             class="paragraph-medium text-paragrah uppercase tracking-[2.56px] cursor-pointer border-r-2 border-paragraph last:border-r-0 px-6 shrink-0 whitespace-nowrap group relative"
           >
             {item.title}
@@ -56,10 +57,10 @@ const { categorie, items } = Astro.props as Props;
       items.map((item) => (
         <div
           class="w-full flex flex-col justify-center items-center md:items-start gap-6 md:gap-12 scroll-mt-10"
-          id={item.title.replace(/\s+/g, "-").toLowerCase()}
+          id={item.id.replace(/\s+/g, "-").toLowerCase()}
         >
           <AnimatedTitle text={item.title} tag="h2" class="title-3 text-paragraph" />
-          <ServicesCarousel items={item.items} client:load />
+          <ServicesCarousel  items={item.items} client:load />
         </div>
       ))
     }

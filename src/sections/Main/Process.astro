@@ -20,11 +20,11 @@ const { content, lang } = Astro.props as Props;
     <AnimatedTitle
       text={content.title}
       tag="h2"
-      class="title-2 md:text-start text-center max-w-[60%] xl:max-w-none"
+      class="title-2 md:text-start text-center max-w-none md:max-w-[60%] xl:max-w-none"
     />
     <Button
       text={content.button.label}
-      href={`${lang}/${content.button.href}`}
+      href={`/${lang}${content.button.href}`}
       extraBtnClass="fade-up-slow [--delay:0.5s]"
     />
   </div>

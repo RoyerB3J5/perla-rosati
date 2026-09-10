@@ -32,9 +32,11 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
   const [stepWidth, setStepWidth] = useState(0);
 
   const dragStart = useRef(0);
+  const dragOffsetRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const autoplayTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const wrapFallback = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isResetting = useRef(false);
 
   // Slide widths are pure CSS (see the slide classNames: 1 per view below
@@ -81,40 +83,100 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
       clearInterval(autoplayTimer.current);
       autoplayTimer.current = null;
     }
+    if (wrapFallback.current) {
+      clearTimeout(wrapFallback.current);
+      wrapFallback.current = null;
+    }
   }, []);
+
+  const normalizeIndex = useCallback(
+    (index: number) => {
+      if (index >= 2 * N || index < N) {
+        isResetting.current = true;
+        setIsTransitioning(false);
+        const equivalentIndex = N + (((index % N) + N) % N);
+        setCurrentIndex(equivalentIndex);
+      }
+    },
+    [N],
+  );
+
+  // If `items` changes (e.g. language switch / different list length),
+  // re-anchor to the middle copy instead of keeping a stale index.
+  useEffect(() => {
+    isResetting.current = false;
+    setIsTransitioning(false);
+    setDragOffset(0);
+    dragOffsetRef.current = 0;
+    setCurrentIndex(N);
+  }, [N]);
+
+  // New intentional movement always wins: clear a stale wrap-back lock so
+  // the next `transitionend` is not swallowed.
+  const beginMove = useCallback((delta: number) => {
+    isResetting.current = false;
+    if (wrapFallback.current) {
+      clearTimeout(wrapFallback.current);
+      wrapFallback.current = null;
+    }
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + delta);
+  }, []);
+
+  // Fallback in case `transitionend` never fires (interrupted transition,
+  // throttled tab, reduced motion): force the silent snap shortly after
+  // the 300ms CSS transition should have finished.
+  useEffect(() => {
+    if (!isTransitioning) return;
+    if (wrapFallback.current) clearTimeout(wrapFallback.current);
+    const snapshot = currentIndex;
+    wrapFallback.current = setTimeout(() => {
+      if (!isResetting.current) normalizeIndex(snapshot);
+    }, 350);
+    return () => {
+      if (wrapFallback.current) {
+        clearTimeout(wrapFallback.current);
+        wrapFallback.current = null;
+      }
+    };
+  }, [currentIndex, isTransitioning, normalizeIndex]);
 
   const startAutoplay = useCallback(() => {
     stopAutoplay();
     autoplayTimer.current = setInterval(() => {
-      setIsTransitioning(true);
-      setCurrentIndex((prev) => prev + 1);
+      beginMove(1);
     }, AUTOPLAY_INTERVAL);
-  }, [stopAutoplay]);
+  }, [stopAutoplay, beginMove]);
 
   useEffect(() => {
     startAutoplay();
-    return () => stopAutoplay();
+    const onVisibility = () => {
+      if (document.hidden) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      stopAutoplay();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, [startAutoplay, stopAutoplay]);
 
   const handleTransitionEnd = () => {
     if (isResetting.current) return;
 
-    if (currentIndex >= 2 * N || currentIndex < N) {
-      isResetting.current = true;
-      setIsTransitioning(false);
-      const equivalentIndex = N + (((currentIndex % N) + N) % N);
-      setCurrentIndex(equivalentIndex);
-    }
+    normalizeIndex(currentIndex);
   };
 
   const slide = useCallback(
     (direction: 1 | -1) => {
       stopAutoplay();
-      setIsTransitioning(true);
-      setCurrentIndex((prev) => prev + direction);
+      beginMove(direction);
       startAutoplay();
     },
-    [stopAutoplay, startAutoplay],
+    [stopAutoplay, startAutoplay, beginMove],
   );
 
   const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
@@ -123,12 +185,14 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
     setIsTransitioning(false);
     dragStart.current = e.clientX;
     setIsDragging(true);
+    dragOffsetRef.current = 0;
     setDragOffset(0);
   };
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!isDragging) return;
     const deltaX = e.clientX - dragStart.current;
+    dragOffsetRef.current = deltaX;
     setDragOffset(deltaX);
   };
 
@@ -136,15 +200,21 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
     if (!isDragging) return;
     setIsDragging(false);
 
+    const offset = dragOffsetRef.current;
     const threshold = 50;
-    setIsTransitioning(true);
 
-    if (dragOffset < -threshold) {
-      setCurrentIndex((prev) => prev + 1);
-    } else if (dragOffset > threshold) {
-      setCurrentIndex((prev) => prev - 1);
+    if (offset < -threshold) {
+      beginMove(1);
+    } else if (offset > threshold) {
+      beginMove(-1);
+    } else if (offset !== 0) {
+      // Small drag: snap back to place with animation.
+      isResetting.current = false;
+      setIsTransitioning(true);
     }
+    // else: plain click without movement — stay without transition.
 
+    dragOffsetRef.current = 0;
     setDragOffset(0);
     startAutoplay();
   };
@@ -156,12 +226,14 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
       dragStart.current = e.touches[0].clientX;
     }
     setIsDragging(true);
+    dragOffsetRef.current = 0;
     setDragOffset(0);
   };
 
   const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
     if (!isDragging || e.touches.length === 0) return;
     const deltaX = e.touches[0].clientX - dragStart.current;
+    dragOffsetRef.current = deltaX;
     setDragOffset(deltaX);
   };
 
@@ -169,15 +241,19 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
     if (!isDragging) return;
     setIsDragging(false);
 
+    const offset = dragOffsetRef.current;
     const threshold = 50;
-    setIsTransitioning(true);
 
-    if (dragOffset < -threshold) {
-      setCurrentIndex((prev) => prev + 1);
-    } else if (dragOffset > threshold) {
-      setCurrentIndex((prev) => prev - 1);
+    if (offset < -threshold) {
+      beginMove(1);
+    } else if (offset > threshold) {
+      beginMove(-1);
+    } else if (offset !== 0) {
+      isResetting.current = false;
+      setIsTransitioning(true);
     }
 
+    dragOffsetRef.current = 0;
     setDragOffset(0);
     startAutoplay();
   };
@@ -233,8 +309,20 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
                 className="shrink-0 grow-0 basis-full sm:basis-[calc((100%-24px)/2)] lg:basis-[calc((100%-48px)/3)] flex flex-col justify-start items-start gap-8"
                 key={index}
               >
-                <div className="flex flex-col justify-center items-start gap-6 text-paragraph h-full">
-                  <div className="w-full h-auto aspect-410/513 bg-[#C8C8C8] reveal-tl-br"></div>
+                <div className="flex flex-col justify-center items-start gap-6 text-paragraph h-full w-full">
+                  <div className="w-full h-auto aspect-410/513 bg-[#C8C8C8] relative reveal-tl-br">
+                    {item.image !== "#" && (
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover absolute inset-0 object-center z-2"
+                        width="1080"
+                        height="1351"
+                        decoding="async"
+                        loading="lazy"
+                      />
+                    )}
+                  </div>
                   <div className="w-full h-[1.5px] bg-paragraph" />
                   <h3 className="paragraph-medium fade-up-a">{item.title}</h3>
                   <p className="paragraph grow fade-up-a">{item.description}</p>

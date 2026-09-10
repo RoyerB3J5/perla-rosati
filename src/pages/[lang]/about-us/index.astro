@@ -9,6 +9,7 @@ import Questions from "../../../sections/Main/Questions.astro";
 import Me from "../../../sections/Me.astro";
 import Reviews from "../../../sections/Main/Reviews";
 import type { Language } from "../../../types/language.type";
+import Squad from "../../../sections/Squad.astro";
 
 export function getStaticPaths() {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -35,5 +36,6 @@ const seo = t.seo.aboutUs;
   <Reviews items={t.main.reviews} client:load />
   <Me content={t.aboutUs.me} />
   <Process content={t.aboutUs.process} lang={lang} />
+  <Squad content={t.aboutUs.squad} />
   <Questions content={t.aboutUs.questions} lang={lang} />
 </Layout>
