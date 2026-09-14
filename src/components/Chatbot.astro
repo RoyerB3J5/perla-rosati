@@ -14,71 +14,55 @@
 </noscript>
 
 <style>
-  /* Mantenemos el z-index original para evitar solapamientos */
-  .chatbot-wrapper,
-  #chat-widget-container,
-  .lc_chat-widget,
-  div[id*="chat-widget"] {
+  /* Fuerza a los elementos dinámicos externos a quedarse en z-index 40 */
+  :global(#chat-widget-container),
+  :global(.lc_chat-widget),
+  :global(div[id*="chat-widget"]),
+  :global(iframe[id*="leadconnector-chat"]),
+  :global(iframe[id*="chat-widget"]) {
     z-index: 40 !important;
   }
 
-  /* 1. Definimos la animación pura de abajo hacia arriba */
-  @keyframes slideInUp {
-    from {
-      transform: translateY(80px); /* Empieza 80px abajo */
-      opacity: 0; /* Invisible */
-    }
-    to {
-      transform: translateY(0); /* Su posición final */
-      opacity: 1; /* Visible */
-    }
-  }
-
-  /* Configuración base del contenedor */
+  /* Configuración base del contenedor de Astro */
   .chatbot-wrapper {
     position: fixed;
     right: 20px;
     bottom: 20px;
-    z-index: 20;
+    z-index: 40 !important;
   }
 
-  /* 2. Estilos base del botón */
   .chatbot-button {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: #b59353;
+    background: #f6f3ee;
     color: #fff;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Transición suave para scale si se añade en JS onload */
     transition:
       opacity 0.4s ease,
       transform 0.4s ease;
   }
 
-  /* 3. Definimos la clase para activar la animación en el botón */
   .chatbot-wrapper.animate-button .chatbot-button {
     animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    pointer-events: auto !important; /* Habilitar clicks */
+    pointer-events: auto !important;
   }
 
-  /* Configuración de visibilidad para móvil (manteniendo la lógica original) */
   .chatbot-wrapper.hidden-mobile {
     display: none;
   }
 
-  /* Asegurar que se muestra cuando es visible */
   @media (max-width: 640px) {
     .chatbot-wrapper {
       display: none;
     }
 
     .chatbot-wrapper.visible-mobile {
-      display: block; /* Muestra el contenedor */
+      display: block;
     }
   }
 
@@ -86,17 +70,28 @@
     position: fixed;
     right: 20px;
     bottom: 20px;
-    background: #b59353;
+    background: #f6f3ee;
     color: #fff;
     padding: 8px 12px;
     border-radius: 8px;
     text-decoration: none;
   }
+
+  @keyframes slideInUp {
+    from {
+      transform: translateY(80px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 </style>
 
 <script>
   (() => {
-    const WIDGET_ID = "6a8ddf570f35f20299e41bdd";
+    const WIDGET_ID = "6aa3216895d905edcb20f447";
     const RES_URL = "https://widgets.leadconnectorhq.com/chat-widget/loader.js";
     const SRC = "https://widgets.leadconnectorhq.com/loader.js";
     let loaded = false;

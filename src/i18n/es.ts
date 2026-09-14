@@ -165,7 +165,7 @@ export default {
   aboutUs: {
     hero: {
       tag: "Maquillaje que resalta quién eres",
-      title: "Tu belleza, nuestra inspiración..",
+      title: "Tu belleza, nuestra inspiración.",
       description:
         "En Perla Rosati Makeup creemos que la belleza no se transforma, se potencia. Creamos looks personalizados que respetan tu esencia, realzan tus rasgos y te hacen sentir segura, auténtica y especial.",
       image: "hero-about",
