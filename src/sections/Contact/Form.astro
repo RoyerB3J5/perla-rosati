@@ -1,5 +1,6 @@
 ---
 import AnimatedTitle from "../../components/AnimatedTitle.astro";
+import FormContact from "../../components/FormContact.astro";
 type Translations = typeof import("../../i18n/en").default;
 type FormContent = Translations["contact"]["form"];
 interface Props {
@@ -14,10 +15,11 @@ const { content } = Astro.props as Props;
   <div
     class="w-full md:w-1/2 flex flex-col justify-start items-start gap-2.5 text-paragraph"
   >
-    <div class="flex flex-col justify-center items-start gap-6 md:gap-4">
+    <div class="flex flex-col justify-center items-start gap-6 md:gap-4 w-full">
       <p class="paragraph-medium uppercase fade-up-a">{content.tag}</p>
       <AnimatedTitle text={content.title} tag="h2" class="title-3" />
       <p class="paragraph fade-up-a" style="animation-delay:0.5s">{content.description}</p>
+      <FormContact/>
     </div>
   </div>
   <div
