@@ -294,11 +294,10 @@ export default {
             href: "#",
           },
           images: [
-            "elizabeth-1",
-            "elizabeth-2",
-            "elizabeth-3",
-            "elizabeth-4",
-            "elizabeth-5",
+            "elizabet-1",
+            "elizabet-2",
+            "elizabet-3",
+            "elizabet-4",
           ],
         },
         {

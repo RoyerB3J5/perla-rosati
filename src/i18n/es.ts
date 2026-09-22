@@ -299,13 +299,7 @@ export default {
             label: "agendar mi cita",
             href: "#",
           },
-          images: [
-            "elizabeth-1",
-            "elizabeth-2",
-            "elizabeth-3",
-            "elizabeth-4",
-            "elizabeth-5",
-          ],
+          images: ["elizabet-1", "elizabet-2", "elizabet-3", "elizabet-4"],
         },
         {
           title: "Valeria Kebbe",
