@@ -36,7 +36,7 @@ export default function NuvisionForm() {
       style={{
         position: "relative",
         width: "370px",
-        height: "580px", // Altura específica basada en data-height
+        height: "480px", // Altura específica basada en data-height
         padding: 0,
         overflow: "hidden",
         // Oculta cualquier contenido que se desborde
@@ -54,7 +54,7 @@ export default function NuvisionForm() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#f6f3ee",
+            background: "#f3ece5",
             overflow: "hidden",
           }}
         >
@@ -69,7 +69,7 @@ export default function NuvisionForm() {
         onLoad={() => setLoaded(true)}
         style={{
           width: "100%",
-          height: "580px",
+          height: "480px",
           border: "none",
           borderRadius: 3,
           background: "transparent",

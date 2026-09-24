@@ -13,7 +13,9 @@ const { content } = Astro.props as Props;
 <section
   class="w-full flex justify-center items-center pt-(--header-height) relative"
 >
-  <div class="container-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-6 py-16 md:py-20">
+  <div
+    class="container-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-6 py-16 md:py-20"
+  >
     <img
       src="/images/map.webp"
       alt="Map"
@@ -23,16 +25,31 @@ const { content } = Astro.props as Props;
       decoding="async"
       loading="eager"
     />
-    <div class="flex flex-col justify-center items-start gap-6 md:gap-5.5 p-0 md:p-8 order-1 md:order-2">
+    <div
+      class="flex flex-col justify-center items-start gap-6 md:gap-5.5 p-0 md:p-8 order-1 md:order-2"
+    >
       <div
         class="w-full flex flex-col justify-start items-start gap-6 text-paragraph"
       >
         <p class="uppercase paragraph-medium fade-up-a">{content.tag}</p>
-        <AnimatedTitle text={content.title} tag="h1" class="title-2 md:title-3" />
+        <AnimatedTitle
+          text={content.title}
+          tag="h1"
+          class="title-2 md:title-3"
+        />
       </div>
-      <div class="w-full h-[1.5px] bg-paragraph fade-up-a" style="animation-delay:0.5s"></div>
-      <p class="paragraph fade-up-a" style="animation-delay:0.5s">{content.description}</p>
-      <ul class="flex flex-col justify-start items-start gap-1 text-paragraph fade-up-a" style="animation-delay:0.5s">
+      <div
+        class="w-full h-[1.5px] bg-paragraph fade-up-a"
+        style="animation-delay:0.5s"
+      >
+      </div>
+      <p class="paragraph fade-up-a" style="animation-delay:0.5s">
+        {content.description}
+      </p>
+      <ul
+        class="flex flex-col justify-start items-start gap-1 text-paragraph fade-up-a"
+        style="animation-delay:0.5s"
+      >
         {
           content.items.map((item) => (
             <li class="paragraph list-disc list-outside ml-4 ">
@@ -49,7 +66,11 @@ const { content } = Astro.props as Props;
           ))
         }
       </ul>
-      <Button text={content.button.label} href={content.button.href} extraBtnClass="fade-up-slow [--delay:0.5s]" />
+      <Button
+        text={content.button.label}
+        href="https://wa.me/17867813547"
+        extraBtnClass="fade-up-slow [--delay:0.5s]"
+      />
     </div>
   </div>
 </section>
