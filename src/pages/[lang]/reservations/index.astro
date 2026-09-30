@@ -1,0 +1,55 @@
+---
+import AnimatedTitle from "../../../components/AnimatedTitle.astro";
+import BookingWidget from "../../../components/BookingWidget.astro";
+import en from "../../../i18n/en";
+import es from "../../../i18n/es";
+import Layout from "../../../layouts/Layout.astro";
+import type { Language } from "../../../types/language.type";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+export const defaultRedirect = "/en";
+
+const lang = Astro.params.lang as Language;
+const translations = { es, en };
+const t = translations[lang];
+const seo = t.seo.reservations;
+---
+
+<Layout
+  lang={lang}
+  t={t}
+  title={seo.title}
+  description={seo.description}
+  keywords={seo.keywords}
+  canonicalPath="/reservations"
+>
+  <section class="w-full pt-(--header-height) flex justify-center items-center">
+    <div
+      class="pt-16 md:pt-20 pb-10 flex flex-col justify-center items-center gap-6 text-paragraph px-4"
+    >
+      <p class="paragraph fade-up-a uppercase">{t.reservations.tag}</p>
+      <AnimatedTitle
+        text={t.reservations.title}
+        tag="h1"
+        class="title-2 text-center"
+      />
+      <p
+        class="paragraph text-center max-w-[640px] fade-up-a"
+        style="animation-delay:0.5s"
+      >
+        {t.reservations.description}
+      </p>
+    </div>
+  </section>
+
+  <section class="container-full flex justify-center items-start pb-16 md:pb-20">
+    <BookingWidget
+      src="https://link.inkshapecrm.com/widget/booking/RNsIy2cpyFTFLlpn1PsH"
+      iframeId="RNsIy2cpyFTFLlpn1PsH_1790447299366"
+      title={t.reservations.title}
+    />
+  </section>
+</Layout>

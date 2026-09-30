@@ -19,15 +19,29 @@ const seo = t.seo.blog;
 //if (!post) {
 //return new Response(null, { status: 404 });
 //}
-const post = {
+
+// --- Query en vivo: contenido dinámico por `id` de la request ---
+// Se conserva el contenido estático como fallback si la query falla o no
+// encuentra el post. No se borra el contenido estático.
+const { id } = Astro.params;
+let livePost = null;
+try {
+  livePost = id ? await getPostById(id) : null;
+} catch (err) {
+  console.error("[blog/id] GHL fetch failed:", err);
+  livePost = null;
+}
+const staticPost = {
   id: "1",
   image: "/images/blog/1.webp",
   date: "AUGUST 18, 2026",
   autor: "PERLA ROSATI",
   title: "Maquillaje natural: donde menos es más",
   content:
-    "Sé que esta página es de trabajo, pero también sé que mi trabajo es cumplir el propósito que me fue asignado. Desde mayo he estado en un proceso de formación, no solo profesionalmente, sino también espiritualmente.  Enyermy Studio Pro nace de una visión que me fue entregada en el 2019, acompañada de las palabras de mis pastores: “Tú no solo transformarás la vida de muchas mujeres por fuera, sino que también las ayudarás a descubrir su identidad y a ver el gran valor que tienen.” A veces nos ocupamos tanto que olvidamos cuál es nuestro propósito. Pero en estos últimos dos meses, en medio de tanto trabajo y tantas responsabilidades, el Señor ha llamado mi atención de una manera sobrenatural. Hace poco tuve una reunión con mis pastores porque me sentía al borde del colapso en medio de este proceso de expansión. Durante la conversación, mi pastor usó una palabra para describir mi propósito: Philanthropy. Esa palabra llamó profundamente mi atención porque apenas una semana antes había venido a mi mente y yo misma había buscado su significado.", // HTML completo
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ", // HTML completo
 };
+// Contenido dinámico: respuesta de la request (GHL); fallback al estático.
+const post = livePost ?? staticPost;
 ---
 
 <Layout
@@ -48,14 +62,16 @@ const post = {
       <img
         src={post.image}
         alt={post.title}
-        class="w-full h-full object-cover absolute inset-0 object-[50%_10%]"
+        class="w-full h-full object-cover absolute inset-0 object-center"
         width={1200}
         height={820}
         loading="eager"
       />
     </div>
     <div class="flex flex-col justify-center items-start gap-6 w-full">
-      <div class="w-full flex flex-col justify-center items-start gap-4 fade-up-a">
+      <div
+        class="w-full flex flex-col justify-center items-start gap-4 fade-up-a"
+      >
         <p class="text-paragraph text-[13px] font-normal leading-[150%]">
           Posted by Perla ROSATI on {post.date}
         </p>

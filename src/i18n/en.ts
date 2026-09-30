@@ -293,12 +293,7 @@ export default {
             label: "book now",
             href: "#",
           },
-          images: [
-            "elizabet-1",
-            "elizabet-2",
-            "elizabet-3",
-            "elizabet-4",
-          ],
+          images: ["elizabet-1", "elizabet-2", "elizabet-3", "elizabet-4"],
         },
         {
           title: "Valeria Kebbe",
@@ -448,7 +443,7 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/trenzas.webp",
             title: "Braids",
             description:
               "Modern custom braids for texture and style, for any event.",
@@ -462,27 +457,27 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/peinado-ninas.webp",
             title: "Girls hairstyles",
             description:
               "Comfy style for girls, by age and event. Up to age 8.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/secado-profesional.webp",
             title: "Pro blowout",
             description:
               "Blowout for movement and shine; price varies by hair.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/secado-ondas.webp",
             title: "Blowout + waves",
             description: "Blowout with soft glam waves; price varies by hair.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/hidratacion-capilar.webp",
             title: "Hair hydration",
             description: "Restore softness and glow; price varies by hair.",
             href: "#",
@@ -494,7 +489,7 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/hidratacion-keratina.webp",
             title: "Keratin smoothing",
             description: "Keratin to tame frizz; price varies by hair.",
             href: "#",
@@ -506,34 +501,34 @@ export default {
         title: "Hairstyling",
         items: [
           {
-            image: "#",
+            image: "/images/services/corte-cabello.webp",
             title: "Haircut",
             description:
               "Custom cut with wash, flat rate, to suit your features.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/corte-cabello-secado.webp",
             title: "Haircut + blowout",
             description:
               "Cut plus pro blowout, flat rate, for a fresh, polished look.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/retoque-raiz.webp",
             title: "Root touch-up",
             description: "Refresh roots with wash and blowout, flat rate.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/tinte-completo.webp",
             title: "Full color",
             description:
               "Custom full color; price varies by length and hair health.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/servicio-color.webp",
             title: "Custom color service",
             description:
               "Tailored to your goal. Needs prior consult to assess hair and set a plan.",
@@ -606,7 +601,7 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/extension-volumen.webp",
             title: "Volume lash extensions",
             description: "Fuller, bold lashes tailored to your style.",
             href: "#",
@@ -618,7 +613,7 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/remocion-extension.webp",
             title: "Extension removal",
             description: "No refills on others' work; safe removal only.",
             href: "#",
@@ -636,86 +631,86 @@ export default {
         title: "Laser",
         items: [
           {
-            image: "#",
+            image: "/images/services/depilacion-laser-bozo.webp",
             title: "Upper-lip laser",
             description: "Slow regrowth with diode laser for smooth skin.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/bikini-laser.webp",
             title: "Bikini laser",
             description: "Less bikini hair with diode laser, no shaving.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/axilas-laser.webp",
             title: "Underarm laser",
             description: "Less underarm hair for smooth, even skin.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/brasilena-laser.webp",
             title: "Brazilian laser",
             description: "Less hair with diode laser, lasting smoothness.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/gluteos-laser.webp",
             title: "Buttocks laser",
             description: "Slow regrowth with diode laser, smoother skin.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/menton-laser.webp",
             title: "Chin laser",
             description: "Less chin hair with diode laser, smoother skin.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/patillas-laser.webp",
             title: "Sideburn laser",
             description: "Cleaner sideburns with diode laser, smooth look.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/brazo-completo-laser.webp",
             title: "Full-arm laser",
             description: "Less full-arm hair with diode laser, smooth skin.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/medio-brazo-laser.webp",
             title: "Half-arm laser",
             description: "Less half-arm hair for smooth, even skin.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/piernas-completas-laser.webp",
             title: "Full-leg laser",
             description:
               "Less full-leg hair with diode laser, lasting smoothness.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/media-pierna-laser.webp",
             title: "Half-leg laser",
             description: "Less half-leg hair for smooth, even skin.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/espalda-completa-laser.webp",
             title: "Full-back laser",
             description: "Less back hair with diode laser, smoother skin.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/pecho-abs-completo.webp",
             title: "Full chest & abs laser",
             description: "Less chest and abs hair for smooth skin.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/abs-inferior.webp",
             title: "Lower abs line laser",
             description: "Less lower abs hair for smooth, even skin.",
             href: "#",
@@ -881,7 +876,7 @@ export default {
         {
           label: "Address:",
           value: "13550 Village Park Drive, Orlando, Florida 32837",
-          href: "#",
+          href: "https://www.google.com/maps/search/?api=1&query=13550+Village+Park+Drive+Orlando+FL+32837",
         },
         {
           label: "Phone:",
@@ -901,7 +896,7 @@ export default {
       ],
       button: {
         label: "chat on whatsapp",
-        href: "#",
+        href: "https://wa.me/17867813547",
       },
     },
     form: {
@@ -940,6 +935,25 @@ export default {
         },
       ],
     },
+  },
+  thankYou: {
+    tag: "Reservation received",
+    title: "Thank you for your reservation",
+    description:
+      "Your request is on its way. Our team will contact you within 24 hours to confirm the details of your appointment.",
+
+    buttons: {
+      home: "Back to home",
+      whatsapp: "Chat on WhatsApp",
+      services: "Explore services",
+    },
+    note: "This is an automatic confirmation. Your spot is reserved once our team confirms it.",
+  },
+  reservations: {
+    tag: "Book your appointment",
+    title: "Reservations",
+    description:
+      "Choose your service, pick a date and time, and confirm your booking in seconds.",
   },
   footer: {
     description:
@@ -1067,6 +1081,20 @@ export default {
         "Book at 13550 Village Park Drive, Orlando. WhatsApp (786) 781-3547, reply in 24h. Tue–Sat 9am–6pm. Write today!",
       keywords:
         "book makeup Orlando, Perla Rosati contact, Orlando makeup booking, Florida makeup WhatsApp, makeup studio address",
+    },
+    thankYou: {
+      title: "Reservation Confirmed | Perla Rosati Makeup",
+      description:
+        "Thank you for your reservation. Our team will contact you within 24 hours to confirm your appointment details.",
+      keywords:
+        "reservation confirmed, booking confirmation, Perla Rosati Makeup, Orlando makeup appointment",
+    },
+    reservations: {
+      title: "Book Your Appointment | Perla Rosati Makeup",
+      description:
+        "Reserve your makeup, hair, facial, or lash appointment online in Orlando. Pick your service, date, and time in seconds.",
+      keywords:
+        "book appointment Orlando, reserve makeup Orlando, online booking, Perla Rosati Makeup reservations",
     },
   },
 };

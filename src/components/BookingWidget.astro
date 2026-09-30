@@ -1,0 +1,100 @@
+---
+interface Props {
+  /** Booking calendar embed URL */
+  src: string;
+  /** iframe id (must match the id expected by the embed script) */
+  iframeId: string;
+  /** Accessible title for the iframe */
+  title: string;
+}
+
+const { src, iframeId, title } = Astro.props as Props;
+---
+
+<div class="w-full flex justify-center" data-booking-widget>
+  <link rel="preconnect" href="https://link.inkshapecrm.com" crossorigin />
+  <div
+    data-booking-box
+    class="relative w-full max-w-[1100px] min-h-[600px] md:min-h-[800px]"
+  >
+    <!-- Lightweight placeholder: reserves layout space (no CLS) while the
+      heavy booking iframe + script load lazily below -->
+    <div
+      data-booking-skeleton
+      class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-6"
+      aria-hidden="true"
+    >
+      <svg
+        class="animate-spin h-8 w-8 text-paragraph"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+      </svg>
+      <div class="w-full max-w-md flex flex-col gap-3 px-6">
+        <div class="h-10 rounded-full bg-paragraph/10 animate-pulse"></div>
+        <div class="h-40 rounded-2xl bg-paragraph/10 animate-pulse"></div>
+        <div class="h-10 rounded-full bg-paragraph/10 animate-pulse"></div>
+      </div>
+    </div>
+    <iframe
+      data-booking-iframe
+      src={src}
+      id={iframeId}
+      title={title}
+      loading="eager"
+      fetchpriority="high"
+      scrolling="no"
+      allow="payment"
+      referrerpolicy="strict-origin-when-cross-origin"
+      style="width: 100%; border: none; overflow: hidden; display: block;"
+    ></iframe>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-booking-widget]");
+    if (!root) return;
+    const box = root.querySelector("[data-booking-box]");
+    const iframe = root.querySelector("[data-booking-iframe]");
+    const skeleton = root.querySelector("[data-booking-skeleton]");
+    if (!box || !iframe) return;
+
+    const EMBED_SCRIPT = "https://link.inkshapecrm.com/js/form_embed.js";
+    let started = false;
+
+    const reveal = () => {
+      if (skeleton) skeleton.remove();
+      // Release the reserved space so the box hugs the live calendar height
+      box.style.minHeight = "0";
+    };
+
+    const start = () => {
+      if (started) return;
+      started = true;
+      const script = document.createElement("script");
+      script.src = EMBED_SCRIPT;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+      // Safety net: never trap the user behind the placeholder if the
+      // load event is missed (e.g. cached iframe, slow script)
+      setTimeout(reveal, 20000);
+    };
+
+    iframe.addEventListener("load", reveal, { once: true });
+    start();
+  })();
+</script>

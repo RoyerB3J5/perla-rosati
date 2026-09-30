@@ -67,6 +67,7 @@ export interface BlogCardDTO {
 export interface BlogPostDetailDTO {
   id: string;
   image: string;
+  description: string;
   date: string;
   autor: string;
   title: string;

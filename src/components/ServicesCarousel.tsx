@@ -324,12 +324,12 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
                     )}
                   </div>
                   <div className="w-full h-[1.5px] bg-paragraph" />
-                  <h3 className="paragraph-medium fade-up-a">{item.title}</h3>
+                  <h3 className="paragraph-medium fade-up-a uppercase">{item.title}</h3>
                   <p className="paragraph grow fade-up-a">{item.description}</p>
                 </div>
                 <a
                   className="flex justify-center items-center gap-4 cursor-pointer hover:-translate-y-[2px] transition-all duration-300 ease-in-out z-[10] hover:scale-[1.02] box-border py-2.75 px-6 md:w-[264px] rounded-full w-full border-[1.5px] border-paragraph text-[16px] font-medium text-paragraph leading-[21px] uppercase tracking-[2.56px] fade-up-slow"
-                  href={item.href}
+                  href={"/en/reservations"}
                 >
                   BOOK NOW
                   <svg

@@ -3,7 +3,9 @@ import AnimatedTitle from "../../components/AnimatedTitle.astro";
 import Button from "../../components/Button.astro";
 import { Plus, Minus } from "@lucide/astro";
 type Translations = typeof import("../../i18n/en").default;
-type QuestionsContent = Translations["main"]["questions"];
+type QuestionsContent =
+  | Translations["main"]["questions"]
+  | Translations["contact"]["questions"];
 interface Props {
   content: QuestionsContent;
   lang: "es" | "en";

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://perlarosatimakeup.com/sitemap-index.xml

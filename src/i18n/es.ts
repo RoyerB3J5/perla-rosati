@@ -454,7 +454,7 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/trenzas.webp",
             title: "Trenzas",
             description:
               "Elige trenzas modernas y personalizadas que aporten textura, estilo y personalidad a tu look, ideales para distintas ocasiones.",
@@ -468,28 +468,28 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/peinado-ninas.webp",
             title: "Peinados para niñas",
             description:
               "Peinado cómodo para niñas, adaptado a su edad y ocasión. Aplica para niñas hasta ocho (08) años.",
             href: "#",
           },
           {
-            image: "#",
-            title: "Blow dry / secado profesional",
+            image: "/images/services/secado-profesional.webp",
+            title: "Secado Profesional",
             description:
               "Disfruta un blow dry para conseguir movimiento y brillo; precio puede variar dependiendo de las condiciones del cabello.",
             href: "#",
           },
           {
-            image: "#",
-            title: "Blow dry / secado + ondas",
+            image: "/images/services/secado-ondas.webp",
+            title: "Secado Ondas",
             description:
               "Combina un blow dry con ondas glamorosas y suaves; precio puede variar dependiendo de las condiciones del cabello.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/hidratacion-capilar.webp",
             title: "Hidratación capilar",
             description:
               "Devuelve suavidad y vitalidad a tu cabello mediante hidratación; precio puede variar dependiendo de las condiciones del cabello.",
@@ -503,7 +503,7 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/hidratacion-keratina.webp",
             title: "Alisado con keratina",
             description:
               "Disfruta alisado con keratina para controlar frizz y suavizarlo; precio puede variar dependiendo de las condiciones del cabello.",
@@ -516,35 +516,35 @@ export default {
         title: "Hairstyling",
         items: [
           {
-            image: "#",
+            image: "/images/services/corte-cabello.webp",
             title: "Corte de cabello",
             description:
               "Renueva tu look con corte personalizado, incluye lavado y tarifa única, adaptado a tus facciones, estilo y preferencias.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/corte-cabello-secado.webp",
             title: "Corte de cabello + secado",
             description:
               "Actualiza tu look con corte y secado profesional, con tarifa única, logrando una apariencia pulida, fresca y adaptada.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/retoque-raiz.webp",
             title: "Retoque de raíz",
             description:
               "Refresca con retoque de raíz que incluye lavado y secado, con tarifa única, para mantener una apariencia uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/tinte-completo.webp",
             title: "Tinte completo",
             description:
               "Renueva tu color con un tinte personalizado; tarifa puede variar según largo, cantidad y condición del cabello.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/servicio-color.webp",
             title: "Servicio de color personalizado",
             description:
               "Diseñado según el resultado que desea la clienta. Requiere una evaluación previa con la especialista para analizar el cabello, su condición y antecedentes químicos para determinar qué resultado puede lograrse y crear una propuesta que se ajuste a sus expectativas.",
@@ -626,7 +626,7 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/extension-volumen.webp",
             title: "Extensiones de pestañas con volumen",
             description:
               "Intensifica tu mirada con extensiones de volumen, creando pestañas más densas, llamativas y personalizadas según tu estilo.",
@@ -640,7 +640,7 @@ export default {
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/remocion-extension.webp",
             title: "Remoción de extensiones",
             description:
               "No realizamos refill en trabajos de otras especialistas; este servicio debe incluirse al retirar extensiones previas correctamente.",
@@ -660,98 +660,98 @@ export default {
         title: "Laser",
         items: [
           {
-            image: "#",
+            image: "/images/services/depilacion-laser-bozo.webp",
             title: "Depilación láser bozo",
             description:
               "Reduce progresivamente el vello del bozo con láser diodo, logrando una piel más suave y una apariencia uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/bikini-laser.webp",
             title: "Depilación láser bikini",
             description:
               "Disminuye el vello del bikini mediante láser diodo, buscando una piel más suave, uniforme y libre de afeitado.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/axilas-laser.webp",
             title: "Depilación láser axilas",
             description:
               "Reduce el vello de las axilas con láser diodo, ayudando a conseguir una piel más suave y uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/brasilena-laser.webp",
             title: "Depilación láser brasileña",
             description:
               "Disminuye el vello de la zona brasileña con láser diodo, para una piel más suave y resultados duraderos.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/gluteos-laser.webp",
             title: "Depilación láser glúteos",
             description:
               "Reduce progresivamente el vello de los glúteos mediante láser diodo, favoreciendo una piel más suave, uniforme y cómoda.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/menton-laser.webp",
             title: "Depilación láser mentón",
             description:
               "Disminuye progresivamente el vello del mentón con láser diodo, ayudando a conseguir una piel más suave y uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/patillas-laser.webp",
             title: "Depilación láser patillas",
             description:
               "Reduce progresivamente el vello de las patillas con láser diodo, logrando una apariencia más limpia, suave y uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/brazo-completo-laser.webp",
             title: "Depilación láser brazos completos",
             description:
               "Disminuye progresivamente el vello de los brazos completos con láser diodo, buscando una piel más suave y uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/medio-brazo-laser.webp",
             title: "Depilación láser medio brazo",
             description:
               "Reduce progresivamente el vello del medio brazo con láser diodo, ayudando a conseguir una piel suave y uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/piernas-completas-laser.webp",
             title: "Depilación láser piernas completas",
             description:
               "Disminuye progresivamente el vello de las piernas completas con láser diodo, para una piel más suave y duradera.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/media-pierna-laser.webp",
             title: "Depilación láser media pierna",
             description:
               "Reduce el vello de la media pierna con láser diodo, ayudando a conseguir una piel suave y uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/espalda-completa-laser.webp",
             title: "Depilación láser espalda completa",
             description:
               "Disminuye progresivamente el vello de la espalda completa con láser diodo, favoreciendo una piel más suave y uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/pecho-abs-completo.webp",
             title: "Depilación láser pecho y abs completos",
             description:
               "Reduce progresivamente el vello del pecho y abdomen completos con láser diodo, buscando una piel suave y uniforme.",
             href: "#",
           },
           {
-            image: "#",
+            image: "/images/services/abs-inferior.webp",
             title: "Depilación láser línea abs inferior",
             description:
               "Disminuye el vello de la línea abdominal inferior con láser diodo, logrando una piel más suave y uniforme.",
@@ -925,7 +925,7 @@ export default {
         {
           label: "Dirección:",
           value: "13550 Village Park Drive, Orlando, Florida 32837",
-          href: "#",
+          href: "https://www.google.com/maps/search/?api=1&query=13550+Village+Park+Drive+Orlando+FL+32837",
         },
         {
           label: "Teléfono:",
@@ -946,7 +946,7 @@ export default {
       ],
       button: {
         label: "escríbenos por whatsapp",
-        href: "#",
+        href: "https://wa.me/17867813547",
       },
     },
     form: {
@@ -992,6 +992,24 @@ export default {
         },
       ],
     },
+  },
+  thankYou: {
+    tag: "Reserva recibida",
+    title: "Gracias por tu reserva",
+    description:
+      "Tu solicitud ya está en camino. Nuestro equipo se pondrá en contacto contigo en un plazo de 24 horas para confirmar los detalles de tu cita.",
+    buttons: {
+      home: "Volver al inicio",
+      whatsapp: "Escríbenos por WhatsApp",
+      services: "Ver servicios",
+    },
+    note: "Esta es una confirmación automática. Tu espacio queda reservado una vez que nuestro equipo lo confirme.",
+  },
+  reservations: {
+    tag: "Reserva tu cita",
+    title: "Reservas",
+    description:
+      "Elige tu servicio, selecciona fecha y hora, y confirma tu reserva en segundos.",
   },
   footer: {
     description:
@@ -1119,6 +1137,20 @@ export default {
         "Reserva tu cita en 13550 Village Park Drive, Orlando. WhatsApp (786) 781-3547, respuesta en 24h. Mar a sáb 9am–6pm. ¡Escríbenos hoy!",
       keywords:
         "reservar maquillaje Orlando, contacto Perla Rosati, cita maquilladora Orlando, WhatsApp maquillaje Florida, estudio de maquillaje dirección",
+    },
+    thankYou: {
+      title: "Reserva Confirmada | Perla Rosati Makeup",
+      description:
+        "Gracias por tu reserva. Nuestro equipo se pondrá en contacto contigo en un plazo de 24 horas para confirmar los detalles de tu cita.",
+      keywords:
+        "reserva confirmada, confirmación de cita, Perla Rosati Makeup, cita de maquillaje Orlando",
+    },
+    reservations: {
+      title: "Reserva Tu Cita | Perla Rosati Makeup",
+      description:
+        "Reserva tu cita de maquillaje, cabello, facial o pestañas online en Orlando. Elige tu servicio, fecha y hora en segundos.",
+      keywords:
+        "reservar cita Orlando, reservar maquillaje Orlando, reserva online, Perla Rosati Makeup reservas",
     },
   },
 };

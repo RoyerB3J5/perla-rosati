@@ -7,6 +7,7 @@ type SquadContent = Translations["aboutUs"]["squad"];
 interface Props {
   content: SquadContent;
 }
+const locale = Astro.url.pathname.startsWith("/es") ? "/es" : "/en";
 const { content } = Astro.props as Props;
 ---
 
@@ -122,7 +123,7 @@ const { content } = Astro.props as Props;
               </p>
               <Button
                 text={item.button.label}
-                href={item.button.href}
+                href={`${locale}/reservations`}
                 extraBtnClass="fade-up-slow [--delay:0.5s]"
               />
             </div>

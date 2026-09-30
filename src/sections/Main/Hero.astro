@@ -10,6 +10,7 @@ interface Props {
 const { content, changeColor } = Astro.props as Props;
 
 // Comprueba si la URL coincide con la raíz o los prefijos de idioma (/ , /es, /es/, /en, /en/)
+const locale = Astro.url.pathname.startsWith("/es") ? "/es" : "/en";
 const pathname = Astro.url.pathname;
 const isHomePage = /^\/(en|es)?\/?$/.test(pathname);
 ---
@@ -32,7 +33,7 @@ const isHomePage = /^\/(en|es)?\/?$/.test(pathname);
     class="z-0 w-full h-full absolute inset-0 object-cover object-[50%_15%] md:hidden block"
   />
   <div
-    class={`z-3 w-full h-full absolute inset-0 ${changeColor ? "bg-gradient-to-b from-black/0 from-[69.03%] to-black" : "bg-gradient-to-b from-white/0 from-[70.65%] to-white/40"}`}
+    class={`z-3 w-full h-full md:hidden block absolute inset-0 ${changeColor ? "bg-gradient-to-b from-black/0 from-[69.03%] to-black" : "bg-gradient-to-b from-white/0 from-[70.65%] to-white/40"}`}
   >
   </div>
   <div
@@ -56,7 +57,7 @@ const isHomePage = /^\/(en|es)?\/?$/.test(pathname);
         <p class="paragraph">{content.description}</p>
         <Button
           text={content.button.label}
-          href={content.button.href}
+          href={`${locale}/reservations`}
           changeColor={changeColor}
           extraBtnClass="fade-up-slow [--delay:1.8s]"
         />

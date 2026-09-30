@@ -1,0 +1,78 @@
+---
+import AnimatedTitle from "../components/AnimatedTitle.astro";
+import Button from "../components/Button.astro";
+type Translations = typeof import("../i18n/en").default;
+type ThankYouContent = Translations["thankYou"];
+interface Props {
+  content: ThankYouContent;
+  lang: "es" | "en";
+}
+const { content, lang } = Astro.props as Props;
+---
+
+<section
+  class="w-full flex justify-center items-center pt-(--header-height) relative"
+>
+  <div
+    class="container-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-6 py-16 md:py-20"
+  >
+    <div
+      class="w-full md:w-1/2 h-auto relative overflow-hidden reveal-ltr order-2 md:order-1"
+      style="aspect-ratio: 628/644"
+    >
+      <img
+        src="/images/form-contact.webp"
+        alt={content.title}
+        width="1000"
+        height="667"
+        decoding="async"
+        loading="eager"
+        class="h-full w-full object-cover object-[30%_50%]"
+      />
+    </div>
+    <div
+      class="w-full md:w-1/2 flex flex-col justify-center items-start gap-6 md:gap-5.5 p-0 md:p-8 order-1 md:order-2"
+    >
+      <div
+        class="w-full flex flex-col justify-start items-start gap-6 text-paragraph"
+      >
+        <p class="uppercase paragraph-medium fade-up-a">{content.tag}</p>
+        <AnimatedTitle text={content.title} tag="h1" class="title-2 md:title-3" />
+      </div>
+      <div
+        class="w-full h-[1.5px] bg-paragraph fade-up-a"
+        style="animation-delay:0.5s"
+      >
+      </div>
+      <p class="paragraph fade-up-a" style="animation-delay:0.5s">
+        {content.description}
+      </p>
+      <div class="w-full flex flex-col sm:flex-row flex-wrap gap-4">
+        <Button
+          text={content.buttons.home}
+          href={`/${lang}/`}
+          extraBtnClass="fade-up-slow [--delay:0.5s]"
+        />
+        <Button
+          text={content.buttons.whatsapp}
+          href="https://wa.me/17867813547"
+          target="_blank"
+          extraBtnClass="fade-up-slow [--delay:0.5s]"
+        />
+      </div>
+      <a
+        href={`/${lang}/services`}
+        class="paragraph-medium uppercase text-paragraph border-b-[1.5px] border-paragraph tracking-[2.56px] pb-2 fade-up-slow"
+        style="[--delay:0.5s]"
+      >
+        {content.buttons.services}
+      </a>
+      <p
+        class="paragraph text-paragraph/70 fade-up-a"
+        style="animation-delay:0.5s"
+      >
+        {content.note}
+      </p>
+    </div>
+  </div>
+</section>

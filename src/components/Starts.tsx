@@ -7,7 +7,8 @@ function Starts() {
   const [rating, setRating] = useState<number | null>(null);
   const showForm = rating !== null && rating <= 3;
   const total = 5;
-  const reviewLink = "#";
+  const reviewLink =
+    "https://www.google.com/search?sa=X&sca_esv=c9af837ca623c2e6&biw=1280&bih=585&sxsrf=APpeQnv7H7Nq9bNcp9MvWvvfxF-7nWi7GA:1790267039816&kgmid=/g/11rg2qf4cv&q=Perla+Rosati+Makeup+Studio&shem=dlvs1,epsd1,ltae,rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=91bc2ba39c996003&utm_source=dlvs1,epsd1,ltae,rimspwouoe,sh/x/loc/uni/m1/1";
 
   // Move any client-only side effects (redirect) into useEffect so SSR won't break.
   useEffect(() => {

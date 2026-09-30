@@ -13,6 +13,7 @@ interface Props {
   }[];
 }
 const { content } = Astro.props as Props;
+const locale = Astro.url.pathname.startsWith("/es") ? "/es" : "/en";
 ---
 
 <section
@@ -50,8 +51,8 @@ const { content } = Astro.props as Props;
             </div>
             <p class="paragraph fade-up-a" style="animation-delay: 0.5s;">{item.duration}</p>
             <Button
-              text="INSCRIBIRME"
-              href={item.href}
+              text={locale === "/es" ? "INSCRIBIRME" : "SIGN UP"}
+              href={`${locale}/reservations`}
               extraBtnClass="fade-up-slow [--delay:0.5s]"
             />
           </div>

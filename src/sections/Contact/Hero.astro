@@ -54,21 +54,29 @@ const { content } = Astro.props as Props;
           content.items.map((item) => (
             <li class="paragraph list-disc list-outside ml-4 ">
               <span class="font-medium">{item.label}</span>
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="transition-all hover:[text-shadow:0_0_1px_currentColor] duration-300 ease-in-out"
-              >
-                {item.value}
-              </a>
+              {item.href && item.href !== "#" ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="transition-all hover:[text-shadow:0_0_1px_currentColor] duration-300 ease-in-out"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <span>{item.value}</span>
+              )}
             </li>
           ))
         }
       </ul>
       <Button
         text={content.button.label}
-        href="https://wa.me/17867813547"
+        href={
+          content.button.href && content.button.href !== "#"
+            ? content.button.href
+            : "https://wa.me/17867813547"
+        }
         extraBtnClass="fade-up-slow [--delay:0.5s]"
       />
     </div>

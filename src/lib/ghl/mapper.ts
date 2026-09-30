@@ -9,7 +9,7 @@ import type {
 } from "./types";
 
 const FALLBACK_IMAGE = "/images/blog-placeholder.jpg";
-const DEFAULT_AUTHOR = "Enyermy";
+const DEFAULT_AUTHOR = "PERLA ROSATI";
 
 export const ALL_CATEGORY: CategoryDTO = { id: "all", label: "All" };
 

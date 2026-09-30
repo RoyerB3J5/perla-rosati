@@ -11,8 +11,8 @@ import Layout from "../../../layouts/Layout.astro";
 import BlogSection from "../../../sections/BlogSection";
 import Reviews from "../../../sections/Main/Reviews";
 // Queries en vivo (sin usar por ahora):
-// import { getPostsPage, getCategories } from "../../../lib/ghl/blog-services";
-// import type { BlogCardDTO } from "../../../lib/ghl/types";
+import { getPostsPage, getCategories } from "../../../lib/ghl/blog-services";
+import type { BlogCardDTO } from "../../../lib/ghl/types";
 import type { Language } from "../../../types/language.type";
 
 const lang = Astro.params.lang as Language;
@@ -114,6 +114,76 @@ try {
 */
 
 const POSTS_PER_PAGE = 9;
+
+// --- Queries en vivo: contenido dinámico de GHL ---
+// Variables con prefijo `live` para no chocar con POSTS / CATEGORIES estáticos.
+let liveAllPosts: BlogCardDTO[] = [];
+let liveCategoriesRaw: { id: string; label: string }[] | null = null;
+let liveError = null;
+try {
+  const [firstPage, categoriesResult] = await Promise.all([
+    getPostsPage(1),
+    getCategories(),
+  ]);
+  liveAllPosts = [...firstPage.items];
+  for (let p = 2; p <= firstPage.totalPages; p++) {
+    const res = await getPostsPage(p);
+    liveAllPosts.push(...res.items);
+  }
+  liveCategoriesRaw = categoriesResult;
+} catch (err) {
+  console.error("[blog] GHL fetch failed:", err);
+  liveError = err instanceof Error ? err.message : String(err);
+}
+
+// --- Títulos multilingües SOLO para el resultado live ---
+// El filtro de BlogSection compara por `id` (item.idCategory === activeCategory),
+// así que el `title` es solo display y se puede traducir sin romper el filtro.
+// El `id` siempre se conserva tal cual lo devuelve la query.
+// Se busca primero por ID de GHL, luego por label normalizado, con fallback al label.
+const LIVE_CATEGORY_TITLES_BY_ID: Record<string, { es: string; en: string }> = {
+  all: { es: "TODO", en: "ALL" },
+  "6ab425ed67a82011c2a6c20c": { es: "BELLEZA ", en: "BEAUTY" },
+  // Ej: "68f123abc...": { es: "MAQUILLAJE", en: "MAKEUP" },
+};
+const LIVE_CATEGORY_TITLES_BY_LABEL: Record<
+  string,
+  { es: string; en: string }
+> = {
+  all: { es: "TODO", en: "ALL" },
+  makeup: { es: "MAQUILLAJE", en: "MAKEUP" },
+  hair: { es: "CABELLO", en: "HAIR" },
+  hairstyling: { es: "PELUQUERÍA", en: "HAIRSTYLING" },
+  facials: { es: "FACIALES", en: "FACIALS" },
+  "eyebrows-lashes": { es: "CEJAS Y PESTAÑAS", en: "BROWS & LASHES" },
+  "brows-lashes": { es: "CEJAS Y PESTAÑAS", en: "BROWS & LASHES" },
+  laser: { es: "LÁSER", en: "LASER" },
+};
+
+const liveDisplayCategories = ((liveCategoriesRaw as any[]) ?? []).map((c) => ({
+  // ID intacto de la query — es lo que usa el filtro, no se traduce.
+  id: c.id,
+  title: (
+    LIVE_CATEGORY_TITLES_BY_ID[c.id]?.[lang] ??
+    LIVE_CATEGORY_TITLES_BY_LABEL[c.label?.toLowerCase()]?.[lang] ??
+    c.label
+  ).toUpperCase(),
+}));
+
+// Si hay resultado live se usa ese (con IDs de GHL + títulos traducidos);
+// si no, se sigue usando la constante estática CATEGORIES sin cambios.
+const displayCategories =
+  liveDisplayCategories.length > 0 ? liveDisplayCategories : CATEGORIES;
+
+// Contenido dinámico: respuesta live de GHL; fallback al contenido estático
+// (POSTS) si la query falla o viene vacía. No se borra el contenido estático.
+const displayPosts = liveAllPosts.length > 0 ? liveAllPosts : POSTS;
+if (liveError) {
+  console.error(
+    "[blog] usando contenido estático por fallo de GHL:",
+    liveError,
+  );
+}
 ---
 
 <Layout
@@ -134,10 +204,10 @@ const POSTS_PER_PAGE = 9;
   </section>
 
   {
-    POSTS.length > 0 ? (
+    displayPosts.length > 0 ? (
       <BlogSection
-        items={POSTS}
-        category={CATEGORIES}
+        items={displayPosts}
+        category={displayCategories}
         lang={lang}
         perPage={POSTS_PER_PAGE}
         client:load
