@@ -387,6 +387,7 @@ export default {
           {
             image: "/images/services/maquillaje-novia.webp",
             title: "Maquillaje de novia",
+            prices: "$250",
             description:
               "Realza tu belleza con un maquillaje de novia personalizado, duradero y armonioso, diseñado para complementar tu estilo nupcial.",
             href: "#",
@@ -394,6 +395,7 @@ export default {
           {
             image: "/images/looks-main.webp",
             title: "Prueba de maquillaje de novia",
+            prices: "$150",
             description:
               "Encuentra el look ideal antes de tu boda, probando técnicas, tonos y estilos hasta lograr un maquillaje personalizado.",
             href: "#",
@@ -401,6 +403,7 @@ export default {
           {
             image: "/images/gallery/gallery-21.webp",
             title: "Maquillaje quinceañeras y Sweet 16",
+            prices: "$150",
             description:
               "Brilla en tu celebración con un maquillaje fresco, personalizado, diseñado para realzar tu belleza durante el evento.",
             href: "#",
@@ -408,6 +411,7 @@ export default {
           {
             image: "/images/services/maquillaje-social.webp",
             title: "Maquillaje social estudio",
+            prices: "$140",
             description:
               "Disfruta un maquillaje personalizado para eventos de día o noche, resaltando tus facciones con técnicas y acabado impecable.",
             href: "#",
@@ -415,6 +419,7 @@ export default {
           {
             image: "/images/gallery/gallery-31.webp",
             title: "Maquillaje social locación",
+            prices: "$150/persona",
             description:
               "Luce espectacular en tu evento con maquillaje personalizado en locación, adaptado al horario, estilo, outfit y esencia personal.",
             href: "#",
@@ -422,6 +427,7 @@ export default {
           {
             image: "/images/gallery/gallery-27.webp",
             title: "Maquillaje sesiones fotográficas",
+            prices: "$140",
             description:
               "Potencia tu imagen con maquillaje personalizado, creado para complementar el concepto, estilo y propósito de cada sesión.",
             href: "#",
@@ -435,6 +441,7 @@ export default {
           {
             image: "/images/services/ondas-glam.webp",
             title: "Ondas glam",
+            prices: "$85 / $100",
             description:
               "Consigue ondas glamorosas y duraderas, adaptadas a tu estilo; precio puede variar dependiendo de las condiciones del cabello.",
             href: "#",
@@ -442,6 +449,7 @@ export default {
           {
             image: "/images/services/recogido.webp",
             title: "Recogidos",
+            prices: "$120",
             description:
               "Luce un recogido elegante y sofisticado; precio puede variar dependiendo de las condiciones del cabello y sus características.",
             href: "#",
@@ -449,6 +457,7 @@ export default {
           {
             image: "/images/services/semirecogido.webp",
             title: "Semirecogidos",
+            prices: "$110",
             description:
               "Disfruta un semirecogido versátil; precio puede variar dependiendo de las condiciones del cabello y adaptarse a tu estilo.",
             href: "#",
@@ -456,6 +465,7 @@ export default {
           {
             image: "/images/services/trenzas.webp",
             title: "Trenzas",
+            prices: "$60 / $100",
             description:
               "Elige trenzas modernas y personalizadas que aporten textura, estilo y personalidad a tu look, ideales para distintas ocasiones.",
             href: "#",
@@ -463,6 +473,7 @@ export default {
           {
             image: "/images/services/secado-planchado.webp",
             title: "Secado y planchado",
+            prices: "$60",
             description:
               "Obtén un cabello pulido y manejable con secado y planchado profesional, logrando un acabado suave, elegante y duradero.",
             href: "#",
@@ -470,6 +481,7 @@ export default {
           {
             image: "/images/services/peinado-ninas.webp",
             title: "Peinados para niñas",
+            prices: "$90",
             description:
               "Peinado cómodo para niñas, adaptado a su edad y ocasión. Aplica para niñas hasta ocho (08) años.",
             href: "#",
@@ -477,6 +489,7 @@ export default {
           {
             image: "/images/services/secado-profesional.webp",
             title: "Secado Profesional",
+            prices: "$60",
             description:
               "Disfruta un blow dry para conseguir movimiento y brillo; precio puede variar dependiendo de las condiciones del cabello.",
             href: "#",
@@ -484,6 +497,7 @@ export default {
           {
             image: "/images/services/secado-ondas.webp",
             title: "Secado Ondas",
+            prices: "$75",
             description:
               "Combina un blow dry con ondas glamorosas y suaves; precio puede variar dependiendo de las condiciones del cabello.",
             href: "#",
@@ -491,6 +505,7 @@ export default {
           {
             image: "/images/services/hidratacion-capilar.webp",
             title: "Hidratación capilar",
+            prices: "$100",
             description:
               "Devuelve suavidad y vitalidad a tu cabello mediante hidratación; precio puede variar dependiendo de las condiciones del cabello.",
             href: "#",
@@ -498,6 +513,7 @@ export default {
           {
             image: "/images/services/botox-capilar.webp",
             title: "Botox capilar",
+            prices: "Tarifa variable",
             description:
               "Revitaliza tu cabello con botox capilar para mejorar brillo; precio puede variar dependiendo de las condiciones del cabello.",
             href: "#",
@@ -505,6 +521,7 @@ export default {
           {
             image: "/images/services/hidratacion-keratina.webp",
             title: "Alisado con keratina",
+            prices: "Tarifa variable",
             description:
               "Disfruta alisado con keratina para controlar frizz y suavizarlo; precio puede variar dependiendo de las condiciones del cabello.",
             href: "#",
@@ -518,6 +535,7 @@ export default {
           {
             image: "/images/services/corte-cabello.webp",
             title: "Corte de cabello",
+            prices: "$45",
             description:
               "Renueva tu look con corte personalizado, incluye lavado y tarifa única, adaptado a tus facciones, estilo y preferencias.",
             href: "#",
@@ -525,6 +543,7 @@ export default {
           {
             image: "/images/services/corte-cabello-secado.webp",
             title: "Corte de cabello + secado",
+            prices: "$90",
             description:
               "Actualiza tu look con corte y secado profesional, con tarifa única, logrando una apariencia pulida, fresca y adaptada.",
             href: "#",
@@ -532,6 +551,7 @@ export default {
           {
             image: "/images/services/retoque-raiz.webp",
             title: "Retoque de raíz",
+            prices: "$100",
             description:
               "Refresca con retoque de raíz que incluye lavado y secado, con tarifa única, para mantener una apariencia uniforme.",
             href: "#",
@@ -539,6 +559,7 @@ export default {
           {
             image: "/images/services/tinte-completo.webp",
             title: "Tinte completo",
+            prices: "Desde $150",
             description:
               "Renueva tu color con un tinte personalizado; tarifa puede variar según largo, cantidad y condición del cabello.",
             href: "#",
@@ -546,6 +567,7 @@ export default {
           {
             image: "/images/services/servicio-color.webp",
             title: "Servicio de color personalizado",
+            prices: "Desde $250",
             description:
               "Diseñado según el resultado que desea la clienta. Requiere una evaluación previa con la especialista para analizar el cabello, su condición y antecedentes químicos para determinar qué resultado puede lograrse y crear una propuesta que se ajuste a sus expectativas.",
             href: "#",
@@ -559,6 +581,7 @@ export default {
           {
             image: "/images/services/facial-mantenimiento.webp",
             title: "Facial de mantenimiento",
+            prices: "$100",
             description:
               "Mantén tu piel luminosa y equilibrada con un facial de mantenimiento diseñado para conservar limpieza, frescura y bienestar.",
             href: "#",
@@ -566,6 +589,7 @@ export default {
           {
             image: "/images/services/facial-adolescente.webp",
             title: "Facial para adolescentes",
+            prices: "$85",
             description:
               "Cuida la piel adolescente con un facial suave y personalizado, enfocado en limpieza, equilibrio y una apariencia saludable.",
             href: "#",
@@ -573,6 +597,7 @@ export default {
           {
             image: "/images/services/facial-profundo.webp",
             title: "Facial profundo",
+            prices: "",
             description:
               "Purifica y revitaliza tu piel con un facial que ayuda a eliminar impurezas, mejorar textura y devolver luminosidad.",
             href: "#",
@@ -580,6 +605,7 @@ export default {
           {
             image: "/images/services/microdermoabrasion.webp",
             title: "Microdermoabrasión",
+            prices: "$150",
             description:
               "Renueva la textura y luminosidad de tu piel mediante microdermoabrasión, incluyendo limpieza facial profunda dentro del protocolo completo.",
             href: "#",
@@ -587,6 +613,7 @@ export default {
           {
             image: "/images/services/facial-plasma.webp",
             title: "Facial profundo con plasma rico en plaquetas",
+            prices: "$180",
             description:
               "Potencia la renovación de tu piel con un facial y plasma rico en plaquetas, personalizado según tus necesidades.",
             href: "#",
@@ -600,6 +627,7 @@ export default {
           {
             image: "/images/services/diseno-depilacion.webp",
             title: "Diseño y depilación de cejas",
+            prices: "$35",
             description:
               "Define y depila tus cejas para lograr una forma armoniosa, limpia y favorecedora, adaptada a tus facciones.",
             href: "#",
@@ -607,6 +635,7 @@ export default {
           {
             image: "/images/services/henna.webp",
             title: "Diseño, depilación y aplicación de henna para cejas",
+            prices: "",
             description:
               "Diseña y depila tus cejas, complementándolas con henna para aportar definición, intensidad y un acabado armonioso y personalizado.",
             href: "#",
@@ -614,6 +643,7 @@ export default {
           {
             image: "/images/services/lashlifting.webp",
             title: "Lashlifting",
+            prices: "$80",
             description:
               "Realza tu mirada con lashlifting, curvando tus pestañas naturales para conseguir una apariencia más abierta, definida y femenina.",
             href: "#",
@@ -621,6 +651,7 @@ export default {
           {
             image: "/images/services/extension-pestanas.webp",
             title: "Extensiones de pestañas clásicas",
+            prices: "$85",
             description:
               "Consigue una mirada elegante y natural con extensiones clásicas, aplicadas cuidadosamente para aportar longitud, definición y sofisticación.",
             href: "#",
@@ -628,6 +659,7 @@ export default {
           {
             image: "/images/services/extension-volumen.webp",
             title: "Extensiones de pestañas con volumen",
+            prices: "$130",
             description:
               "Intensifica tu mirada con extensiones de volumen, creando pestañas más densas, llamativas y personalizadas según tu estilo.",
             href: "#",
@@ -635,6 +667,7 @@ export default {
           {
             image: "/images/services/extension-hibridas.webp",
             title: "Extensiones de pestañas híbridas",
+            prices: "$110",
             description:
               "Combina naturalidad y volumen con extensiones híbridas, creando una mirada definida, equilibrada y personalizada para cada ocasión.",
             href: "#",
@@ -642,6 +675,7 @@ export default {
           {
             image: "/images/services/remocion-extension.webp",
             title: "Remoción de extensiones",
+            prices: "$40",
             description:
               "No realizamos refill en trabajos de otras especialistas; este servicio debe incluirse al retirar extensiones previas correctamente.",
             href: "#",
@@ -649,6 +683,7 @@ export default {
           {
             image: "/images/services/brow-lamination.webp",
             title: "Brow lamination",
+            prices: "$90",
             description:
               "Alinea, define y estiliza tus cejas con brow lamination, logrando una apariencia abundante y que realza su forma.",
             href: "#",
@@ -662,6 +697,7 @@ export default {
           {
             image: "/images/services/depilacion-laser-bozo.webp",
             title: "Depilación láser bozo",
+            prices: "$40",
             description:
               "Reduce progresivamente el vello del bozo con láser diodo, logrando una piel más suave y una apariencia uniforme.",
             href: "#",
@@ -669,6 +705,7 @@ export default {
           {
             image: "/images/services/bikini-laser.webp",
             title: "Depilación láser bikini",
+            prices: "$75",
             description:
               "Disminuye el vello del bikini mediante láser diodo, buscando una piel más suave, uniforme y libre de afeitado.",
             href: "#",
@@ -676,6 +713,7 @@ export default {
           {
             image: "/images/services/axilas-laser.webp",
             title: "Depilación láser axilas",
+            prices: "$55",
             description:
               "Reduce el vello de las axilas con láser diodo, ayudando a conseguir una piel más suave y uniforme.",
             href: "#",
@@ -683,6 +721,7 @@ export default {
           {
             image: "/images/services/brasilena-laser.webp",
             title: "Depilación láser brasileña",
+            prices: "$100",
             description:
               "Disminuye el vello de la zona brasileña con láser diodo, para una piel más suave y resultados duraderos.",
             href: "#",
@@ -690,6 +729,7 @@ export default {
           {
             image: "/images/services/gluteos-laser.webp",
             title: "Depilación láser glúteos",
+            prices: "$70",
             description:
               "Reduce progresivamente el vello de los glúteos mediante láser diodo, favoreciendo una piel más suave, uniforme y cómoda.",
             href: "#",
@@ -697,6 +737,7 @@ export default {
           {
             image: "/images/services/menton-laser.webp",
             title: "Depilación láser mentón",
+            prices: "$40",
             description:
               "Disminuye progresivamente el vello del mentón con láser diodo, ayudando a conseguir una piel más suave y uniforme.",
             href: "#",
@@ -704,6 +745,7 @@ export default {
           {
             image: "/images/services/patillas-laser.webp",
             title: "Depilación láser patillas",
+            prices: "$45",
             description:
               "Reduce progresivamente el vello de las patillas con láser diodo, logrando una apariencia más limpia, suave y uniforme.",
             href: "#",
@@ -711,6 +753,7 @@ export default {
           {
             image: "/images/services/brazo-completo-laser.webp",
             title: "Depilación láser brazos completos",
+            prices: "$100",
             description:
               "Disminuye progresivamente el vello de los brazos completos con láser diodo, buscando una piel más suave y uniforme.",
             href: "#",
@@ -718,6 +761,7 @@ export default {
           {
             image: "/images/services/medio-brazo-laser.webp",
             title: "Depilación láser medio brazo",
+            prices: "$60",
             description:
               "Reduce progresivamente el vello del medio brazo con láser diodo, ayudando a conseguir una piel suave y uniforme.",
             href: "#",
@@ -725,6 +769,7 @@ export default {
           {
             image: "/images/services/piernas-completas-laser.webp",
             title: "Depilación láser piernas completas",
+            prices: "$135",
             description:
               "Disminuye progresivamente el vello de las piernas completas con láser diodo, para una piel más suave y duradera.",
             href: "#",
@@ -732,6 +777,7 @@ export default {
           {
             image: "/images/services/media-pierna-laser.webp",
             title: "Depilación láser media pierna",
+            prices: "$95",
             description:
               "Reduce el vello de la media pierna con láser diodo, ayudando a conseguir una piel suave y uniforme.",
             href: "#",
@@ -739,6 +785,7 @@ export default {
           {
             image: "/images/services/espalda-completa-laser.webp",
             title: "Depilación láser espalda completa",
+            prices: "$105",
             description:
               "Disminuye progresivamente el vello de la espalda completa con láser diodo, favoreciendo una piel más suave y uniforme.",
             href: "#",
@@ -746,6 +793,7 @@ export default {
           {
             image: "/images/services/pecho-abs-completo.webp",
             title: "Depilación láser pecho y abs completos",
+            prices: "$85",
             description:
               "Reduce progresivamente el vello del pecho y abdomen completos con láser diodo, buscando una piel suave y uniforme.",
             href: "#",
@@ -753,6 +801,7 @@ export default {
           {
             image: "/images/services/abs-inferior.webp",
             title: "Depilación láser línea abs inferior",
+            prices: "$40",
             description:
               "Disminuye el vello de la línea abdominal inferior con láser diodo, logrando una piel más suave y uniforme.",
             href: "#",

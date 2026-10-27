@@ -377,6 +377,7 @@ export default {
           {
             image: "/images/services/maquillaje-novia.webp",
             title: "Bridal makeup",
+            prices: "$250",
             description:
               "Custom, lasting bridal makeup made to match your bridal style.",
             href: "#",
@@ -384,6 +385,7 @@ export default {
           {
             image: "/images/looks-main.webp",
             title: "Bridal makeup trial",
+            prices: "$150",
             description:
               "Find your ideal bridal look, testing shades and styles first.",
             href: "#",
@@ -391,6 +393,7 @@ export default {
           {
             image: "/images/gallery/gallery-21.webp",
             title: "Quince & Sweet 16 makeup",
+            prices: "$150",
             description:
               "Fresh, custom makeup to shine all through your party.",
             href: "#",
@@ -398,6 +401,7 @@ export default {
           {
             image: "/images/services/maquillaje-social.webp",
             title: "Studio social makeup",
+            prices: "$140",
             description:
               "Custom day or night event makeup with a flawless finish.",
             href: "#",
@@ -405,6 +409,7 @@ export default {
           {
             image: "/images/gallery/gallery-31.webp",
             title: "On-location social makeup",
+            prices: "$150/person",
             description:
               "Event makeup on location, matched to time, outfit, and style.",
             href: "#",
@@ -412,6 +417,7 @@ export default {
           {
             image: "/images/gallery/gallery-27.webp",
             title: "Photoshoot makeup",
+            prices: "$140",
             description: "Custom makeup to fit each shoot's concept and goal.",
             href: "#",
           },
@@ -424,6 +430,7 @@ export default {
           {
             image: "/images/services/ondas-glam.webp",
             title: "Glam waves",
+            prices: "$85 / $100",
             description:
               "Long-lasting glam waves to suit you; price varies by hair.",
             href: "#",
@@ -431,6 +438,7 @@ export default {
           {
             image: "/images/services/recogido.webp",
             title: "Updos",
+            prices: "$120",
             description:
               "Elegant, chic updo; price varies by hair type and length.",
             href: "#",
@@ -438,6 +446,7 @@ export default {
           {
             image: "/images/services/semirecogido.webp",
             title: "Half-up styles",
+            prices: "$110",
             description:
               "Versatile half-up style; price varies by hair, fits your look.",
             href: "#",
@@ -445,6 +454,7 @@ export default {
           {
             image: "/images/services/trenzas.webp",
             title: "Braids",
+            prices: "$60 / $100",
             description:
               "Modern custom braids for texture and style, for any event.",
             href: "#",
@@ -452,6 +462,7 @@ export default {
           {
             image: "/images/services/secado-planchado.webp",
             title: "Blowout & flat iron",
+            prices: "$60",
             description:
               "Polished, smooth, lasting blowout with flat-iron finish.",
             href: "#",
@@ -459,6 +470,7 @@ export default {
           {
             image: "/images/services/peinado-ninas.webp",
             title: "Girls hairstyles",
+            prices: "$90",
             description:
               "Comfy style for girls, by age and event. Up to age 8.",
             href: "#",
@@ -466,6 +478,7 @@ export default {
           {
             image: "/images/services/secado-profesional.webp",
             title: "Pro blowout",
+            prices: "$60",
             description:
               "Blowout for movement and shine; price varies by hair.",
             href: "#",
@@ -473,24 +486,28 @@ export default {
           {
             image: "/images/services/secado-ondas.webp",
             title: "Blowout + waves",
+            prices: "$75",
             description: "Blowout with soft glam waves; price varies by hair.",
             href: "#",
           },
           {
             image: "/images/services/hidratacion-capilar.webp",
             title: "Hair hydration",
+            prices: "$100",
             description: "Restore softness and glow; price varies by hair.",
             href: "#",
           },
           {
             image: "/images/services/botox-capilar.webp",
             title: "Hair botox",
+            prices: "Variable rate",
             description: "Revive shine with hair botox; price varies by hair.",
             href: "#",
           },
           {
             image: "/images/services/hidratacion-keratina.webp",
             title: "Keratin smoothing",
+            prices: "Variable rate",
             description: "Keratin to tame frizz; price varies by hair.",
             href: "#",
           },
@@ -503,6 +520,7 @@ export default {
           {
             image: "/images/services/corte-cabello.webp",
             title: "Haircut",
+            prices: "$45",
             description:
               "Custom cut with wash, flat rate, to suit your features.",
             href: "#",
@@ -510,6 +528,7 @@ export default {
           {
             image: "/images/services/corte-cabello-secado.webp",
             title: "Haircut + blowout",
+            prices: "$90",
             description:
               "Cut plus pro blowout, flat rate, for a fresh, polished look.",
             href: "#",
@@ -517,12 +536,14 @@ export default {
           {
             image: "/images/services/retoque-raiz.webp",
             title: "Root touch-up",
+            prices: "$100",
             description: "Refresh roots with wash and blowout, flat rate.",
             href: "#",
           },
           {
             image: "/images/services/tinte-completo.webp",
             title: "Full color",
+            prices: "From $150",
             description:
               "Custom full color; price varies by length and hair health.",
             href: "#",
@@ -530,6 +551,7 @@ export default {
           {
             image: "/images/services/servicio-color.webp",
             title: "Custom color service",
+            prices: "From $250",
             description:
               "Tailored to your goal. Needs prior consult to assess hair and set a plan.",
             href: "#",
@@ -543,30 +565,35 @@ export default {
           {
             image: "/images/services/facial-mantenimiento.webp",
             title: "Maintenance facial",
+            prices: "$100",
             description: "Keep skin bright and balanced with upkeep care.",
             href: "#",
           },
           {
             image: "/images/services/facial-adolescente.webp",
             title: "Teen facial",
+            prices: "$85",
             description: "Gentle custom care for teen skin, clean and healthy.",
             href: "#",
           },
           {
             image: "/images/services/facial-profundo.webp",
             title: "Deep facial",
+            prices: "",
             description: "Purify and revive skin, refine texture and glow.",
             href: "#",
           },
           {
             image: "/images/services/microdermoabrasion.webp",
             title: "Microdermabrasion",
+            prices: "$150",
             description: "Renew texture and glow; includes deep cleanse.",
             href: "#",
           },
           {
             image: "/images/services/facial-plasma.webp",
             title: "Deep facial with PRP",
+            prices: "$180",
             description: "Boost renewal with PRP, tailored to your needs.",
             href: "#",
           },
@@ -579,48 +606,56 @@ export default {
           {
             image: "/images/services/diseno-depilacion.webp",
             title: "Brow design & shaping",
+            prices: "$35",
             description: "Clean, flattering brow shape for your features.",
             href: "#",
           },
           {
             image: "/images/services/henna.webp",
             title: "Brow design + henna",
+            prices: "",
             description: "Shape plus henna for definition and a polished look.",
             href: "#",
           },
           {
             image: "/images/services/lashlifting.webp",
             title: "Lash lift",
+            prices: "$80",
             description: "Lift natural lashes for a wider, defined look.",
             href: "#",
           },
           {
             image: "/images/services/extension-pestanas.webp",
             title: "Classic lash extensions",
+            prices: "$85",
             description: "Elegant, natural length and definition.",
             href: "#",
           },
           {
             image: "/images/services/extension-volumen.webp",
             title: "Volume lash extensions",
+            prices: "$130",
             description: "Fuller, bold lashes tailored to your style.",
             href: "#",
           },
           {
             image: "/images/services/extension-hibridas.webp",
             title: "Hybrid lash extensions",
+            prices: "$110",
             description: "Natural + volume mix for a balanced look.",
             href: "#",
           },
           {
             image: "/images/services/remocion-extension.webp",
             title: "Extension removal",
+            prices: "$40",
             description: "No refills on others' work; safe removal only.",
             href: "#",
           },
           {
             image: "/images/services/brow-lamination.webp",
             title: "Brow lamination",
+            prices: "$90",
             description: "Align and style brows for a fuller shape.",
             href: "#",
           },
@@ -633,60 +668,70 @@ export default {
           {
             image: "/images/services/depilacion-laser-bozo.webp",
             title: "Upper-lip laser",
+            prices: "$40",
             description: "Slow regrowth with diode laser for smooth skin.",
             href: "#",
           },
           {
             image: "/images/services/bikini-laser.webp",
             title: "Bikini laser",
+            prices: "$75",
             description: "Less bikini hair with diode laser, no shaving.",
             href: "#",
           },
           {
             image: "/images/services/axilas-laser.webp",
             title: "Underarm laser",
+            prices: "$55",
             description: "Less underarm hair for smooth, even skin.",
             href: "#",
           },
           {
             image: "/images/services/brasilena-laser.webp",
             title: "Brazilian laser",
+            prices: "$100",
             description: "Less hair with diode laser, lasting smoothness.",
             href: "#",
           },
           {
             image: "/images/services/gluteos-laser.webp",
             title: "Buttocks laser",
+            prices: "$70",
             description: "Slow regrowth with diode laser, smoother skin.",
             href: "#",
           },
           {
             image: "/images/services/menton-laser.webp",
             title: "Chin laser",
+            prices: "$40",
             description: "Less chin hair with diode laser, smoother skin.",
             href: "#",
           },
           {
             image: "/images/services/patillas-laser.webp",
             title: "Sideburn laser",
+            prices: "$45",
             description: "Cleaner sideburns with diode laser, smooth look.",
             href: "#",
           },
           {
             image: "/images/services/brazo-completo-laser.webp",
             title: "Full-arm laser",
+            prices: "$100",
             description: "Less full-arm hair with diode laser, smooth skin.",
             href: "#",
           },
           {
             image: "/images/services/medio-brazo-laser.webp",
             title: "Half-arm laser",
+            prices: "$60",
             description: "Less half-arm hair for smooth, even skin.",
             href: "#",
           },
           {
             image: "/images/services/piernas-completas-laser.webp",
             title: "Full-leg laser",
+            prices: "$135",
             description:
               "Less full-leg hair with diode laser, lasting smoothness.",
             href: "#",
@@ -694,24 +739,28 @@ export default {
           {
             image: "/images/services/media-pierna-laser.webp",
             title: "Half-leg laser",
+            prices: "$95",
             description: "Less half-leg hair for smooth, even skin.",
             href: "#",
           },
           {
             image: "/images/services/espalda-completa-laser.webp",
             title: "Full-back laser",
+            prices: "$105",
             description: "Less back hair with diode laser, smoother skin.",
             href: "#",
           },
           {
             image: "/images/services/pecho-abs-completo.webp",
             title: "Full chest & abs laser",
+            prices: "$85",
             description: "Less chest and abs hair for smooth skin.",
             href: "#",
           },
           {
             image: "/images/services/abs-inferior.webp",
             title: "Lower abs line laser",
+            prices: "$40",
             description: "Less lower abs hair for smooth, even skin.",
             href: "#",
           },

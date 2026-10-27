@@ -15,6 +15,7 @@ type ReviewItem = {
   title: string;
   description: string;
   href: string;
+  prices: string;
 };
 
 interface CarouselReviewProps {
@@ -324,28 +325,35 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
                     )}
                   </div>
                   <div className="w-full h-[1.5px] bg-paragraph" />
-                  <h3 className="paragraph-medium fade-up-a uppercase">{item.title}</h3>
+                  <h3 className="paragraph-medium fade-up-a uppercase">
+                    {item.title}
+                  </h3>
                   <p className="paragraph grow fade-up-a">{item.description}</p>
                 </div>
-                <a
-                  className="flex justify-center items-center gap-4 cursor-pointer hover:-translate-y-[2px] transition-all duration-300 ease-in-out z-[10] hover:scale-[1.02] box-border py-2.75 px-6 md:w-[264px] rounded-full w-full border-[1.5px] border-paragraph text-[16px] font-medium text-paragraph leading-[21px] uppercase tracking-[2.56px] fade-up-slow"
-                  href={"/en/reservations"}
-                >
-                  BOOK NOW
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="14"
-                    viewBox="0 0 24 14"
-                    fill="none"
+                <div className="w-full flex justify-between items-center">
+                  <p className="text-[24px] font-medium leading-[150%] text-paragraph fade-up-a">
+                    {item.prices}
+                  </p>
+                  <a
+                    className="flex justify-center items-center gap-4 cursor-pointer hover:-translate-y-[2px] transition-all duration-300 ease-in-out z-[10] hover:scale-[1.02] box-border py-2.75 px-6 w-[228px] rounded-full border-[1.5px] border-paragraph text-[16px] font-medium text-paragraph leading-[21px] uppercase tracking-[2.56px] fade-up-slow"
+                    href={"/en/reservations"}
                   >
-                    <path
-                      d="M16 -1.74846e-06C16 0.741998 16.733 1.85 17.475 2.78C18.429 3.98 19.569 5.027 20.876 5.826C21.856 6.425 23.044 7 24 7M24 7C23.044 7 21.855 7.575 20.876 8.174C19.569 8.974 18.429 10.021 17.475 11.219C16.733 12.15 16 13.26 16 14M24 7L-1.5299e-06 6.99999"
-                      stroke="#2B2626"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </a>
+                    BOOK NOW
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="14"
+                      viewBox="0 0 24 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M16 -1.74846e-06C16 0.741998 16.733 1.85 17.475 2.78C18.429 3.98 19.569 5.027 20.876 5.826C21.856 6.425 23.044 7 24 7M24 7C23.044 7 21.855 7.575 20.876 8.174C19.569 8.974 18.429 10.021 17.475 11.219C16.733 12.15 16 13.26 16 14M24 7L-1.5299e-06 6.99999"
+                        stroke="#2B2626"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </a>
+                </div>
               </div>
             ))}
           </div>
