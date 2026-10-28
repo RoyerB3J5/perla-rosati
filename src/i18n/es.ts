@@ -390,7 +390,7 @@ export default {
             prices: "$250",
             description:
               "Realza tu belleza con un maquillaje de novia personalizado, duradero y armonioso, diseñado para complementar tu estilo nupcial.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0f24b2982471a62394e25",
           },
           {
             image: "/images/looks-main.webp",
@@ -398,7 +398,7 @@ export default {
             prices: "$150",
             description:
               "Encuentra el look ideal antes de tu boda, probando técnicas, tonos y estilos hasta lograr un maquillaje personalizado.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0f16336d004bedeba677c",
           },
           {
             image: "/images/gallery/gallery-21.webp",
@@ -406,7 +406,7 @@ export default {
             prices: "$150",
             description:
               "Brilla en tu celebración con un maquillaje fresco, personalizado, diseñado para realzar tu belleza durante el evento.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0f6b3f5b12f9acfc201c9",
           },
           {
             image: "/images/services/maquillaje-social.webp",
@@ -414,7 +414,7 @@ export default {
             prices: "$140",
             description:
               "Disfruta un maquillaje personalizado para eventos de día o noche, resaltando tus facciones con técnicas y acabado impecable.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0f77b0526ca87f4c7b9bb",
           },
           {
             image: "/images/gallery/gallery-31.webp",
@@ -422,7 +422,7 @@ export default {
             prices: "$150/persona",
             description:
               "Luce espectacular en tu evento con maquillaje personalizado en locación, adaptado al horario, estilo, outfit y esencia personal.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0f77b0526ca87f4c7b9bb",
           },
           {
             image: "/images/gallery/gallery-27.webp",
@@ -430,7 +430,7 @@ export default {
             prices: "$140",
             description:
               "Potencia tu imagen con maquillaje personalizado, creado para complementar el concepto, estilo y propósito de cada sesión.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0f86fc7c4373733825368",
           },
         ],
       },
@@ -444,7 +444,7 @@ export default {
             prices: "$85 / $100",
             description:
               "Consigue ondas glamorosas y duraderas, adaptadas a tu estilo; precio puede variar dependiendo de las condiciones del cabello.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0f97be8ea2092a3f6a070",
           },
           {
             image: "/images/services/recogido.webp",
@@ -452,7 +452,7 @@ export default {
             prices: "$120",
             description:
               "Luce un recogido elegante y sofisticado; precio puede variar dependiendo de las condiciones del cabello y sus características.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0fadd1cbd88911f698dea",
           },
           {
             image: "/images/services/semirecogido.webp",
@@ -460,7 +460,7 @@ export default {
             prices: "$110",
             description:
               "Disfruta un semirecogido versátil; precio puede variar dependiendo de las condiciones del cabello y adaptarse a tu estilo.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0fb9bc77273775df92e3f",
           },
           {
             image: "/images/services/trenzas.webp",
@@ -468,7 +468,7 @@ export default {
             prices: "$60 / $100",
             description:
               "Elige trenzas modernas y personalizadas que aporten textura, estilo y personalidad a tu look, ideales para distintas ocasiones.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae1fae568114f5dbd024a70",
           },
           {
             image: "/images/services/secado-planchado.webp",
@@ -476,7 +476,7 @@ export default {
             prices: "$60",
             description:
               "Obtén un cabello pulido y manejable con secado y planchado profesional, logrando un acabado suave, elegante y duradero.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae1fc122b04e3d1f8cb51a8",
           },
           {
             image: "/images/services/peinado-ninas.webp",
@@ -484,7 +484,7 @@ export default {
             prices: "$90",
             description:
               "Peinado cómodo para niñas, adaptado a su edad y ocasión. Aplica para niñas hasta ocho (08) años.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae1fcbca846e97c3b26264c",
           },
           {
             image: "/images/services/secado-profesional.webp",
@@ -492,7 +492,7 @@ export default {
             prices: "$60",
             description:
               "Disfruta un blow dry para conseguir movimiento y brillo; precio puede variar dependiendo de las condiciones del cabello.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae1fe7b97127acebe1ff1b3",
           },
           {
             image: "/images/services/secado-ondas.webp",
@@ -500,7 +500,7 @@ export default {
             prices: "$75",
             description:
               "Combina un blow dry con ondas glamorosas y suaves; precio puede variar dependiendo de las condiciones del cabello.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae1fffa1937297c00c3e9c7",
           },
           {
             image: "/images/services/hidratacion-capilar.webp",
@@ -508,7 +508,7 @@ export default {
             prices: "$100",
             description:
               "Devuelve suavidad y vitalidad a tu cabello mediante hidratación; precio puede variar dependiendo de las condiciones del cabello.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae2011e3953664ef720fb69",
           },
           {
             image: "/images/services/botox-capilar.webp",
@@ -516,7 +516,7 @@ export default {
             prices: "Tarifa variable",
             description:
               "Revitaliza tu cabello con botox capilar para mejorar brillo; precio puede variar dependiendo de las condiciones del cabello.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae201babe7f15a1fc5b8eda",
           },
           {
             image: "/images/services/hidratacion-keratina.webp",
@@ -524,7 +524,7 @@ export default {
             prices: "Tarifa variable",
             description:
               "Disfruta alisado con keratina para controlar frizz y suavizarlo; precio puede variar dependiendo de las condiciones del cabello.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae205d124652552a84c5715",
           },
         ],
       },
@@ -538,7 +538,7 @@ export default {
             prices: "$45",
             description:
               "Renueva tu look con corte personalizado, incluye lavado y tarifa única, adaptado a tus facciones, estilo y preferencias.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae20f7e8634b59004554430",
           },
           {
             image: "/images/services/corte-cabello-secado.webp",
@@ -546,7 +546,7 @@ export default {
             prices: "$90",
             description:
               "Actualiza tu look con corte y secado profesional, con tarifa única, logrando una apariencia pulida, fresca y adaptada.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae209e8b02a3dcff3a30481",
           },
           {
             image: "/images/services/retoque-raiz.webp",
@@ -554,7 +554,7 @@ export default {
             prices: "$100",
             description:
               "Refresca con retoque de raíz que incluye lavado y secado, con tarifa única, para mantener una apariencia uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae20a45461eed83e08e0759",
           },
           {
             image: "/images/services/tinte-completo.webp",
@@ -562,7 +562,7 @@ export default {
             prices: "Desde $150",
             description:
               "Renueva tu color con un tinte personalizado; tarifa puede variar según largo, cantidad y condición del cabello.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae20aa6bf12cd484b68f874",
           },
           {
             image: "/images/services/servicio-color.webp",
@@ -570,7 +570,7 @@ export default {
             prices: "Desde $250",
             description:
               "Diseñado según el resultado que desea la clienta. Requiere una evaluación previa con la especialista para analizar el cabello, su condición y antecedentes químicos para determinar qué resultado puede lograrse y crear una propuesta que se ajuste a sus expectativas.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae20afbf62b8c645832421b",
           },
         ],
       },
@@ -584,7 +584,7 @@ export default {
             prices: "$100",
             description:
               "Mantén tu piel luminosa y equilibrada con un facial de mantenimiento diseñado para conservar limpieza, frescura y bienestar.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae21046a73e5f1f8f64e9b3",
           },
           {
             image: "/images/services/facial-adolescente.webp",
@@ -592,7 +592,7 @@ export default {
             prices: "$85",
             description:
               "Cuida la piel adolescente con un facial suave y personalizado, enfocado en limpieza, equilibrio y una apariencia saludable.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae210a374638059dade649a",
           },
           {
             image: "/images/services/facial-profundo.webp",
@@ -600,7 +600,7 @@ export default {
             prices: "",
             description:
               "Purifica y revitaliza tu piel con un facial que ayuda a eliminar impurezas, mejorar textura y devolver luminosidad.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae21157b1a5a833af087b8b",
           },
           {
             image: "/images/services/microdermoabrasion.webp",
@@ -608,7 +608,7 @@ export default {
             prices: "$150",
             description:
               "Renueva la textura y luminosidad de tu piel mediante microdermoabrasión, incluyendo limpieza facial profunda dentro del protocolo completo.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae211b82b04e3d1f8cd2afb",
           },
           {
             image: "/images/services/facial-plasma.webp",
@@ -616,7 +616,7 @@ export default {
             prices: "$180",
             description:
               "Potencia la renovación de tu piel con un facial y plasma rico en plaquetas, personalizado según tus necesidades.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae212497c6a3796756d4297",
           },
         ],
       },
@@ -630,7 +630,7 @@ export default {
             prices: "$35",
             description:
               "Define y depila tus cejas para lograr una forma armoniosa, limpia y favorecedora, adaptada a tus facciones.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae223169dea175999c4e230",
           },
           {
             image: "/images/services/henna.webp",
@@ -638,7 +638,7 @@ export default {
             prices: "",
             description:
               "Diseña y depila tus cejas, complementándolas con henna para aportar definición, intensidad y un acabado armonioso y personalizado.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae222526031529507713762",
           },
           {
             image: "/images/services/lashlifting.webp",
@@ -646,7 +646,7 @@ export default {
             prices: "$80",
             description:
               "Realza tu mirada con lashlifting, curvando tus pestañas naturales para conseguir una apariencia más abierta, definida y femenina.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae215c3d8c10c06c62374c7",
           },
           {
             image: "/images/services/extension-pestanas.webp",
@@ -654,7 +654,7 @@ export default {
             prices: "$85",
             description:
               "Consigue una mirada elegante y natural con extensiones clásicas, aplicadas cuidadosamente para aportar longitud, definición y sofisticación.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae219ec8d715f6cd05f26b9",
           },
           {
             image: "/images/services/extension-volumen.webp",
@@ -662,7 +662,7 @@ export default {
             prices: "$130",
             description:
               "Intensifica tu mirada con extensiones de volumen, creando pestañas más densas, llamativas y personalizadas según tu estilo.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae21ab768114f5dbd04afdf",
           },
           {
             image: "/images/services/extension-hibridas.webp",
@@ -670,7 +670,7 @@ export default {
             prices: "$110",
             description:
               "Combina naturalidad y volumen con extensiones híbridas, creando una mirada definida, equilibrada y personalizada para cada ocasión.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae21b06c61b4e98a7806287",
           },
           {
             image: "/images/services/remocion-extension.webp",
@@ -678,7 +678,7 @@ export default {
             prices: "$40",
             description:
               "No realizamos refill en trabajos de otras especialistas; este servicio debe incluirse al retirar extensiones previas correctamente.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae22070313353dc0cae3b61",
           },
           {
             image: "/images/services/brow-lamination.webp",
@@ -686,7 +686,7 @@ export default {
             prices: "$90",
             description:
               "Alinea, define y estiliza tus cejas con brow lamination, logrando una apariencia abundante y que realza su forma.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae220ecc6330b63128fdcc4",
           },
         ],
       },
@@ -700,7 +700,7 @@ export default {
             prices: "$40",
             description:
               "Reduce progresivamente el vello del bozo con láser diodo, logrando una piel más suave y una apariencia uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae224322b04e3d1f8cef2d2",
           },
           {
             image: "/images/services/bikini-laser.webp",
@@ -708,7 +708,7 @@ export default {
             prices: "$75",
             description:
               "Disminuye el vello del bikini mediante láser diodo, buscando una piel más suave, uniforme y libre de afeitado.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae224ccffcbb527309b6506",
           },
           {
             image: "/images/services/axilas-laser.webp",
@@ -716,7 +716,7 @@ export default {
             prices: "$55",
             description:
               "Reduce el vello de las axilas con láser diodo, ayudando a conseguir una piel más suave y uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae225542b8066ed2487686a",
           },
           {
             image: "/images/services/brasilena-laser.webp",
@@ -724,7 +724,7 @@ export default {
             prices: "$100",
             description:
               "Disminuye el vello de la zona brasileña con láser diodo, para una piel más suave y resultados duraderos.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae225b335e3c7d919ac2fda",
           },
           {
             image: "/images/services/gluteos-laser.webp",
@@ -732,7 +732,7 @@ export default {
             prices: "$70",
             description:
               "Reduce progresivamente el vello de los glúteos mediante láser diodo, favoreciendo una piel más suave, uniforme y cómoda.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae22664f7e0bcef3be71e8d",
           },
           {
             image: "/images/services/menton-laser.webp",
@@ -740,7 +740,7 @@ export default {
             prices: "$40",
             description:
               "Disminuye progresivamente el vello del mentón con láser diodo, ayudando a conseguir una piel más suave y uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae226c7f62b8c6458346325",
           },
           {
             image: "/images/services/patillas-laser.webp",
@@ -748,7 +748,7 @@ export default {
             prices: "$45",
             description:
               "Reduce progresivamente el vello de las patillas con láser diodo, logrando una apariencia más limpia, suave y uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae227546a1d85517aa9d764",
           },
           {
             image: "/images/services/brazo-completo-laser.webp",
@@ -756,7 +756,7 @@ export default {
             prices: "$100",
             description:
               "Disminuye progresivamente el vello de los brazos completos con láser diodo, buscando una piel más suave y uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae227e00f0dcaf6000286a5",
           },
           {
             image: "/images/services/medio-brazo-laser.webp",
@@ -764,7 +764,7 @@ export default {
             prices: "$60",
             description:
               "Reduce progresivamente el vello del medio brazo con láser diodo, ayudando a conseguir una piel suave y uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae22851347137e0e7424fbf",
           },
           {
             image: "/images/services/piernas-completas-laser.webp",
@@ -772,7 +772,7 @@ export default {
             prices: "$135",
             description:
               "Disminuye progresivamente el vello de las piernas completas con láser diodo, para una piel más suave y duradera.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae2290e26de4cd2b7753e76",
           },
           {
             image: "/images/services/media-pierna-laser.webp",
@@ -780,7 +780,7 @@ export default {
             prices: "$95",
             description:
               "Reduce el vello de la media pierna con láser diodo, ayudando a conseguir una piel suave y uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae2294713631339c57c2bfa",
           },
           {
             image: "/images/services/espalda-completa-laser.webp",
@@ -788,7 +788,7 @@ export default {
             prices: "$105",
             description:
               "Disminuye progresivamente el vello de la espalda completa con láser diodo, favoreciendo una piel más suave y uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae229e6a3c9aaf9b7c7b53e",
           },
           {
             image: "/images/services/pecho-abs-completo.webp",
@@ -796,7 +796,7 @@ export default {
             prices: "$85",
             description:
               "Reduce progresivamente el vello del pecho y abdomen completos con láser diodo, buscando una piel suave y uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae22a6d74638059dae0aaf0",
           },
           {
             image: "/images/services/abs-inferior.webp",
@@ -804,7 +804,7 @@ export default {
             prices: "$40",
             description:
               "Disminuye el vello de la línea abdominal inferior con láser diodo, logrando una piel más suave y uniforme.",
-            href: "#",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae22cf59dea175999c5bc38",
           },
         ],
       },

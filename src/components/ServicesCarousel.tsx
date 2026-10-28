@@ -336,7 +336,9 @@ export default function ServicesCarousel({ items }: CarouselReviewProps) {
                   </p>
                   <a
                     className="flex justify-center items-center gap-4 cursor-pointer hover:-translate-y-[2px] transition-all duration-300 ease-in-out z-[10] hover:scale-[1.02] box-border py-2.75 px-6 w-[228px] rounded-full border-[1.5px] border-paragraph text-[16px] font-medium text-paragraph leading-[21px] uppercase tracking-[2.56px] fade-up-slow"
-                    href={"/en/reservations"}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     BOOK NOW
                     <svg
