@@ -422,7 +422,7 @@ export default {
             prices: "$150/persona",
             description:
               "Luce espectacular en tu evento con maquillaje personalizado en locación, adaptado al horario, estilo, outfit y esencia personal.",
-            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0f77b0526ca87f4c7b9bb",
+            href: "https://link.inkshapecrm.com/booking/sl3A7rXMPi6YhnM4hght/sv/6ae0f7fb4666bfb28f1121a6",
           },
           {
             image: "/images/gallery/gallery-27.webp",
